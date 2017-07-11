@@ -9,5 +9,5 @@ public interface IControleProducao {
     boolean atualizar(ControleProducao controleProducao) throws PersistenciaException;
     boolean delete(ControleProducao controleProducao) throws PersistenciaException;
     ArrayList<ControleProducao> listarTodos() throws PersistenciaException;
-    ControleProducao consultarPorId(Long id) throws PersistenciaException;
+    ControleProducao consultarPorSeq(Long seq) throws PersistenciaException;
 }

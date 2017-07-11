@@ -9,5 +9,5 @@ public interface IProducaoCompra {
     boolean atualizar(ProducaoCompra producaoCompra) throws PersistenciaException;
     boolean delete(ProducaoCompra producaoCompra) throws PersistenciaException;
     ArrayList<ProducaoCompra> listarTodos() throws PersistenciaException;
-    ProducaoCompra consultarPorId(Long id) throws PersistenciaException;
+    ProducaoCompra consultarPorSeq(Long seq) throws PersistenciaException;
 }

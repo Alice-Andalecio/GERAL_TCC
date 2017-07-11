@@ -9,5 +9,5 @@ public interface IVacina {
     boolean atualizar(Vacina vacina) throws PersistenciaException;
     boolean delete(Vacina vacina) throws PersistenciaException;
     ArrayList<Vacina> listarTodos() throws PersistenciaException;
-    Vacina consultarPorId(Long id) throws PersistenciaException;
+    Vacina consultarPorCod(Long cod) throws PersistenciaException;
 }

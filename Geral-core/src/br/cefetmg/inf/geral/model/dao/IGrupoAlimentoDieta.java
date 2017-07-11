@@ -9,5 +9,5 @@ public interface IGrupoAlimentoDieta {
     boolean atualizar(GrupoAlimentoDieta grupoAlimentoDieta) throws PersistenciaException;
     boolean delete(GrupoAlimentoDieta grupoAlimentoDieta) throws PersistenciaException;
     ArrayList<GrupoAlimentoDieta> listarTodos() throws PersistenciaException;
-    GrupoAlimentoDieta consultarPorId(Long id) throws PersistenciaException;
+    GrupoAlimentoDieta consultarPorCod(Long cod) throws PersistenciaException;
 }

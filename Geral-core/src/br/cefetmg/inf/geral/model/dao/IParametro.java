@@ -9,5 +9,5 @@ public interface IParametro {
     boolean atualizar(Parametro parametro) throws PersistenciaException;
     boolean delete(Parametro parametro) throws PersistenciaException;
     ArrayList<Parametro> listarTodos() throws PersistenciaException;
-    Parametro consultarPorId(Long id) throws PersistenciaException;
+    Parametro consultarPorCod(String cod) throws PersistenciaException;
 }

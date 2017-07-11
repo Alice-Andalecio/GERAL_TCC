@@ -9,5 +9,5 @@ public interface IAlimento {
     boolean atualizar(Alimento alimento) throws PersistenciaException;
     boolean delete(Alimento alimento) throws PersistenciaException;
     ArrayList<Alimento> listarTodos() throws PersistenciaException;
-    Alimento consultarPorId(Long id) throws PersistenciaException;
+    Alimento consultarPorCod(Long cod) throws PersistenciaException;
 }

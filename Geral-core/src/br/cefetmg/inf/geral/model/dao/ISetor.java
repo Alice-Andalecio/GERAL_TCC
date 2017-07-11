@@ -9,5 +9,5 @@ public interface ISetor {
     boolean atualizar(Setor setor) throws PersistenciaException;
     boolean delete(Setor setor) throws PersistenciaException;
     ArrayList<Setor> listarTodos() throws PersistenciaException;
-    Setor consultarPorId(Long id) throws PersistenciaException;
+    Setor consultarPorCod(Long cod) throws PersistenciaException;
 }

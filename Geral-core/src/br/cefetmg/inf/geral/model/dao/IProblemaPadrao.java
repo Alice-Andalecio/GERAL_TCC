@@ -9,5 +9,5 @@ public interface IProblemaPadrao {
     boolean atualizar(ProblemaPadrao problemaPadrao) throws PersistenciaException;
     boolean delete(ProblemaPadrao problemaPadrao) throws PersistenciaException;
     ArrayList<ProblemaPadrao> listarTodos() throws PersistenciaException;
-    ProblemaPadrao consultarPorId(Long id) throws PersistenciaException;
+    ProblemaPadrao consultarPorCod(String cod) throws PersistenciaException;
 }

@@ -9,5 +9,5 @@ public interface IMedicamento {
     boolean atualizar(Medicamento medicamento) throws PersistenciaException;
     boolean delete(Medicamento medicamento) throws PersistenciaException;
     ArrayList<Medicamento> listarTodos() throws PersistenciaException;
-    Medicamento consultarPorId(Long id) throws PersistenciaException;
+    Medicamento consultarPorCod(Long cod) throws PersistenciaException;
 }

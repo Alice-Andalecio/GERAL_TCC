@@ -9,5 +9,5 @@ public interface IAnimal {
     boolean atualizar(Animal animal) throws PersistenciaException;
     boolean delete(Animal animal) throws PersistenciaException;
     ArrayList<Animal> listarTodos() throws PersistenciaException;
-    Animal consultarPorId(Long id) throws PersistenciaException;
+    Animal consultarPorSeq(Long seq) throws PersistenciaException;
 }

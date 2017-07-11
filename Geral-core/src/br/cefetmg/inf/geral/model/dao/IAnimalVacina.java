@@ -9,5 +9,5 @@ public interface IAnimalVacina {
     boolean atualizar(AnimalVacina animalVacina) throws PersistenciaException;
     boolean delete(AnimalVacina animalVacina) throws PersistenciaException;
     ArrayList<AnimalVacina> listarTodos() throws PersistenciaException;
-    AnimalVacina consultarPorId(Long id) throws PersistenciaException;
+    AnimalVacina consultarPorSeq(Long seq) throws PersistenciaException;
 }

@@ -9,5 +9,5 @@ public interface IReproducao {
     boolean atualizar(Reproducao reproducao) throws PersistenciaException;
     boolean delete(Reproducao reproducao) throws PersistenciaException;
     ArrayList<Reproducao> listarTodos() throws PersistenciaException;
-    Reproducao consultarPorId(Long id) throws PersistenciaException;
+    Reproducao consultarPorSeq(Long seq) throws PersistenciaException;
 }

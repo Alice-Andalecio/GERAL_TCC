@@ -9,5 +9,5 @@ public interface IGrupo {
     boolean atualizar(Grupo grupo) throws PersistenciaException;
     boolean delete(Grupo grupo) throws PersistenciaException;
     ArrayList<Grupo> listarTodos() throws PersistenciaException;
-    Grupo consultarPorId(Long id) throws PersistenciaException;
+    Grupo consultarPorCod(Long cod) throws PersistenciaException;
 }

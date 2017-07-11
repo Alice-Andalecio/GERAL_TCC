@@ -9,5 +9,5 @@ public interface IProcedencia {
     boolean atualizar(Procedencia procedencia) throws PersistenciaException;
     boolean delete(Procedencia procedencia) throws PersistenciaException;
     ArrayList<Procedencia> listarTodos() throws PersistenciaException;
-    Procedencia consultarPorId(Long id) throws PersistenciaException;
+    Procedencia consultarPorSeq(Long seq) throws PersistenciaException;
 }

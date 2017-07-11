@@ -9,5 +9,5 @@ public interface IComprador {
     boolean atualizar(Comprador comprador) throws PersistenciaException;
     boolean delete(Comprador comprador) throws PersistenciaException;
     ArrayList<Comprador> listarTodos() throws PersistenciaException;
-    Comprador consultarPorId(Long id) throws PersistenciaException;
+    Comprador consultarPorCod(Long cod) throws PersistenciaException;
 }
