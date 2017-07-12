@@ -14,8 +14,8 @@ CREATE TABLE `Animal`
   `seq_Animal` Serial NOT NULL,
   `seq_Procedencia` Int,
   `cod_Grupo` Int,
-  `seq_Animal_Pai` Serial NOT NULL
-  `seq_Animal_Mae` Serial NOT NULL
+  `seq_Animal_Pai` Int NOT NULL
+  `seq_Animal_Mae` Int NOT NULL
   `nro_Animal` Char(5) NOT NULL,
   `dat_Nascimento` Date NOT NULL,
   `idt_Tipo` Char(1) DEFAULT {V,S,R},

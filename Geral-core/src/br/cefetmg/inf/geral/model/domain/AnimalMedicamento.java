@@ -10,7 +10,7 @@ public class AnimalMedicamento {
     private Date dat_Fim;
     private String txt_Prescricao;
     private double qtd_Dosagem;
-    private int qtd_Fequencia;
+    private Long qtd_Fequencia;
 
     public Long getSeq_Animal() {
         return seq_Animal;
@@ -68,11 +68,11 @@ public class AnimalMedicamento {
         this.qtd_Dosagem = qtd_Dosagem;
     }
 
-    public int getQtd_Fequencia() {
+    public Long getQtd_Fequencia() {
         return qtd_Fequencia;
     }
 
-    public void setQtd_Fequencia(int qtd_Fequencia) {
+    public void setQtd_Fequencia(Long qtd_Fequencia) {
         this.qtd_Fequencia = qtd_Fequencia;
     } 
 }
