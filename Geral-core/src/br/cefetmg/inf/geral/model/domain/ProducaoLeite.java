@@ -6,8 +6,8 @@ public class ProducaoLeite {
     private Long seq_Animal;
     private Date dat_Producao;
     private Long cod_Grupo;
-    private double qtd_Leite_Manha;
-    private double qtd_Leite_Tarde;
+    private Double qtd_Leite_Manha;
+    private Double qtd_Leite_Tarde;
 
     public Long getSeq_Animal() {
         return seq_Animal;
@@ -33,19 +33,19 @@ public class ProducaoLeite {
         this.cod_Grupo = cod_Grupo;
     }
 
-    public double getQtd_Leite_Manha() {
+    public Double getQtd_Leite_Manha() {
         return qtd_Leite_Manha;
     }
 
-    public void setQtd_Leite_Manha(double qtd_Leite_Manha) {
+    public void setQtd_Leite_Manha(Double qtd_Leite_Manha) {
         this.qtd_Leite_Manha = qtd_Leite_Manha;
     }
 
-    public double getQtd_Leite_Tarde() {
+    public Double getQtd_Leite_Tarde() {
         return qtd_Leite_Tarde;
     }
 
-    public void setQtd_Leite_Tarde(double qtd_Leite_Tarde) {
+    public void setQtd_Leite_Tarde(Double qtd_Leite_Tarde) {
         this.qtd_Leite_Tarde = qtd_Leite_Tarde;
     }  
 }

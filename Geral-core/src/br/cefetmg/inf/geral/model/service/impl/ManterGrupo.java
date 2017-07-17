@@ -22,7 +22,10 @@ public class ManterGrupo implements IManterGrupo {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 
-        //qtd_Media_Producao (double != NULL).
+        if (grupo.getQtd_Media_Producao() == null) {
+            throw new NegocioException("O campo não pode ser nulo.");
+        }
+
         Long result = grupoDAO.inserir(grupo);
         return result;
     }
@@ -30,6 +33,10 @@ public class ManterGrupo implements IManterGrupo {
     @Override
     public boolean alterar(Grupo grupo) throws PersistenciaException, NegocioException {
         if ((grupo.getNom_Grupo() == null) || (grupo.getNom_Grupo().isEmpty())) {
+            throw new NegocioException("O campo não pode ser nulo.");
+        }
+
+        if (grupo.getQtd_Media_Producao() == null) {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 

@@ -3,7 +3,7 @@ package br.cefetmg.inf.geral.model.domain;
 public class GrupoAlimentoDieta {
     private Long cod_Grupo;
     private Long cod_Alimento;
-    private double per_Composicao;
+    private Double per_Composicao;
 
     public Long getCod_Grupo() {
         return cod_Grupo;
@@ -21,11 +21,11 @@ public class GrupoAlimentoDieta {
         this.cod_Alimento = cod_Alimento;
     }
 
-    public double getPer_Composicao() {
+    public Double getPer_Composicao() {
         return per_Composicao;
     }
 
-    public void setPer_Composicao(double per_Composicao) {
+    public void setPer_Composicao(Double per_Composicao) {
         this.per_Composicao = per_Composicao;
     }
 }

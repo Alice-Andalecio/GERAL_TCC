@@ -9,49 +9,61 @@ import br.cefetmg.inf.util.db.exception.PersistenciaException;
 import java.util.List;
 
 public class ManterAnimalMedicamento implements IManterAnimalMedicamento {
+
     private IAnimalMedicamentoDAO animalMedicamentoDAO;
-    
+
     public ManterAnimalMedicamento() {
         animalMedicamentoDAO = new AnimalMedicamentoDAO();
     }
-    
+
     @Override
     public Long cadastrar(AnimalMedicamento animalMedicamento) throws PersistenciaException, NegocioException {
-        if(animalMedicamento.getDat_Inicio() == null)
+        if (animalMedicamento.getDat_Inicio() == null) {
             throw new NegocioException("O campo não pode ser nulo.");
-        
-        if(animalMedicamento.getDat_Fim() == null)
+        }
+
+        if (animalMedicamento.getDat_Fim() == null) {
             throw new NegocioException("O campo não pode ser nulo.");
-        
-        if((animalMedicamento.getTxt_Prescricao() == null) || (animalMedicamento.getTxt_Prescricao().isEmpty()))
+        }
+
+        if ((animalMedicamento.getTxt_Prescricao() == null) || (animalMedicamento.getTxt_Prescricao().isEmpty())) {
             throw new NegocioException("O campo não pode ser nulo.");
-        
-        //qtd_Dosagem (double != null)
-        
-        if(animalMedicamento.getQtd_Fequencia() == null)
+        }
+
+        if (animalMedicamento.getQtd_Dosagem() == null) {
             throw new NegocioException("O campo não pode ser nulo.");
-        
-        
+        }
+
+        if (animalMedicamento.getQtd_Fequencia() == null) {
+            throw new NegocioException("O campo não pode ser nulo.");
+        }
+
         Long result = animalMedicamentoDAO.inserir(animalMedicamento);
         return result;
     }
 
     @Override
     public boolean alterar(AnimalMedicamento animalMedicamento) throws PersistenciaException, NegocioException {
-       if(animalMedicamento.getDat_Inicio() == null)
+        if (animalMedicamento.getDat_Inicio() == null) {
             throw new NegocioException("O campo não pode ser nulo.");
-        
-        if(animalMedicamento.getDat_Fim() == null)
+        }
+
+        if (animalMedicamento.getDat_Fim() == null) {
             throw new NegocioException("O campo não pode ser nulo.");
-        
-        if((animalMedicamento.getTxt_Prescricao() == null) || (animalMedicamento.getTxt_Prescricao().isEmpty()))
+        }
+
+        if ((animalMedicamento.getTxt_Prescricao() == null) || (animalMedicamento.getTxt_Prescricao().isEmpty())) {
             throw new NegocioException("O campo não pode ser nulo.");
-        
-        //qtd_Dosagem (double != null)
-        
-        if(animalMedicamento.getQtd_Fequencia() == null)
+        }
+
+        if (animalMedicamento.getQtd_Dosagem() == null) {
             throw new NegocioException("O campo não pode ser nulo.");
-        
+        }
+
+        if (animalMedicamento.getQtd_Fequencia() == null) {
+            throw new NegocioException("O campo não pode ser nulo.");
+        }
+
         boolean result = animalMedicamentoDAO.atualizar(animalMedicamento);
         return result;
     }
@@ -72,5 +84,5 @@ public class ManterAnimalMedicamento implements IManterAnimalMedicamento {
     public AnimalMedicamento pesquisarPorSeq(Long seq) throws PersistenciaException {
         AnimalMedicamento result = animalMedicamentoDAO.consultarPorSeq(seq);
         return result;
-    }   
+    }
 }

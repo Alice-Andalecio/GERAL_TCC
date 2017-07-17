@@ -3,7 +3,7 @@ package br.cefetmg.inf.geral.model.domain;
 public class Grupo {
     private Long cod_Grupo;
     private String nom_Grupo;
-    private double qtd_Media_Producao;
+    private Double qtd_Media_Producao;
 
     public Long getCod_Grupo() {
         return cod_Grupo;
@@ -21,11 +21,11 @@ public class Grupo {
         this.nom_Grupo = nom_Grupo;
     }
 
-    public double getQtd_Media_Producao() {
+    public Double getQtd_Media_Producao() {
         return qtd_Media_Producao;
     }
 
-    public void setQtd_Media_Producao(double qtd_Media_Producao) {
+    public void setQtd_Media_Producao(Double qtd_Media_Producao) {
         this.qtd_Media_Producao = qtd_Media_Producao;
     }  
 }

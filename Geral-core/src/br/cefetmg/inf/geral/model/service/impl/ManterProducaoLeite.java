@@ -19,7 +19,13 @@ public class ManterProducaoLeite implements IManterProducaoLeite {
 
     @Override
     public Long cadastrar(ProducaoLeite producaoLeite) throws PersistenciaException, NegocioException {
-        //double != null prod leite manha e tarde.
+        if (producaoLeite.getQtd_Leite_Manha() == null) {
+            throw new NegocioException("O campo não pode ser nulo.");
+        }
+
+        if (producaoLeite.getQtd_Leite_Tarde() == null) {
+            throw new NegocioException("O campo não pode ser nulo.");
+        }
 
         Long result = producaoLeiteDAO.inserir(producaoLeite);
         return result;
@@ -27,7 +33,13 @@ public class ManterProducaoLeite implements IManterProducaoLeite {
 
     @Override
     public boolean alterar(ProducaoLeite producaoLeite) throws PersistenciaException, NegocioException {
-        //double != null prod leite manha e tarde.
+        if (producaoLeite.getQtd_Leite_Manha() == null) {
+            throw new NegocioException("O campo não pode ser nulo.");
+        }
+
+        if (producaoLeite.getQtd_Leite_Tarde() == null) {
+            throw new NegocioException("O campo não pode ser nulo.");
+        }
 
         boolean result = producaoLeiteDAO.atualizar(producaoLeite);
         return result;

@@ -18,16 +18,20 @@ public class ManterGrupoAlimentoDieta implements IManterGrupoAlimentoDieta {
 
     @Override
     public Long cadastrar(GrupoAlimentoDieta grupoAlimentoDieta) throws PersistenciaException, NegocioException {
+        if (grupoAlimentoDieta.getPer_Composicao() == null) {
+            throw new NegocioException("O campo não pode ser nulo.");
+        }
 
-        //per_Composicao (double != NULL).
         Long result = grupoAlimentoDietaDAO.inserir(grupoAlimentoDieta);
         return result;
     }
 
     @Override
     public boolean alterar(GrupoAlimentoDieta grupoAlimentoDieta) throws PersistenciaException, NegocioException {
+        if (grupoAlimentoDieta.getPer_Composicao() == null) {
+            throw new NegocioException("O campo não pode ser nulo.");
+        }
 
-        //per_Composicao (double != NULL).
         boolean result = grupoAlimentoDietaDAO.atualizar(grupoAlimentoDieta);
         return result;
     }

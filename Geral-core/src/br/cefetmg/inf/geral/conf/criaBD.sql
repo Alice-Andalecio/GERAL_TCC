@@ -1,9 +1,10 @@
 /*
 Created: 10/06/2017
-Modified: 10/07/2017
+Modified: 17/07/2017
 Model: MySQL 5.1
 Database: MySQL 5.1
 */
+
 
 -- Create tables section -------------------------------------------------
 
@@ -14,11 +15,11 @@ CREATE TABLE `Animal`
   `seq_Animal` Serial NOT NULL,
   `seq_Procedencia` Int,
   `cod_Grupo` Int,
-  `seq_Animal_Pai` Int NOT NULL
-  `seq_Animal_Mae` Int NOT NULL
+  `seq_Animal_Pai` Int NOT NULL,
+  `seq_Animal_Mae` Int NOT NULL,
   `nro_Animal` Char(5) NOT NULL,
   `dat_Nascimento` Date NOT NULL,
-  `idt_Tipo` Char(1) DEFAULT {V,S,R},
+  `idt_Tipo` Char(1),
   `idt_Status` Char(1)
 )
 ;
@@ -42,9 +43,9 @@ ALTER TABLE `Animal` ADD  PRIMARY KEY (`seq_Animal`)
 
 CREATE TABLE `Animal_Vacina`
 (
-  `seq_Animal` Serial NOT NULL,
+  `seq_Animal` Int NOT NULL,
   `cod_Vacina` Int NOT NULL,
-  `seq_Vacina` Int NOT NULL,
+  `seq_Vacina` Serial NOT NULL,
   `dat_Vacinacao` Date
 )
 ;
@@ -56,7 +57,7 @@ ALTER TABLE `Animal_Vacina` ADD  PRIMARY KEY (`seq_Vacina`,`seq_Animal`,`cod_Vac
 
 CREATE TABLE `Historico_Localizacao`
 (
-  `seq_Animal` Serial NOT NULL,
+  `seq_Animal` Int NOT NULL,
   `dat_Inicio_Localizacao` Date NOT NULL,
   `cod_Setor` Int
 )
@@ -72,13 +73,13 @@ ALTER TABLE `Historico_Localizacao` ADD  PRIMARY KEY (`dat_Inicio_Localizacao`,`
 
 CREATE TABLE `Animal_Medicamento`
 (
-  `seq_Animal` Serial NOT NULL,
+  `seq_Animal` Int NOT NULL,
   `seq_Medicamento` Int NOT NULL,
   `cod_Medicamento` Int,
   `dat_Inicio` Date NOT NULL,
   `dat_Fim` Date NOT NULL,
-  `txt_Prescricao` Text NOT NULL,
-  `qtd_Dosagem` Float(0,0),
+  `txt_prescricao` Text NOT NULL,
+  `qtd_Dosagem` Decimal(7,2),
   `qtd_Frequencia` Int
 )
 ;
@@ -94,8 +95,8 @@ ALTER TABLE `Animal_Medicamento` ADD  PRIMARY KEY (`seq_Medicamento`,`seq_Animal
 CREATE TABLE `Reproducao`
 (
   `seq_Reproducao` Serial NOT NULL,
-  `seq_Animal_Gestante` Serial,
-  `seq_Animal_Reprodutor` Serial,
+  `seq_Animal_Gestante` Int,
+  `seq_Animal` Int,
   `dat_Inseminacao` Date NOT NULL,
   `Hora_Inseminacao` Time,
   `dat_Gestacao` Date NOT NULL
@@ -105,7 +106,7 @@ CREATE TABLE `Reproducao`
 CREATE INDEX `IX_Relationship20` ON `Reproducao` (`seq_Animal_Gestante`)
 ;
 
-CREATE INDEX `IX_Relationship21` ON `Reproducao` (`seq_Animal_Reprodutor`)
+CREATE INDEX `IX_Relationship21` ON `Reproducao` (`seq_Animal`)
 ;
 
 ALTER TABLE `Reproducao` ADD  PRIMARY KEY (`seq_Reproducao`)
@@ -115,11 +116,11 @@ ALTER TABLE `Reproducao` ADD  PRIMARY KEY (`seq_Reproducao`)
 
 CREATE TABLE `Producao_Leite`
 (
-  `seq_Animal` Serial NOT NULL,
+  `seq_Animal` Int NOT NULL,
   `dat_Producao` Date NOT NULL,
   `cod_Grupo` Int NOT NULL,
-  `qtd_Leite_Manha` Float DEFAULT 0,
-  `qtd_Leite_Tarde` Float DEFAULT 0
+  `qtd_Leite_Manha` Decimal(3,2) NOT NULL DEFAULT 0,
+  `qtd_Leite_Tarde` Decimal(3,2) NOT NULL DEFAULT 0
 )
 ;
 
@@ -135,7 +136,7 @@ CREATE TABLE `Grupo`
 (
   `cod_Grupo` Int NOT NULL,
   `nom_Grupo` Char(20) NOT NULL,
-  `qtd_Media_Produção` Float
+  `qtd_Media_Produção` Decimal(3,2)
 )
 ;
 
@@ -186,7 +187,7 @@ CREATE TABLE `Procedencia`
   `seq_Procedencia` Int NOT NULL,
   `nom_Fazenda` Char(20) NOT NULL,
   `nom_Proprietario` Char(40) NOT NULL,
-  `idt_Proprio` Char(20)
+  `idt_Proprietario` Char(20)
 )
 ;
 
@@ -211,12 +212,12 @@ ALTER TABLE `Vacina` ADD  PRIMARY KEY (`cod_Vacina`)
 CREATE TABLE `Grupo_Alimento_Dieta`
 (
   `cod_Grupo` Int NOT NULL,
-  `cod_Alimento` Int NOT NULL,
+  `Alimento` Int NOT NULL,
   `per_Composicao` Decimal(5,2) NOT NULL
 )
 ;
 
-ALTER TABLE `Grupo_Alimento_Dieta` ADD  PRIMARY KEY (`cod_Grupo`,`cod_Alimento`)
+ALTER TABLE `Grupo_Alimento_Dieta` ADD  PRIMARY KEY (`cod_Grupo`,`Alimento`)
 ;
 
 -- Table Alimento
@@ -235,8 +236,8 @@ ALTER TABLE `Alimento` ADD  PRIMARY KEY (`cod_alimento`)
 
 CREATE TABLE `Controle_Producao`
 (
-  `seq_compra` Serial NOT NULL,
-  `seq_Animal` Serial NOT NULL,
+  `seq_compra` Int NOT NULL,
+  `seq_Animal` Int NOT NULL,
   `dat_Producao` Date NOT NULL
 )
 ;
@@ -268,24 +269,24 @@ CREATE TABLE `Problema_Padrao`
 ALTER TABLE `Problema_Padrao` ADD  PRIMARY KEY (`cod_Problema`)
 ;
 
--- Table ProducaoCompra
+-- Table Producao_Compra
 
-CREATE TABLE `ProducaoCompra`
+CREATE TABLE `Producao_Compra`
 (
-  `seq_Compra` Serial NOT NULL,
+  `seq_compra` Serial NOT NULL,
   `cod_CNPJ` Int NOT NULL,
   `cod_Problema` Char(20),
   `txt_observacao` Varchar(200)
 )
 ;
 
-CREATE INDEX `IX_Relationship28` ON `ProducaoCompra` (`cod_Problema`)
+CREATE INDEX `IX_Relationship28` ON `Producao_Compra` (`cod_Problema`)
 ;
 
-CREATE INDEX `IX_Relationship27` ON `ProducaoCompra` (`cod_CNPJ`)
+CREATE INDEX `IX_Relationship27` ON `Producao_Compra` (`cod_CNPJ`)
 ;
 
-ALTER TABLE `ProducaoCompra` ADD  PRIMARY KEY (`seq_Compra`)
+ALTER TABLE `Producao_Compra` ADD  PRIMARY KEY (`seq_compra`)
 ;
 
 -- Create relationships section ------------------------------------------------- 
@@ -308,7 +309,7 @@ ALTER TABLE `Historico_Localizacao` ADD CONSTRAINT `Relationship7` FOREIGN KEY (
 ALTER TABLE `Grupo_Alimento_Dieta` ADD CONSTRAINT `Relationship9` FOREIGN KEY (`cod_Grupo`) REFERENCES `Grupo` (`cod_Grupo`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Grupo_Alimento_Dieta` ADD CONSTRAINT `Relationship10` FOREIGN KEY (`cod_Alimento`) REFERENCES `Alimento` (`cod_alimento`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE `Grupo_Alimento_Dieta` ADD CONSTRAINT `Relationship10` FOREIGN KEY (`Alimento`) REFERENCES `Alimento` (`cod_alimento`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
 ALTER TABLE `Animal_Medicamento` ADD CONSTRAINT `Relationship14` FOREIGN KEY (`seq_Animal`) REFERENCES `Animal` (`seq_Animal`) ON DELETE RESTRICT ON UPDATE RESTRICT
@@ -323,7 +324,7 @@ ALTER TABLE `Producao_Leite` ADD CONSTRAINT `Relationship16` FOREIGN KEY (`cod_G
 ALTER TABLE `Reproducao` ADD CONSTRAINT `Relationship20` FOREIGN KEY (`seq_Animal_Gestante`) REFERENCES `Animal` (`seq_Animal`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Reproducao` ADD CONSTRAINT `Relationship21` FOREIGN KEY (`seq_Animal_Reprodutor`) REFERENCES `Animal` (`seq_Animal`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE `Reproducao` ADD CONSTRAINT `Relationship21` FOREIGN KEY (`seq_Animal`) REFERENCES `Animal` (`seq_Animal`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
 ALTER TABLE `Historico_Localizacao` ADD CONSTRAINT `Relationship22` FOREIGN KEY (`seq_Animal`) REFERENCES `Animal` (`seq_Animal`) ON DELETE RESTRICT ON UPDATE RESTRICT
@@ -341,11 +342,11 @@ ALTER TABLE `Producao_Leite` ADD CONSTRAINT `Relationship25` FOREIGN KEY (`seq_A
 ALTER TABLE `Controle_Producao` ADD CONSTRAINT `Relationship26` FOREIGN KEY (`dat_Producao`, `seq_Animal`) REFERENCES `Producao_Leite` (`dat_Producao`, `seq_Animal`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `ProducaoCompra` ADD CONSTRAINT `Relationship27` FOREIGN KEY (`cod_CNPJ`) REFERENCES `Comprador` (`cod_CNPJ`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE `Producao_Compra` ADD CONSTRAINT `Relationship27` FOREIGN KEY (`cod_CNPJ`) REFERENCES `Comprador` (`cod_CNPJ`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `ProducaoCompra` ADD CONSTRAINT `Relationship28` FOREIGN KEY (`cod_Problema`) REFERENCES `Problema_Padrao` (`cod_Problema`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE `Producao_Compra` ADD CONSTRAINT `Relationship28` FOREIGN KEY (`cod_Problema`) REFERENCES `Problema_Padrao` (`cod_Problema`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Controle_Producao` ADD CONSTRAINT `Relationship29` FOREIGN KEY (`seq_compra`) REFERENCES `ProducaoCompra` (`seq_Compra`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE `Controle_Producao` ADD CONSTRAINT `Relationship29` FOREIGN KEY (`seq_compra`) REFERENCES `Producao_Compra` (`seq_compra`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
