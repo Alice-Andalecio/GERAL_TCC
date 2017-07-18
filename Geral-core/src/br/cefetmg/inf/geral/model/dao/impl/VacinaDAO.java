@@ -43,7 +43,7 @@ public class VacinaDAO implements IVacinaDAO {
         try {
 
             Connection connection = ConnectionManager.getInstance().getConnection();
-            String sql = "UPDATE grupo"
+            String sql = "UPDATE vacina"
                     + " SET  nom_Vacina = ?, "
                     + " WHERE cod_Vacina = ?";
 
