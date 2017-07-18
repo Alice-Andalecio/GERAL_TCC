@@ -88,7 +88,7 @@ public class GrupoAlimentoDietaDAO implements IGrupoAlimentoDietaDAO {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM comprador ORDER BY cod_CNPJ";
+            String sql = "SELECT * FROM grupoAlimentoDieta ORDER BY cod_Grupo";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
