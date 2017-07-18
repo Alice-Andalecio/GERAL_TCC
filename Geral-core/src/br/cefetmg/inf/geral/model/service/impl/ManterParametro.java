@@ -17,7 +17,7 @@ public class ManterParametro implements IManterParametro {
     }
 
     @Override
-    public Long cadastrar(Parametro parametro) throws PersistenciaException, NegocioException {
+    public String cadastrar(Parametro parametro) throws PersistenciaException, NegocioException {
         if (parametro.getQtd_Dia_Amamentacao() == null) {
             throw new NegocioException("O campo não pode ser nulo.");
         }
@@ -26,7 +26,7 @@ public class ManterParametro implements IManterParametro {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 
-        Long result = parametroDAO.inserir(parametro);
+        String result = parametroDAO.inserir(parametro);
         return result;
     }
 

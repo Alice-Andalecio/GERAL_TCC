@@ -33,7 +33,7 @@ public class ManterAnimalMedicamento implements IManterAnimalMedicamento {
         if (animalMedicamento.getQtd_Dosagem() == null) {
             throw new NegocioException("O campo não pode ser nulo.");
         }
-
+ 
         if (animalMedicamento.getQtd_Fequencia() == null) {
             throw new NegocioException("O campo não pode ser nulo.");
         }

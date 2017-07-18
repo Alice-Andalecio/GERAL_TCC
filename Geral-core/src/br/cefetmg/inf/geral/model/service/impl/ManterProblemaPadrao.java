@@ -17,12 +17,12 @@ public class ManterProblemaPadrao implements IManterProblemaPadrao {
     }
 
     @Override
-    public Long cadastrar(ProblemaPadrao problemaPadrao) throws PersistenciaException, NegocioException {
+    public String cadastrar(ProblemaPadrao problemaPadrao) throws PersistenciaException, NegocioException {
         if ((problemaPadrao.getDes_Problema() == null) || (problemaPadrao.getDes_Problema().isEmpty())) {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 
-        Long result = problemaPadraoDAO.inserir(problemaPadrao);
+        String result = problemaPadraoDAO.inserir(problemaPadrao);
         return result;
     }
 

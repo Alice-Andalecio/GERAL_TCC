@@ -18,7 +18,7 @@ public class ManterProducaoLeite implements IManterProducaoLeite {
     }
 
     @Override
-    public Long cadastrar(ProducaoLeite producaoLeite) throws PersistenciaException, NegocioException {
+    public Date cadastrar(ProducaoLeite producaoLeite) throws PersistenciaException, NegocioException {
         if (producaoLeite.getQtd_Leite_Manha() == null) {
             throw new NegocioException("O campo não pode ser nulo.");
         }
@@ -27,7 +27,7 @@ public class ManterProducaoLeite implements IManterProducaoLeite {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 
-        Long result = producaoLeiteDAO.inserir(producaoLeite);
+        Date result = producaoLeiteDAO.inserir(producaoLeite);
         return result;
     }
 

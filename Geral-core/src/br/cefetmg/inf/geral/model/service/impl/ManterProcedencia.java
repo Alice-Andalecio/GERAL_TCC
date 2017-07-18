@@ -26,7 +26,7 @@ public class ManterProcedencia implements IManterProcedencia {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 
-        if (procedencia.getItd_Proprio() == null) {
+        if (procedencia.getIdt_Proprietario() == null) {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 
@@ -44,7 +44,7 @@ public class ManterProcedencia implements IManterProcedencia {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 
-        if (procedencia.getItd_Proprio() == null) {
+        if (procedencia.getIdt_Proprietario() == null) {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 

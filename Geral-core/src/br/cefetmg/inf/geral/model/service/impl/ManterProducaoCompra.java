@@ -18,7 +18,7 @@ public class ManterProducaoCompra implements IManterProducaoCompra {
 
     @Override
     public Long cadastrar(ProducaoCompra producaoCompra) throws PersistenciaException, NegocioException {
-        if ((producaoCompra.getTxt_observacao() == null) || (producaoCompra.getTxt_observacao().isEmpty())) {
+        if ((producaoCompra.getTxt_Observacao() == null) || (producaoCompra.getTxt_Observacao().isEmpty())) {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 
@@ -28,7 +28,7 @@ public class ManterProducaoCompra implements IManterProducaoCompra {
 
     @Override
     public boolean alterar(ProducaoCompra producaoCompra) throws PersistenciaException, NegocioException {
-        if ((producaoCompra.getTxt_observacao() == null) || (producaoCompra.getTxt_observacao().isEmpty())) {
+        if ((producaoCompra.getTxt_Observacao() == null) || (producaoCompra.getTxt_Observacao().isEmpty())) {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 
