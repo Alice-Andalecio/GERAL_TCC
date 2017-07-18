@@ -17,7 +17,7 @@ public class GrupoAlimentoDietaDAO implements IGrupoAlimentoDietaDAO {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "INSERT INTO controleProducao (per_Composicao) VALUES(?)";
+            String sql = "INSERT INTO grupoAlimentoDieta (per_Composicao) VALUES(?)";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setDouble(1, grupoAlimentoDieta.getPer_Composicao());
             ResultSet rs = pstmt.executeQuery();

@@ -88,7 +88,7 @@ public class HistoricoLocalizacaoDAO implements IHistoricoLocalizacaoDAO {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM comprador ORDER BY cod_CNPJ";
+            String sql = "SELECT * FROM historicoLocalizacao ORDER BY seq_Animal";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
@@ -122,7 +122,7 @@ public class HistoricoLocalizacaoDAO implements IHistoricoLocalizacaoDAO {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM grupoAlimentoDieta WHERE cod_Grupo = ?";
+            String sql = "SELECT * FROM historicoLocalizacao WHERE seq_Animal = ?";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setDate(1, (java.sql.Date) dat);

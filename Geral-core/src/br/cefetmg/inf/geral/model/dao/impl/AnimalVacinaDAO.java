@@ -88,7 +88,7 @@ public class AnimalVacinaDAO implements IAnimalVacinaDAO {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM animal ORDER BY cod_Animal";
+            String sql = "SELECT * FROM animal ORDER BY seq_Animal";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();

@@ -80,7 +80,7 @@ public class AnimalMedicamentoDAO implements IAnimalMedicamentoDAO {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "DELETE FROM animal WHERE seq_Animal = ?";
+            String sql = "DELETE FROM animalMedicamento WHERE seq_Animal = ?";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setLong(1, animalMedicamento.getSeq_Animal());
@@ -100,7 +100,7 @@ public class AnimalMedicamentoDAO implements IAnimalMedicamentoDAO {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM animal ORDER BY cod_Animal";
+            String sql = "SELECT * FROM animalMedicamento ORDER BY cod_Animal";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
@@ -138,7 +138,7 @@ public class AnimalMedicamentoDAO implements IAnimalMedicamentoDAO {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM animal WHERE cod_Alimento = ?";
+            String sql = "SELECT * FROM animalMedicamento WHERE cod_Alimento = ?";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setLong(1, seq);

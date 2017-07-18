@@ -16,7 +16,7 @@ public class GrupoDAO implements IGrupoDAO {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "INSERT INTO grupo (nom_Grupo, qtd_Media_Producao) VALUES(?)";
+            String sql = "INSERT INTO grupo (nom_Grupo, qtd_Media_Producao) VALUES(?, ?)";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setDouble(1, grupo.getQtd_Media_Producao());
             pstmt.setString(2, grupo.getNom_Grupo());
@@ -124,7 +124,7 @@ public class GrupoDAO implements IGrupoDAO {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM grupoAlimentoDieta WHERE cod_Grupo = ?";
+            String sql = "SELECT * FROM grupo WHERE cod_Grupo = ?";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setLong(1, cod);

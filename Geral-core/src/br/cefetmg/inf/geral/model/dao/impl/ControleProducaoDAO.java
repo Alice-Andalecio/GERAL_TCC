@@ -68,7 +68,7 @@ public class ControleProducaoDAO implements IControleProducaoDAO {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "DELETE FROM comprador WHERE seq_Animal = ?";
+            String sql = "DELETE FROM controleProducao WHERE seq_Animal = ?";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setDate(1, (Date) controleProducao.getDat_producao());
@@ -88,7 +88,7 @@ public class ControleProducaoDAO implements IControleProducaoDAO {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM comprador ORDER BY cod_CNPJ";
+            String sql = "SELECT * FROM controleProducao ORDER BY seq_Animal";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
