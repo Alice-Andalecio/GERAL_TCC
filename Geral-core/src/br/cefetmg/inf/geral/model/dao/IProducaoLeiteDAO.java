@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public interface IProducaoLeiteDAO {
-    Long inserir(ProducaoLeite producaoLeite) throws PersistenciaException;
+    Date inserir(ProducaoLeite producaoLeite) throws PersistenciaException;
     boolean atualizar(ProducaoLeite producaoLeite) throws PersistenciaException;
     boolean delete(ProducaoLeite producaoLeite) throws PersistenciaException;
     ArrayList<ProducaoLeite> listarTodos() throws PersistenciaException;

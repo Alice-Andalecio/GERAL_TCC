@@ -5,7 +5,7 @@ import br.cefetmg.inf.util.db.exception.PersistenciaException;
 import java.util.ArrayList;
 
 public interface IProblemaPadraoDAO {
-    Long inserir(ProblemaPadrao problemaPadrao) throws PersistenciaException;
+    String inserir(ProblemaPadrao problemaPadrao) throws PersistenciaException;
     boolean atualizar(ProblemaPadrao problemaPadrao) throws PersistenciaException;
     boolean delete(ProblemaPadrao problemaPadrao) throws PersistenciaException;
     ArrayList<ProblemaPadrao> listarTodos() throws PersistenciaException;
