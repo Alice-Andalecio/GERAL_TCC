@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Date;
 
 public interface IManterProducaoLeite {
-    Long cadastrar(ProducaoLeite producaoLeite) throws PersistenciaException, NegocioException;
+    Date cadastrar(ProducaoLeite producaoLeite) throws PersistenciaException, NegocioException;
     boolean alterar(ProducaoLeite producaoLeite) throws PersistenciaException, NegocioException;
     boolean excluir(ProducaoLeite producaoLeite) throws PersistenciaException, NegocioException;
     List<ProducaoLeite> pesquisarTodos() throws PersistenciaException;

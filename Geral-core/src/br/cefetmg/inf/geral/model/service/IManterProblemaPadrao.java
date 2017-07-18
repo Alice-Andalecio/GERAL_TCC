@@ -6,7 +6,7 @@ import br.cefetmg.inf.util.db.exception.PersistenciaException;
 import java.util.List;
 
 public interface IManterProblemaPadrao {
-    Long cadastrar(ProblemaPadrao problemaPadrao) throws PersistenciaException, NegocioException;
+    String cadastrar(ProblemaPadrao problemaPadrao) throws PersistenciaException, NegocioException;
     boolean alterar(ProblemaPadrao problemaPadrao) throws PersistenciaException, NegocioException;
     boolean excluir(ProblemaPadrao problemaPadrao) throws PersistenciaException, NegocioException;
     List<ProblemaPadrao> pesquisarTodos() throws PersistenciaException;
