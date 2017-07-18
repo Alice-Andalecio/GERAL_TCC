@@ -4,7 +4,7 @@ public class Procedencia {
     private Long seq_Procedencia;
     private String nom_Fazenda;
     private String nom_Proprietario;
-    private Long idt_Proprio;
+    private Long idt_Proprietario;
 
     public Long getSeq_Procedencia() {
         return seq_Procedencia;
@@ -30,11 +30,11 @@ public class Procedencia {
         this.nom_Proprietario = nom_Proprietario;
     }
 
-    public Long getItd_Proprio() {
-        return idt_Proprio;
+    public Long getIdt_Proprietario() {
+        return idt_Proprietario;
     }
 
-    public void setItd_Proprio(Long itd_Proprio) {
-        this.idt_Proprio = itd_Proprio;
+    public void setIdt_Proprietario(Long idt_Proprietario) {
+        this.idt_Proprietario = idt_Proprietario;
     }
 }

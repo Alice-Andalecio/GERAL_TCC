@@ -7,7 +7,7 @@ public class Reproducao {
     private Long seq_Animal_Gestante;
     private Long seq_Animal_Reprodutor;
     private Date dat_Inseminacao;
-    private int hor_Inseminacao;
+    private long hor_Inseminacao;
     private Date dat_Gestacao;
 
     public Long getSeq_Reproducao() {
@@ -42,11 +42,11 @@ public class Reproducao {
         this.dat_Inseminacao = dat_Inseminacao;
     }
 
-    public int getHor_Inseminacao() {
+    public Long getHor_Inseminacao() {
         return hor_Inseminacao;
     }
 
-    public void setHor_Inseminacao(int hor_Inseminacao) {
+    public void setHor_Inseminacao(Long hor_Inseminacao) {
         this.hor_Inseminacao = hor_Inseminacao;
     }
 

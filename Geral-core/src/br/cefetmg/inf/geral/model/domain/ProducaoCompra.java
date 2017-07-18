@@ -4,7 +4,7 @@ public class ProducaoCompra {
     private Long seq_Compra;
     private Long seq_CNPJ;
     private String cod_Problema;
-    private String txt_observacao;
+    private String txt_Observacao;
 
     public Long getSeq_Compra() {
         return seq_Compra;
@@ -30,11 +30,11 @@ public class ProducaoCompra {
         this.cod_Problema = cod_Problema;
     }
 
-    public String getTxt_observacao() {
-        return txt_observacao;
+    public String getTxt_Observacao() {
+        return txt_Observacao;
     }
 
-    public void setTxt_observacao(String txt_observacao) {
-        this.txt_observacao = txt_observacao;
+    public void setTxt_Observacao(String txt_Observacao) {
+        this.txt_Observacao = txt_Observacao;
     }
 }

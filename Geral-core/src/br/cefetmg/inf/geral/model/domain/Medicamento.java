@@ -1,6 +1,7 @@
 package br.cefetmg.inf.geral.model.domain;
 
 public class Medicamento {
+
     private Long cod_Medicamento;
     private String des_Medicamento;
 
