@@ -19,6 +19,10 @@ public class ManterHistoricoLocalizacao implements IManterHistoricoLocalizacao {
 
     @Override
     public Long cadastrar(HistoricoLocalizacao historicoLocalizacao) throws PersistenciaException, NegocioException {
+        
+        if ((historicoLocalizacao.getDat_Inicio_Localizacao()) == null) {
+            throw new NegocioException("O campo não pode ser nulo.");
+        }
 
         Long result = historicoLocalizacaoDAO.inserir(historicoLocalizacao);
         return result;
@@ -26,6 +30,10 @@ public class ManterHistoricoLocalizacao implements IManterHistoricoLocalizacao {
 
     @Override
     public boolean alterar(HistoricoLocalizacao historicoLocalizacao) throws PersistenciaException, NegocioException {
+        if ((historicoLocalizacao.getDat_Inicio_Localizacao()) == null) {
+            throw new NegocioException("O campo não pode ser nulo.");
+        }
+        
         boolean result = historicoLocalizacaoDAO.atualizar(historicoLocalizacao);
         return result;
     }
