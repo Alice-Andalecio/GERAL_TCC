@@ -17,7 +17,7 @@ public class AnimalDAO implements IAnimalDAO {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "INSERT INTO animal (Seq_Animal_Pai, Seq_Animal_Mae, Nro_Animal, Dat_Nascimento ) VALUES(?, ?, ?, ?)";
+            String sql = "INSERT INTO animal (seq_Animal_Pai, seq_Animal_Mae, nro_Animal, dat_Nascimento ) VALUES(?, ?, ?, ?)";
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setLong(1, animal.getSeq_Animal_Pai());
             pstmt.setLong(2, animal.getSeq_Animal_Mae());
@@ -25,17 +25,17 @@ public class AnimalDAO implements IAnimalDAO {
             pstmt.setDate(4, (Date) animal.getDat_Nascimento());
             ResultSet rs = pstmt.executeQuery();
 
-            Long Seq_Animal = null;
+            Long seq_Animal = null;
             if (rs.next()) {
-                Seq_Animal = new Long(rs.getLong("Seq_Animal"));
-                animal.setSeq_Animal(Seq_Animal);
+                seq_Animal = new Long(rs.getLong("seq_Animal"));
+                animal.setSeq_Animal(seq_Animal);
             }
 
             rs.close();
             pstmt.close();
             connection.close();
 
-            return Seq_Animal;
+            return seq_Animal;
         } catch (Exception e) {
             e.printStackTrace();
             throw new PersistenciaException(e.getMessage(), e);
@@ -49,18 +49,17 @@ public class AnimalDAO implements IAnimalDAO {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
             String sql = "UPDATE animal "
-                    + " SET Seq_Animal_Pai = ?, "
-                    + "     Seq_Animal_Mae = ? "
-                    + "     Nro_Animal = ? "
-                    + "     Dat_Nascimento = ? "
-                    + " WHERE id = ?";
+                    + " SET seq_Animal_Pai = ?, "
+                    + "     seq_Animal_Mae = ? "
+                    + "     nro_Animal = ? "
+                    + "     dat_Nascimento = ? "
+                    + " WHERE nro_Animal = ?";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setLong(1, animal.getSeq_Animal_Pai());
             pstmt.setLong(2, animal.getSeq_Animal_Mae());
             pstmt.setString(3, animal.getNro_Animal());
             pstmt.setDate(4, (Date) animal.getDat_Nascimento());
-            pstmt.setLong(5, animal.getSeq_Animal());
             pstmt.executeUpdate();
 
             pstmt.close();
@@ -78,7 +77,7 @@ public class AnimalDAO implements IAnimalDAO {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "DELETE FROM animal WHERE Seq_Animal = ?";
+            String sql = "DELETE FROM animal WHERE seq_Animal = ?";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setLong(1, animal.getSeq_Animal());
@@ -98,7 +97,7 @@ public class AnimalDAO implements IAnimalDAO {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM animal ORDER BY Nro_Animal";
+            String sql = "SELECT * FROM animal ORDER BY nro_Animal";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
@@ -112,8 +111,8 @@ public class AnimalDAO implements IAnimalDAO {
                     animal.setSeq_Animal(rs.getLong("seq_Animal"));
                     animal.setSeq_Animal_Pai(rs.getLong("seq_Animal_Pai"));
                     animal.setSeq_Animal_Mae(rs.getLong("seq_Animal_Mae"));
-                    animal.setNro_Animal(rs.getString("Nro_Animal"));
-                    animal.setDat_Nascimento(rs.getDate("Dat_Nascimento"));
+                    animal.setNro_Animal(rs.getString("nro_Animal"));
+                    animal.setDat_Nascimento(rs.getDate("dat_Nascimento"));
                     listAll.add(animal);
                 } while (rs.next());
             }
@@ -134,7 +133,7 @@ public class AnimalDAO implements IAnimalDAO {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM animal WHERE Seq_Animal = ?";
+            String sql = "SELECT * FROM animal WHERE seq_Animal = ?";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setLong(1, seq);
@@ -147,8 +146,8 @@ public class AnimalDAO implements IAnimalDAO {
                 animal.setSeq_Animal(rs.getLong("seq_Animal"));
                 animal.setSeq_Animal_Pai(rs.getLong("seq_Animal_Pai"));
                 animal.setSeq_Animal_Pai(rs.getLong("seq_Animal_Mae"));
-                animal.setNro_Animal(rs.getString("Nro_Animal"));
-                animal.setDat_Nascimento(rs.getDate("Dat_Nascimento"));
+                animal.setNro_Animal(rs.getString("nro_Animal"));
+                animal.setDat_Nascimento(rs.getDate("dat_Nascimento"));
             }
 
             rs.close();
