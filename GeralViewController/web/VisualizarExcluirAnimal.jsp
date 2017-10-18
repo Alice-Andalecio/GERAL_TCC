@@ -6,7 +6,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
    <meta charset="utf-8">
@@ -23,15 +22,24 @@
 
    <!-- Ajustando o header -->
    <style type="text/css">
-   header {
-      width: 100%;
-      position: absolute;
-      left: 0;
-      top: 0px;
-      z-index: 600;
-      background: #14171c;
-   }
-</style>
+      header {
+         width: 100%;
+         position: absolute;
+         left: 0;
+         top: 0px;
+         z-index: 600;
+         background: #14171c;
+      }
+
+      li ul{
+         display: none;
+      }
+
+      li:hover ul { 
+         display: block; 
+      }
+
+   </style>
 
 </head>
 
@@ -40,33 +48,33 @@
    <!-- Header -->
    <header>
       <ul id="slide-out" class="side-nav">
+        <li>
          <br>
-         <li>
-          <div class="logo">
-           <img class="background center-block responsive" src="logo.png">
+         <div class="user-view">
+          <div class="background">
+           <img src="images/logoPreto.png">
         </div>
-     </li>
-     <br>
-     <li><a class="waves-effect" href="CadastroAnimal.html">Cadastro de Animais</a></li>
-     <li><a class="waves-effect" href="VisualizarExcluirAnimal.html">Visualizar e Excluir Animal</a></li>
-     <li><a class="waves-effect" href="EditarAnimal.html">Editar Animal</a></li>
-     <li><a class="waves-effect" href="Dieta.html">Dieta</a></li>
-     <li><a class="waves-effect" href="medicamentos.html">Prescrição de Medicamentos</a></li>
-     <li><a class="waves-effect" href="controleLeiteiro.html">Controle Leiteiro</a></li>
-     <li><a class="waves-effect" href="vendaLeite.html">Venda de Leite</a></li>
-     <li><a class="waves-effect" href="RepParto.html">Reprodução - Parto</a></li>
-     <li><a class="waves-effect" href="RepInseminacao.html">Reprodução - Inseminação</a></li>
-     <li><a class="waves-effect" href="RepDiagnostico">Reprodução - Diagnóstico</a></li>
-     <li><a class="waves-effect" href="index.html">Sair</a></li>
-     <!--<li><div class="divider"></div></li>-->
-     <!--<li><a class="subheader">Subheader</a></li>-->
-  </ul>
-  <ul class="left ">
-    <li>
-     <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse green-text #FFFFFF"><b>Menu</b></button>
-  </li>
-</ul>
-</header>
+        <li><a class="waves-effect" href="VisualizarExcluirAnimal.html">Animais</a></li> 
+        <li><a class="waves-effect" href="CadastroAnimal.html">Cadastro de Animais</a></li>
+        <li><a class="waves-effect" href="controleLeiteiro.html">Controle Leiteiro</a></li>
+        <li><a class="waves-effect" href="#">Controle Reprodutivo</a>
+         <ul>
+            <li><a class="waves-effect" href="RepInseminacao.html">Inseminação/Cobrição</a></li>
+            <li><a class="waves-effect" href="RepDiagnostico.html">Diagnóstico</a></li>
+            <li><a class="waves-effect" href="RepParto.html">Parto</a>
+            </ul>
+         </li>
+         <li><a class="waves-effect" href="Dieta.html">Dieta</a></li>
+         <li><a class="waves-effect" href="medicamentos.html">Prescrição de Medicamentos</a></li>     
+         <li><a class="waves-effect" href="vendaLeite.html">Venda de Leite</a></li>
+         <li><a class="waves-effect" href="index.html" style="color: green">SAIR</a></li>
+      </ul>
+      <ul class="left ">
+         <li>
+            <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse green-text #FFFFFF"><b>Menu</b></button>
+         </li>
+      </ul>        
+   </header>
 
 <!-- Formulário para visualização e exclusão de animais -->
 <section id="process">  
@@ -92,7 +100,7 @@
                </a>
             </div>
             <div class="col s2">
-               <a class="waves-effect waves-light btn" id="editarAnimal" style="background: green">
+               <a class="waves-effect waves-light btn" id="editarAnimal" style="background: green; color: white" href="EditarAnimal.html">
                   <i class="material-icons right">edit</i>Editar Animal
                </a>
             </div>
@@ -330,11 +338,11 @@
             </div>    
             <div class="col-four tab-1-3 mob-full">
                <h4>Professores</h4>
-               <p>Cristiano Amaral Maffort - Linguagem de Programação II.
+               <p>Cristiano Amaral Maffort - LPII.
                   <br>
-                  Glívia Angélica Rodrigues Barbosa - Projetos de Sistemas.
+                  Glívia Angélica Rodrigues Barbosa - PSI.
                   <br>
-                  Edson Marchetti da Silva - Banco de Dados.
+                  Edson Marchetti da Silva - BD.
                </p>                        
             </div>
          </div>

@@ -6,7 +6,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
    <meta charset="utf-8">
@@ -21,17 +20,26 @@
    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-   <!-- Ajustando o header -->
+  <!-- Ajustando o header -->
    <style type="text/css">
-   header {
-      width: 100%;
-      position: absolute;
-      left: 0;
-      top: 0px;
-      z-index: 600;
-      background: #14171c;
-   }
-</style>
+      header {
+         width: 100%;
+         position: absolute;
+         left: 0;
+         top: 0px;
+         z-index: 600;
+         background: #14171c;
+      }
+
+      li ul{
+         display: none;
+      }
+
+      li:hover ul { 
+         display: block; 
+      }
+
+   </style>
 
 </head>
 
@@ -40,34 +48,33 @@
    <!-- Header -->
    <header>
       <ul id="slide-out" class="side-nav">
+        <li>
          <br>
-         <li>
-          <div class="logo">
-           <img class="background center-block responsive" src="logo.png">
+         <div class="user-view">
+          <div class="background">
+           <img src="images/logoPreto.png">
         </div>
-     </li>
-     <br>
-     <li><a class="waves-effect" href="CadastroAnimal.html">Cadastro de Animais</a></li>
-     <li><a class="waves-effect" href="VisualizarExcluirAnimal.html">Visualizar e Excluir Animal</a></li>
-     <li><a class="waves-effect" href="EditarAnimal.html">Editar Animal</a></li>
-     <li><a class="waves-effect" href="Dieta.html">Dieta</a></li>
-     <li><a class="waves-effect" href="medicamentos.html">Prescrição de Medicamentos</a></li>
-     <li><a class="waves-effect" href="controleLeiteiro.html">Controle Leiteiro</a></li>
-     <li><a class="waves-effect" href="vendaLeite.html">Venda de Leite</a></li>
-     <li><a class="waves-effect" href="RepParto.html">Reprodução - Parto</a></li>
-     <li><a class="waves-effect" href="RepInseminacao.html">Reprodução - Inseminação</a></li>
-     <li><a class="waves-effect" href="RepDiagnostico">Reprodução - Diagnóstico</a></li>
-     <li><a class="waves-effect" href="index.html">Sair</a></li>
-     <!--<li><div class="divider"></div></li>-->
-     <!--<li><a class="subheader">Subheader</a></li>-->
-  </ul>
-  <ul class="left ">
-    <li>
-     <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse green-text #FFFFFF"><b>Menu</b></button>
-  </li>
-</ul>        
-</header>
-
+        <li><a class="waves-effect" href="VisualizarExcluirAnimal.html">Animais</a></li> 
+        <li><a class="waves-effect" href="CadastroAnimal.html">Cadastro de Animais</a></li>
+        <li><a class="waves-effect" href="controleLeiteiro.html">Controle Leiteiro</a></li>
+        <li><a class="waves-effect" href="#">Controle Reprodutivo</a>
+         <ul>
+            <li><a class="waves-effect" href="RepInseminacao.html">Inseminação/Cobrição</a></li>
+            <li><a class="waves-effect" href="RepDiagnostico.html">Diagnóstico</a></li>
+            <li><a class="waves-effect" href="RepParto.html">Parto</a>
+            </ul>
+         </li>
+         <li><a class="waves-effect" href="Dieta.html">Dieta</a></li>
+         <li><a class="waves-effect" href="medicamentos.html">Prescrição de Medicamentos</a></li>     
+         <li><a class="waves-effect" href="vendaLeite.html">Venda de Leite</a></li>
+         <li><a class="waves-effect" href="index.html" style="color: green">SAIR</a></li>
+      </ul>
+      <ul class="left ">
+         <li>
+            <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse green-text #FFFFFF"><b>Menu</b></button>
+         </li>
+      </ul>        
+   </header>
 <!-- Formulário: Controle Reprodutivo - Inseminação/Cobrição -->
 <section id="process">  
    <div class="row">
@@ -76,7 +83,7 @@
          <div class="row section-intro">
             <div class="col-twelve">
                <br>
-               <h2 style="color: green">Reprodução - Inseminação</h2>
+               <h2 style="color: green">Reprodução - Inseminação/Cobrição</h2>
                <br>
             </div>         
          </div>

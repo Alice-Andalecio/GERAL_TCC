@@ -6,12 +6,11 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html class="no-js" lang="en">
 
 <head>
    <meta charset="utf-8">
-   <title>GERAL</title>
+   <title>GERAL - Gerenciamento Rural</title>
    <meta name="description" content="">  
    <meta name="author" content="">
 
@@ -164,7 +163,7 @@
 
                <div class="service-content"> 
 
-                 <h3 class="h05" style="color: green">Dê adeus as fichas</h3>
+                 <h3 class="h05" style="color: white">Dê adeus as fichas</h3>
 
                  <p>Nós oferecemos a você uma nova forma de armazenamento de dados a partir do meio digital, sendo assim, abolimos todas as fichas. E assim, descomplicamos o trabalho braçal e os erros são facilmente evitados e corrigidos.
                  </p>
@@ -179,7 +178,7 @@
             <span class="icon"><i class="material-icons">find_in_page</i></span>                          
 
             <div class="service-content"> 
-               <h3 class="h05" style="color: green">Pesquisa Rápida</h3>  
+               <h3 class="h05" style="color: white">Pesquisa Rápida</h3>  
 
                <p>Procurar cada animal nas fichas é um trabalho árduo, certo?! Adicionamos um item essencial ao nosso sistema, fazendo com que este trabalho seja simplificado. A partir de apenas um clique todas as informações sobre o animal desejado aparecerá.</p>
                
@@ -193,7 +192,7 @@
             <span class="icon"><i class="material-icons">save</i></span>                          
 
             <div class="service-content"> 
-               <h3 class="h05" style="color: green">Armazenamento de Dados</h3>  
+               <h3 class="h05" style="color: white">Armazenamento de Dados</h3>  
 
                <p>Perder, sujar e rasgar as fichas é algo inevitável. Em nosso sistema todas as informações presentes em sua fazenda serão guardadas de forma segura em um Banco de Dados, evitando assim que sejam daficadas.</p>
                
@@ -208,9 +207,9 @@
             <span class="icon"><i class="material-icons">insert_drive_file</i></span>                          
 
             <div class="service-content"> 
-               <h3 class="h05" style="color: green">Relatórios</h3>  
+               <h3 class="h05" style="color: white">Relatório</h3>  
 
-               <p>Gera um relatório de todos os dados inseridos na fazenda.</p>
+               <p>Gera o relatório referente a todos os dados inseridos, tal função abrange: agendas (parto, secagem e desmama), situação reprodutiva, controle leiteiro, matrizes a inseminar, cobrir e implantar, por fim, o histórico do animal.</p>
                
             </div>                             
 
@@ -223,7 +222,7 @@
             <span class="icon"><i class="material-icons">visibility</i></span>                          
 
             <div class="service-content"> 
-               <h3 class="h05" style="color: green">Acompanhamento</h3>  
+               <h3 class="h05" style="color: white">Acompanhamento</h3>  
 
                <p>Acompanhar o gado leiteiro (reprodução dos animais e saúde), a produção de leite e venda, e as demais informações de sua fazenda tornam-se mais simples e acessível.  </p>
                
@@ -237,7 +236,7 @@
             <span class="icon"><i class="material-icons">sentiment_very_satisfied</i></span>                          
 
             <div class="service-content"> 
-               <h3 class="h05" style="color: green">Facilidade de Uso</h3>  
+               <h3 class="h05" style="color: white">Facilidade de Uso</h3>  
 
                <p>Com o intuito de melhorar sua experiência e que tal seja a melhor possível, a equipe desenvolvedora realizou um trabalho otimizado pensando em você! Utilizar nossa ferramenta é uma tarefa super fácil e sem complicações.</p>
                

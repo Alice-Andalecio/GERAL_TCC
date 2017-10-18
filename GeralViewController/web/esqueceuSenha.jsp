@@ -6,7 +6,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
    <meta charset="utf-8">
@@ -31,6 +30,14 @@
          z-index: 600;
          background: #14171c;
       }
+      nav {
+         color: transparent;
+         background-color: transparent;
+         width: auto;
+         height: auto;
+         line-height: auto;
+         border: none;
+      }
    </style>
 
 </head>
@@ -48,7 +55,7 @@
             <ul class="main-navigation">
                <li><a href="index.html" title="">Início</a></li>
                <li><a href="cadastro.html" title="">Cadastre-se</a></li>
-               <li class="highlight with-sep"><a href="index.html" title="">Sair</a></li>                             
+               <li class="highlight with-sep"><a href="index.html" title="" style="color: green">Sair</a></li>                             
             </ul>
          </nav>
          <a class="menu-toggle" href="#"><span>Menu</span></a>   
@@ -70,7 +77,7 @@
                      <label for="email"><b>Email</b></label>
                   </div>
                </div>
-               <a class="waves-effect waves-light btn">Enviar nova senha</a>
+               <a class="waves-effect waves-light btn" style="background: green">Enviar nova senha</a>
         </center>
       </div>
    </section>   
@@ -121,7 +128,7 @@
             <div class="col-twelve">
                <div class="copyright"></div>
                <div id="go-top" style="display: block;">
-                  <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon ion-android-arrow-up"></i></a>
+                  <a class="smoothscroll" title="Back to Top" href="#top" style="background: green"><i class="icon ion-android-arrow-up"></i></a>
                </div>         
             </div>
          </div>       
