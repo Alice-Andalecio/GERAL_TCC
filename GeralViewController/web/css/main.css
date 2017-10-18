@@ -820,7 +820,7 @@ header .row {
 }
 
 header .logo {
-	margin-top: 2px;
+	margin-top: 12px;
 	z-index: 600;
 	position: absolute;
 	left: 35px;
@@ -837,10 +837,10 @@ header .logo a {
 	font: 0/0 a;
 	text-shadow: none;
 	color: transparent;
-	width: 42px;
-	height: 42px;
+	width: 150px;
+	height: 57px;
 	background: url("../images/logo.png") no-repeat center;
-	background-size: 42px 42px;
+	background-size: 150px 67px;
 	-moz-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
 	-webkit-transition: all 0.5s ease-in-out;
@@ -853,9 +853,9 @@ header .logo a {
 	top: 0;
 }
 .sticky .logo a {
-	width: 38px;
+	width: 100px;
 	height: 38px;
-	background-size: 38px 38px;
+	background-size: 100px 38px;
 }
 
 /**
@@ -902,7 +902,7 @@ a.menu-toggle {
 	right: 30px;
 }
 .main-navigation {
-	min-height: 66px;
+	min-height: 85px;
 	display: inline-block;
 	width: auto;
 	text-align: left;
@@ -914,6 +914,7 @@ a.menu-toggle {
 	padding: 0;
 	margin: 0;
 	height: 66px;
+	top: 12px;
 }
 .main-navigation li.current a {
 	color: #FFFFFF;
@@ -1438,7 +1439,7 @@ a.menu-toggle {
 .process-content .image-part {
 	margin: 0 auto;
 	height: 660px;
-	background-image: url("../images/appdesign.png");
+	background-image: url("../images/appdesign.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	-webkit-background-size: contain;
