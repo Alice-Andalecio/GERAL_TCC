@@ -25,24 +25,12 @@ function EsconderPorcentagem(){
 }
 
 //Função para exibir os campos específicos para cadastro de "Animal".
-function CamposAnimal(){
-    //Escondendo os campos específicos de "Embrião".
-    document.querySelector('#divCamposEmbriao').classList.add('esconder');
-    //Desabilitando os campos que NÃO devem ser preenchidos para cadastro de "Sêmen".
-    document.querySelector('#numSISBOV').disabled = false;
-    document.querySelector('#brincoEle').disabled = false;
-    document.querySelector('#numRGN').disabled = false;
-    document.querySelector('#numRGD').disabled = false;
-    document.querySelector('#nomCompAnimal').disabled = false;
-    document.querySelector('#nomAnimal').disabled = false;
-    document.querySelector('#peso').disabled = false;
-    document.querySelector('#idade').disabled = false;
-    document.querySelector('#nascimento').disabled = false;
-    document.querySelector('#entrada').disabled = false;
-    document.querySelector('#desmama').disabled = false;
-    document.querySelector('#aptidao').disabled = false;
-    document.querySelector('#pelagem').disabled = false;
-    document.querySelector('#categoria').disabled = false;
+
+function CamposAnimal(){   
+    //Mostrando os campos específicos para cadastro de "Animal".
+    document.querySelector('#divCampAnimal').classList.remove('esconder');
+    document.querySelector('#divCampEmbriao').classList.add('esconder');
+    document.querySelector('#divCampSemen').classList.add('esconder');
     //Exibindo os campos de genealogia.
     document.querySelector('#divGenealogia').classList.remove('esconder');
     document.querySelector('#divPai').classList.remove('esconder');
@@ -50,24 +38,12 @@ function CamposAnimal(){
 }
 
 //Função para exibir os campos específicos para cadastro de "Embrião".
+
 function CamposEmbriao(){
-    //Exibindo os campos específicos de "Embrião".
-    document.querySelector('#divCamposEmbriao').classList.remove('esconder');
-    //Desabilitando os campos que NÃO devem ser preenchidos para cadastro de "Embrião".
-    document.querySelector('#numSISBOV').disabled = true;
-    document.querySelector('#brincoEle').disabled = true;
-    document.querySelector('#numRGN').disabled = true;
-    document.querySelector('#numRGD').disabled = true;
-    document.querySelector('#nomCompAnimal').disabled = true;
-    document.querySelector('#nomAnimal').disabled = true;
-    document.querySelector('#peso').disabled = true;
-    document.querySelector('#idade').disabled = true;
-    document.querySelector('#nascimento').disabled = true;
-    document.querySelector('#entrada').disabled = false;
-    document.querySelector('#desmama').disabled = true;
-    document.querySelector('#aptidao').disabled = true;
-    document.querySelector('#pelagem').disabled = true;
-    document.querySelector('#categoria').disabled = true;
+    //Mostrando os campos específicos para cadastro de "Embrião".
+    document.querySelector('#divCampAnimal').classList.add('esconder');
+    document.querySelector('#divCampEmbriao').classList.remove('esconder');
+    document.querySelector('#divCampSemen').classList.add('esconder');
     //Exibindo os campos de genealogia.
     document.querySelector('#divGenealogia').classList.remove('esconder');
     document.querySelector('#divPai').classList.remove('esconder');
@@ -75,24 +51,12 @@ function CamposEmbriao(){
 }
 
 //Função para exibir os campos específicos para cadastro de "Sêmen".
+
 function CamposSemen(){
-    //Escondendo os campos específicos de "Embrião".
-    document.querySelector('#divCamposEmbriao').classList.add('esconder');
-    //Desabilitando os campos que NÃO devem ser preenchidos para cadastro de "Sêmen".
-    document.querySelector('#numSISBOV').disabled = true;
-    document.querySelector('#brincoEle').disabled = true;
-    document.querySelector('#numRGN').disabled = true;
-    document.querySelector('#numRGD').disabled = true;
-    document.querySelector('#nomCompAnimal').disabled = true;
-    document.querySelector('#nomAnimal').disabled = true;
-    document.querySelector('#peso').disabled = true;
-    document.querySelector('#idade').disabled = true;
-    document.querySelector('#nascimento').disabled = true;
-    document.querySelector('#entrada').disabled = true;
-    document.querySelector('#desmama').disabled = true;
-    document.querySelector('#aptidao').disabled = true;
-    document.querySelector('#pelagem').disabled = true;
-    document.querySelector('#categoria').disabled = true;
+    //Mostrando os campos específicos para cadastro de "Sêmen".
+    document.querySelector('#divCampAnimal').classList.add('esconder');
+    document.querySelector('#divCampEmbriao').classList.add('esconder');
+    document.querySelector('#divCampSemen').classList.remove('esconder');
     //Escondendo os campos de genealogia.
     document.querySelector('#divGenealogia').classList.add('esconder');
     document.querySelector('#divPai').classList.add('esconder');
