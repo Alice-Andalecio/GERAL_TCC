@@ -1,14 +1,14 @@
 function validaCampo() {
     let frm = document.formLogin;
     let email = frm.email.value;
-    let senha = frm.password.value;
+    let senha = frm.senha.value;
     
     if(email == "") {
-        alert("Campo Email Obrigatório !!");
+        alert("O campo email é obrigatório!!");
         document.getElementById("nome").focus();
         return false;
     } else if (senha == "") {
-        alert("Campo  Senha Obrigatório !!");
+        alert("O campo senha é obrigatório!!");
         document.getElementById("password").focus();
         return false;
     } else {
@@ -21,15 +21,15 @@ function validaCampo() {
 
 function GravarUsuario (form) {
     form = document.formCad;
-    let nome = form.name.value;
+    let priNome = form.priNome.value;
     let apelido = form.apelido.value;
-    let senha = form.password.value;
+    let senha = form.senha.value;
     let confSenha = form.password_confirm.value;
     let email = form.email.value;
     
     if (nome = "") {
         alert("Campo nome obrigatorio.");
-        document.getElementById("name").focus();
+        document.getElementById("priNome").focus();
        return false;
     } 
     
@@ -41,7 +41,7 @@ function GravarUsuario (form) {
     
     else if (senha = "") {
         alert("Campo senha obrigatorio.");
-        document.getElementById("password").focus();
+        document.getElementById("senha").focus();
         return false;
 
     } 
@@ -55,7 +55,6 @@ function GravarUsuario (form) {
         alert("Campo email obrigatorio.");
         document.getElementById("email").focus();
        return false;
-
     } 
 
     } 
