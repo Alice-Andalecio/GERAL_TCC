@@ -65,6 +65,11 @@
    <!-- Formulário para cadastro de usuários -->
    <section id="process">  
       <div class="row">
+          
+        <form id="formCadastroUsuario" class="col s12">
+            
+        <input type='hidden' name='acao' value='gravarCadUsuario'>
+        
          <center>
             <div class="col s12">
             <br>         
@@ -103,8 +108,9 @@
                </div>
             </div>
 
-            <a id="criarConta" class="waves-effect waves-light btn" style="background: green">Criar Conta</a>
+            <a id="criarConta" class="waves-effect waves-light btn" style="background: green" onclick="GravarUsuario(document.formCad)">Criar Conta</a>
          </center>
+        </form>
       </div>
    </section>   
 
