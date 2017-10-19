@@ -177,5 +177,6 @@
    <script src="js/plugins.js"></script>
    <script src="js/main.js"></script>
    <script src="js/materialize.js"></script>
+   <script src="js/cadUsuario.js"></script>
 </body>
 </html>
