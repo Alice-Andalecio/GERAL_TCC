@@ -1,9 +1,3 @@
-<%-- 
-    Document   : CadastroAnimal
-    Created on : 16/10/2017, 11:55:02
-    Author     : jaops
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -818,7 +812,7 @@
         <br><br>
         <div class="col s2">
           <a class="waves-effect waves-light btn" id="salvarCad" style="background: green">
-            <i class="material-icons right">done</i>Salvar</a>
+              <i class="material-icons right">done</i>Salvar</a>
           </div>
         </div>
 
