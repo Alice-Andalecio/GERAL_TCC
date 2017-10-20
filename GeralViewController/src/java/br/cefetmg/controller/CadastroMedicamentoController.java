@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.cefetmg.controller;
+package br.cefetmg.inf.geral.controller;
 
 /**
  *
- * @author jaops
+ * @author Aluno
  */
-public class InsercaoUsuario {
+public class CadastroMedicamentoController {
     
 }

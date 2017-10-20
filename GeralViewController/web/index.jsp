@@ -25,7 +25,7 @@
    <header>
       <div class="row">
          <div class="logo">
-            <a href="index.html"></a>
+            <a href="index.jsp"></a>
          </div>
 
          <nav id="main-nav-wrap">
@@ -34,8 +34,8 @@
                <li><a class="smoothscroll"  href="#process" title="">Funcionamento</a></li>
                <li><a class="smoothscroll"  href="#features" title="">Vantagens</a></li>
                <li><a class="smoothscroll"  href="#testimonials" title="">Quem Somos</a></li>     
-               <li class="highlight with-sep"><a href="login.html" title="">Login</a></li>               
-               <li class="highlight with-sep"><a href="cadastro.html" title="">Cadastre-se</a></li>               
+               <li class="highlight with-sep"><a href="login.jsp" title="">Login</a></li>               
+               <li class="highlight with-sep"><a href="cadastroUsuario.jsp" title="">Cadastre-se</a></li>               
             </ul>
          </nav>
 

@@ -19,7 +19,6 @@
    <link rel="stylesheet" href="css/vendor.css">    
    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
    <!-- Ajustando o header -->
    <style type="text/css">
       header {
@@ -48,14 +47,14 @@
    <header>
       <div class="row">
          <div class="logo">
-            <a href="index.html"></a>
+            <a href="index.jsp"></a>
          </div>
 
          <nav id="main-nav-wrap">
             <ul class="main-navigation">
-               <li><a href="index.html" title="">Início</a></li>
-               <li><a href="login.html" title="">Login</a></li>
-               <li class="highlight with-sep"><a href="index.html" title="" style="color: green">Sair</a></li>                             
+               <li><a href="index.jsp" title="">Início</a></li>
+               <li><a href="login.jsp" title="">Login</a></li>
+               <li class="highlight with-sep"><a href="index.jsp" title="" style="color: green">Sair</a></li>                             
             </ul>
          </nav>
          <a class="menu-toggle" href="#"><span>Menu</span></a>   
@@ -66,9 +65,9 @@
    <section id="process">  
       <div class="row">
           
-        <form id="formCadastroUsuario" class="col s12">
+          <form id="formCadastroUsuario" action="" method="POST" class="col s12">
             
-        <input type='hidden' name='acao' value='gravarCadUsuario'>
+        <input type='hidden' name='acao' id="acao" value='gravarCadUsuario'>
         
          <center>
             <div class="col s12">
@@ -79,15 +78,15 @@
             <div class="row">
                <div class="col s3"></div>
                <div class="input-field col s6">
-                  <input id="priNome" type="text" class="validate">
-                  <label for="priNome"><b>Nome</b></label>
+                  <input id="name" name="name" type="text" class="validate">
+                  <label for="name"><b>Nome</b></label>
                </div>
             </div>
 
             <div class="row">
                <div class="col s3"></div>
                <div class="input-field col s6">
-                  <input id="email" type="email" class="validate">
+                  <input id="email" name="email" type="email" class="validate">
                   <label for="email"><b>Email</b></label>
                </div>
             </div>

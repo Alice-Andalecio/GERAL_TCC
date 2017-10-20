@@ -48,13 +48,13 @@
    <header>
       <div class="row">
          <div class="logo">
-            <a href="index.html"></a>
+            <a href="index.jsp"></a>
          </div>
 
          <nav id="main-nav-wrap">
             <ul class="main-navigation">
-               <li><a href="index.html" title="">Início</a></li>
-               <li class="highlight with-sep"><a href="cadastro.html" title="" style="color: green">Cadastre-se</a></li>                             
+               <li><a href="index.jsp" title="">Início</a></li>
+               <li class="highlight with-sep"><a href="cadastro.jsp" title="" style="color: green">Cadastre-se</a></li>                             
             </ul>
          </nav>
          <a class="menu-toggle" href="#"><span>Menu</span></a>   
@@ -84,7 +84,7 @@
                   </div>
                </div>
                <br>
-               <h6><a href="esqueceuSenha.html" style="color: green">Esqueceu a senha? Clique aqui!</a></h6>
+               <h6><a href="esqueceuSenha.jsp" style="color: green">Esqueceu a senha? Clique aqui!</a></h6>
                <br>
                <a class="waves-effect waves-light btn" style="background: green">Entrar</a>
         </center>

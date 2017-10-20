@@ -48,14 +48,14 @@
    <header>
       <div class="row">
          <div class="logo">
-            <a href="index.html"></a>
+            <a href="index.jsp"></a>
          </div>
 
          <nav id="main-nav-wrap">
             <ul class="main-navigation">
-               <li><a href="index.html" title="">Início</a></li>
-               <li><a href="cadastro.html" title="">Cadastre-se</a></li>
-               <li class="highlight with-sep"><a href="index.html" title="" style="color: green">Sair</a></li>                             
+               <li><a href="index.jsp" title="">Início</a></li>
+               <li><a href="cadastro.jsp" title="">Cadastre-se</a></li>
+               <li class="highlight with-sep"><a href="index.jsp" title="" style="color: green">Sair</a></li>                             
             </ul>
          </nav>
          <a class="menu-toggle" href="#"><span>Menu</span></a>   

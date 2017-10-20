@@ -20,12 +20,11 @@ function validaCampo() {
 }
 
 function GravarUsuario (form) {
-    form = document.formCad;
-    let priNome = form.priNome.value;
-    let apelido = form.apelido.value;
-    let senha = form.senha.value;
-    let confSenha = form.password_confirm.value;
-    let email = form.email.value;
+    var form = document.formCad;
+    var name = document.getElementById("name").value;
+    var senha = document.getElementById("senha").value;
+    var confSenha = document.getElementById("confSenha").value;
+    var email = document.getElementById("email").value;
     
     if (nome = "") {
         alert("Campo nome obrigatorio.");
@@ -57,8 +56,9 @@ function GravarUsuario (form) {
        return false;
     } 
 
-    } 
-    else if (form.acao.value == "gravar") {
+    
+    else if (document.getElementById("acao").value == "gravarCadUsuario") { // ainda não tá rolando
+        
         caminhourl = "/GeralViewController/Servlet?acao=GravarUsuario";
         form.action = caminhourl;
         form.submit();

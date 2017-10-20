@@ -54,20 +54,20 @@
       <div class="background">
        <img src="images/logoPreto.png">
      </div>
-     <li><a class="waves-effect" href="VisualizarExcluirAnimal.html">Animais</a></li> 
-     <li><a class="waves-effect" href="CadastroAnimal.html">Cadastro de Animais</a></li>
-     <li><a class="waves-effect" href="controleLeiteiro.html">Controle Leiteiro</a></li>
+     <li><a class="waves-effect" href="VisualizarExcluirAnimal.jsp">Animais</a></li> 
+     <li><a class="waves-effect" href="CadastroAnimal.jsp">Cadastro de Animais</a></li>
+     <li><a class="waves-effect" href="controleLeiteiro.jsp">Controle Leiteiro</a></li>
      <li><a class="waves-effect" href="#">Controle Reprodutivo</a>
        <ul>
-        <li><a class="waves-effect" href="RepInseminacao.html">Inseminação/Cobrição</a></li>
-        <li><a class="waves-effect" href="RepDiagnostico.html">Diagnóstico</a></li>
-        <li><a class="waves-effect" href="RepParto.html">Parto</a>
+        <li><a class="waves-effect" href="RepInseminacao.jsp">Inseminação/Cobrição</a></li>
+        <li><a class="waves-effect" href="RepDiagnostico.jsp">Diagnóstico</a></li>
+        <li><a class="waves-effect" href="RepParto.jsp">Parto</a>
         </ul>
       </li>
-      <li><a class="waves-effect" href="Dieta.html">Dieta</a></li>
-      <li><a class="waves-effect" href="medicamentos.html">Prescrição de Medicamentos</a></li>     
-      <li><a class="waves-effect" href="vendaLeite.html">Venda de Leite</a></li>
-      <li><a class="waves-effect" href="index.html" style="color: green">SAIR</a></li>
+      <li><a class="waves-effect" href="Dieta.jsp">Dieta</a></li>
+      <li><a class="waves-effect" href="medicamentos.jsp">Prescrição de Medicamentos</a></li>     
+      <li><a class="waves-effect" href="vendaLeite.jsp">Venda de Leite</a></li>
+      <li><a class="waves-effect" href="index.jsp" style="color: green">SAIR</a></li>
     </ul>
     <ul class="left ">
      <li>
