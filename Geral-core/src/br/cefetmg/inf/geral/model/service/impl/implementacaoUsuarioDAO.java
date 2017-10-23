@@ -1,10 +1,10 @@
 package br.cefetmg.inf.geral.model.service.impl;
 
-import br.cefetmg.inf.geral.model.domain.Usuario;
-import java.util.List;
 import br.cefetmg.inf.geral.model.dao.IUsuarioDAO;
 import br.cefetmg.inf.geral.model.dao.impl.UsuarioDAO;
+import br.cefetmg.inf.geral.model.domain.Usuario;
 import br.cefetmg.inf.util.db.exception.PersistenciaException;
+import java.util.List;
 
 public class implementacaoUsuarioDAO implements IUsuarioDAO{
     private final IUsuarioDAO dao;
@@ -40,7 +40,7 @@ public class implementacaoUsuarioDAO implements IUsuarioDAO{
     }
     
     @Override
-    public Usuario consultarPorUsuarioSenha(String usuario, String senha) throws PersistenciaException{
-        return dao.consultarPorUsuarioSenha(usuario, senha);
+    public Usuario consultarPorUsuarioSenha(String usuario, String senha, boolean cripto) throws PersistenciaException{
+        return dao.consultarPorUsuarioSenha(usuario, senha, cripto);
     }
 }
