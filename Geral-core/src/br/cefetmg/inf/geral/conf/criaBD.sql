@@ -1,352 +1,538 @@
 /*
-Created: 10/06/2017
-Modified: 17/07/2017
-Model: MySQL 5.1
-Database: MySQL 5.1
+Created: 23/10/2017
+Modified: 23/10/2017
+Model: RE PostgreSQL 9.4
+Database: PostgreSQL 9.4
 */
 
 
+-- Create schemas section -------------------------------------------------
+
+CREATE SCHEMA "public" AUTHORIZATION "postgres"
+;
+
+-- Create sequences section -------------------------------------------------
+
+CREATE SEQUENCE "public"."animal_medicamento_seq_animal_seq"
+ INCREMENT BY 1
+ NO MAXVALUE
+ NO MINVALUE
+ CACHE 1
+;
+
+CREATE SEQUENCE "public"."animal_seq_animal_seq"
+ INCREMENT BY 1
+ NO MAXVALUE
+ NO MINVALUE
+ CACHE 1
+;
+
+CREATE SEQUENCE "public"."animal_vacina_seq_animal_seq"
+ INCREMENT BY 1
+ NO MAXVALUE
+ NO MINVALUE
+ CACHE 1
+;
+
+CREATE SEQUENCE "public"."animal_vacina_seq_vacina_seq"
+ INCREMENT BY 1
+ NO MAXVALUE
+ NO MINVALUE
+ CACHE 1
+;
+
+CREATE SEQUENCE "public"."controle_producao_seq_animal_seq"
+ INCREMENT BY 1
+ NO MAXVALUE
+ NO MINVALUE
+ CACHE 1
+;
+
+CREATE SEQUENCE "public"."controle_producao_seq_compra_seq"
+ INCREMENT BY 1
+ NO MAXVALUE
+ NO MINVALUE
+ CACHE 1
+;
+
+CREATE SEQUENCE "public"."historico_localizacao_seq_animal_seq"
+ INCREMENT BY 1
+ NO MAXVALUE
+ NO MINVALUE
+ CACHE 1
+;
+
+CREATE SEQUENCE "public"."producao_compra_seq_compra_seq"
+ INCREMENT BY 1
+ NO MAXVALUE
+ NO MINVALUE
+ CACHE 1
+;
+
+CREATE SEQUENCE "public"."producao_leite_seq_animal_seq"
+ INCREMENT BY 1
+ NO MAXVALUE
+ NO MINVALUE
+ CACHE 1
+;
+
+CREATE SEQUENCE "public"."reproducao_seq_animal_gestante_seq"
+ INCREMENT BY 1
+ NO MAXVALUE
+ NO MINVALUE
+ CACHE 1
+;
+
+CREATE SEQUENCE "public"."reproducao_seq_animal_seq"
+ INCREMENT BY 1
+ NO MAXVALUE
+ NO MINVALUE
+ CACHE 1
+;
+
+CREATE SEQUENCE "public"."reproducao_seq_reproducao_seq"
+ INCREMENT BY 1
+ NO MAXVALUE
+ NO MINVALUE
+ CACHE 1
+;
+
+CREATE SEQUENCE "public"."usuario_id_usuario_seq"
+ INCREMENT BY 1
+ NO MAXVALUE
+ NO MINVALUE
+ CACHE 1
+;
+CREATE SEQUENCE "public"."medicamento_cod_medicamento_seq"
+ INCREMENT BY 1
+ NO MAXVALUE
+ NO MINVALUE
+ CACHE 1
+;
+
 -- Create tables section -------------------------------------------------
 
--- Table Animal
+-- Table public.alimento
 
-CREATE TABLE `Animal`
-(
-  `seq_Animal` Serial NOT NULL,
-  `seq_Procedencia` Int,
-  `cod_Grupo` Int,
-  `seq_Animal_Pai` Int NOT NULL,
-  `seq_Animal_Mae` Int NOT NULL,
-  `nro_Animal` Char(5) NOT NULL,
-  `dat_Nascimento` Date NOT NULL,
-  `idt_Tipo` Char(1),
-  `idt_Status` Char(1)
+CREATE TABLE "public"."alimento"(
+ "cod_alimento" Integer NOT NULL,
+ "des_alimento" Text NOT NULL
 )
 ;
 
-CREATE INDEX `IX_Relationship1` ON `Animal` (`seq_Procedencia`)
+-- Add keys for table public.alimento
+
+ALTER TABLE "public"."alimento" ADD CONSTRAINT "alimento_pkey" PRIMARY KEY ("cod_alimento")
 ;
 
-CREATE INDEX `IX_Relationship2` ON `Animal` (`cod_Grupo`)
-;
+-- Table public.animal
 
-CREATE INDEX `IX_Relationship3` ON `Animal` (`seq_Animal_Pai`)
-;
-
-CREATE INDEX `IX_Relationship4` ON `Animal` (`seq_Animal_Mae`)
-;
-
-ALTER TABLE `Animal` ADD  PRIMARY KEY (`seq_Animal`)
-;
-
--- Table Animal_Vacina
-
-CREATE TABLE `Animal_Vacina`
-(
-  `seq_Animal` Int NOT NULL,
-  `cod_Vacina` Int NOT NULL,
-  `seq_Vacina` Serial NOT NULL,
-  `dat_Vacinacao` Date
+CREATE TABLE "public"."animal"(
+ "seq_animal" Integer DEFAULT nextval('animal_seq_animal_seq'::regclass) NOT NULL,
+ "seq_procedencia" Integer,
+ "cod_grupo" Integer,
+ "cod_email" Character(50) NOT NULL,
+ "nro_animal" Character(5) NOT NULL,
+ "dat_nascimento" Date NOT NULL,
+ "idt_tipo" Character(1),
+ "idt_status" Character(1)
 )
 ;
 
-ALTER TABLE `Animal_Vacina` ADD  PRIMARY KEY (`seq_Vacina`,`seq_Animal`,`cod_Vacina`)
+-- Create indexes for table public.animal
+
+CREATE INDEX "ix_relationship1" ON "public"."animal" ("seq_procedencia")
 ;
 
--- Table Historico_Localizacao
+CREATE INDEX "ix_relationship2" ON "public"."animal" ("cod_grupo")
+;
 
-CREATE TABLE `Historico_Localizacao`
-(
-  `seq_Animal` Int NOT NULL,
-  `dat_Inicio_Localizacao` Date NOT NULL,
-  `cod_Setor` Int
+CREATE INDEX "ix_relationship31" ON "public"."animal" ("cod_email")
+;
+
+-- Add keys for table public.animal
+
+ALTER TABLE "public"."animal" ADD CONSTRAINT "animal_pkey" PRIMARY KEY ("seq_animal","cod_email")
+;
+
+-- Table public.animal_medicamento
+
+CREATE TABLE "public"."animal_medicamento"(
+ "seq_animal" Integer DEFAULT nextval('animal_medicamento_seq_animal_seq'::regclass) NOT NULL,
+ "cod_email" Character(50) NOT NULL,
+ "cod_medicamento" Integer DEFAULT nextval('medicamento_cod_medicamento_seq'::regclass) NOT NULL,
+ "dat_inicio" Date NOT NULL,
+ "dat_fim" Date NOT NULL,
+ "txt_prescricao" Text NOT NULL,
+ "qtd_dosagem" Numeric(7,2),
+ "qtd_frequencia" Integer
 )
 ;
 
-CREATE INDEX `IX_Relationship7` ON `Historico_Localizacao` (`cod_Setor`)
+-- Create indexes for table public.animal_medicamento
+
+CREATE INDEX "ix_relationship15" ON "public"."animal_medicamento" ("cod_medicamento")
 ;
 
-ALTER TABLE `Historico_Localizacao` ADD  PRIMARY KEY (`dat_Inicio_Localizacao`,`seq_Animal`)
+-- Add keys for table public.animal_medicamento
+
+ALTER TABLE "public"."animal_medicamento" ADD CONSTRAINT "animal_medicamento_pkey" PRIMARY KEY ("cod_medicamento","seq_animal","cod_email")
 ;
 
--- Table Animal_Medicamento
+-- Table public.animal_vacina
 
-CREATE TABLE `Animal_Medicamento`
-(
-  `seq_Animal` Int NOT NULL,
-  `seq_Medicamento` Int NOT NULL,
-  `cod_Medicamento` Int,
-  `dat_Inicio` Date NOT NULL,
-  `dat_Fim` Date NOT NULL,
-  `txt_prescricao` Text NOT NULL,
-  `qtd_Dosagem` Decimal(7,2),
-  `qtd_Frequencia` Int
+CREATE TABLE "public"."animal_vacina"(
+ "seq_animal" Integer DEFAULT nextval('animal_vacina_seq_animal_seq'::regclass) NOT NULL,
+ "cod_vacina" Integer NOT NULL,
+ "cod_email" Character(50) NOT NULL,
+ "seq_vacina" Integer DEFAULT nextval('animal_vacina_seq_vacina_seq'::regclass) NOT NULL,
+ "dat_vacinacao" Date
 )
 ;
 
-CREATE INDEX `IX_Relationship15` ON `Animal_Medicamento` (`cod_Medicamento`)
+-- Add keys for table public.animal_vacina
+
+ALTER TABLE "public"."animal_vacina" ADD CONSTRAINT "animal_vacina_pkey" PRIMARY KEY ("seq_vacina","seq_animal","cod_vacina","cod_email")
 ;
 
-ALTER TABLE `Animal_Medicamento` ADD  PRIMARY KEY (`seq_Medicamento`,`seq_Animal`)
-;
+-- Table public.comprador
 
--- Table Reproducao
-
-CREATE TABLE `Reproducao`
-(
-  `seq_Reproducao` Serial NOT NULL,
-  `seq_Animal_Gestante` Int,
-  `seq_Animal` Int,
-  `dat_Inseminacao` Date NOT NULL,
-  `Hora_Inseminacao` Time,
-  `dat_Gestacao` Date NOT NULL
+CREATE TABLE "public"."comprador"(
+ "cod_cnpj" Integer NOT NULL,
+ "nom_comprador" Character(40) NOT NULL
 )
 ;
 
-CREATE INDEX `IX_Relationship20` ON `Reproducao` (`seq_Animal_Gestante`)
+-- Add keys for table public.comprador
+
+ALTER TABLE "public"."comprador" ADD CONSTRAINT "comprador_pkey" PRIMARY KEY ("cod_cnpj")
 ;
 
-CREATE INDEX `IX_Relationship21` ON `Reproducao` (`seq_Animal`)
-;
+-- Table public.controle_producao
 
-ALTER TABLE `Reproducao` ADD  PRIMARY KEY (`seq_Reproducao`)
-;
-
--- Table Producao_Leite
-
-CREATE TABLE `Producao_Leite`
-(
-  `seq_Animal` Int NOT NULL,
-  `dat_Producao` Date NOT NULL,
-  `cod_Grupo` Int NOT NULL,
-  `qtd_Leite_Manha` Decimal(3,2) NOT NULL DEFAULT 0,
-  `qtd_Leite_Tarde` Decimal(3,2) NOT NULL DEFAULT 0
+CREATE TABLE "public"."controle_producao"(
+ "seq_compra" Integer DEFAULT nextval('controle_producao_seq_compra_seq'::regclass) NOT NULL,
+ "seq_animal" Integer DEFAULT nextval('controle_producao_seq_animal_seq'::regclass) NOT NULL,
+ "dat_producao" Date NOT NULL,
+ "cod_email" Character(50) NOT NULL
 )
 ;
 
-CREATE INDEX `IX_Relationship16` ON `Producao_Leite` (`cod_Grupo`)
+-- Add keys for table public.controle_producao
+
+ALTER TABLE "public"."controle_producao" ADD CONSTRAINT "controle_producao_pkey" PRIMARY KEY ("dat_producao","seq_animal","seq_compra","cod_email")
 ;
 
-ALTER TABLE `Producao_Leite` ADD  PRIMARY KEY (`dat_Producao`,`seq_Animal`)
-;
+-- Table public.grupo
 
--- Table Grupo
-
-CREATE TABLE `Grupo`
-(
-  `cod_Grupo` Int NOT NULL,
-  `nom_Grupo` Char(20) NOT NULL,
-  `qtd_Media_Produção` Decimal(3,2)
+CREATE TABLE "public"."grupo"(
+ "cod_grupo" Integer NOT NULL,
+ "nom_grupo" Character(20) NOT NULL,
+ "qtd_media_produção" Numeric(3,2)
 )
 ;
 
-ALTER TABLE `Grupo` ADD  PRIMARY KEY (`cod_Grupo`)
+-- Add keys for table public.grupo
+
+ALTER TABLE "public"."grupo" ADD CONSTRAINT "grupo_pkey" PRIMARY KEY ("cod_grupo")
 ;
 
--- Table Setor
+-- Table public.grupo_alimento_dieta
 
-CREATE TABLE `Setor`
-(
-  `cod_Setor` Int NOT NULL,
-  `nom_Setor` Char(40)
+CREATE TABLE "public"."grupo_alimento_dieta"(
+ "cod_grupo" Integer NOT NULL,
+ "alimento" Integer NOT NULL,
+ "per_composicao" Numeric(5,2) NOT NULL
 )
 ;
 
-ALTER TABLE `Setor` ADD  PRIMARY KEY (`cod_Setor`)
+-- Add keys for table public.grupo_alimento_dieta
+
+ALTER TABLE "public"."grupo_alimento_dieta" ADD CONSTRAINT "grupo_alimento_dieta_pkey" PRIMARY KEY ("cod_grupo","alimento")
 ;
 
--- Table Medicamento
+-- Table public.historico_localizacao
 
-CREATE TABLE `Medicamento`
-(
-  `cod_Medicamento` Int NOT NULL,
-  `des_Medicamento` Char(20) NOT NULL
+CREATE TABLE "public"."historico_localizacao"(
+ "seq_animal" Integer DEFAULT nextval('historico_localizacao_seq_animal_seq'::regclass) NOT NULL,
+ "cod_email" Character(50) NOT NULL,
+ "dat_inicio_localizacao" Date NOT NULL,
+ "cod_setor" Integer
 )
 ;
 
-ALTER TABLE `Medicamento` ADD  PRIMARY KEY (`cod_Medicamento`)
+-- Create indexes for table public.historico_localizacao
+
+CREATE INDEX "ix_relationship7" ON "public"."historico_localizacao" ("cod_setor")
 ;
 
--- Table Parametro
+-- Add keys for table public.historico_localizacao
 
-CREATE TABLE `Parametro`
-(
-  `cod_parametro` Char(1) NOT NULL,
-  `qtd_Dia_Secagem` Int NOT NULL,
-  `qtd_Dia_Amamentacao` Int NOT NULL
+ALTER TABLE "public"."historico_localizacao" ADD CONSTRAINT "historico_localizacao_pkey" PRIMARY KEY ("dat_inicio_localizacao","seq_animal","cod_email")
+;
+
+-- Table public.medicamento
+
+CREATE TABLE "public"."medicamento"(
+ "cod_medicamento" Integer DEFAULT nextval('medicamento_cod_medicamento_seq'::regclass) NOT NULL,
+ "nom_medicamento" Character(20) NOT NULL,
+ "des_medicamento" Character(20) NOT NULL
 )
 ;
 
-ALTER TABLE `Parametro` ADD  PRIMARY KEY (`cod_parametro`)
+-- Add keys for table public.medicamento
+
+ALTER TABLE "public"."medicamento" ADD CONSTRAINT "medicamento_pkey" PRIMARY KEY ("cod_medicamento")
 ;
 
--- Table Procedencia
+-- Table public.parametro
 
-CREATE TABLE `Procedencia`
-(
-  `seq_Procedencia` Int NOT NULL,
-  `nom_Fazenda` Char(20) NOT NULL,
-  `nom_Proprietario` Char(40) NOT NULL,
-  `idt_Proprietario` Char(20)
+CREATE TABLE "public"."parametro"(
+ "cod_parametro" Character(1) NOT NULL,
+ "qtd_dia_secagem" Integer NOT NULL,
+ "qtd_dia_amamentacao" Integer NOT NULL
 )
 ;
 
-ALTER TABLE `Procedencia` ADD  PRIMARY KEY (`seq_Procedencia`)
+-- Add keys for table public.parametro
+
+ALTER TABLE "public"."parametro" ADD CONSTRAINT "parametro_pkey" PRIMARY KEY ("cod_parametro")
 ;
 
--- Table Vacina
+-- Table public.problema_padrao
 
-CREATE TABLE `Vacina`
-(
-  `cod_Vacina` Int NOT NULL,
-  `nom_Vacina` Char(20) NOT NULL,
-  `qtd_Doses` Int
+CREATE TABLE "public"."problema_padrao"(
+ "cod_problema" Character(20) NOT NULL,
+ "des_problema" Text NOT NULL
 )
 ;
 
-ALTER TABLE `Vacina` ADD  PRIMARY KEY (`cod_Vacina`)
+-- Add keys for table public.problema_padrao
+
+ALTER TABLE "public"."problema_padrao" ADD CONSTRAINT "problema_padrao_pkey" PRIMARY KEY ("cod_problema")
 ;
 
--- Table Grupo_Alimento_Dieta
+-- Table public.procedencia
 
-CREATE TABLE `Grupo_Alimento_Dieta`
-(
-  `cod_Grupo` Int NOT NULL,
-  `Alimento` Int NOT NULL,
-  `per_Composicao` Decimal(5,2) NOT NULL
+CREATE TABLE "public"."procedencia"(
+ "seq_procedencia" Integer NOT NULL,
+ "nom_fazenda" Character(20) NOT NULL,
+ "nom_proprietario" Character(40) NOT NULL,
+ "idt_proprietario" Character(20)
 )
 ;
 
-ALTER TABLE `Grupo_Alimento_Dieta` ADD  PRIMARY KEY (`cod_Grupo`,`Alimento`)
+-- Add keys for table public.procedencia
+
+ALTER TABLE "public"."procedencia" ADD CONSTRAINT "procedencia_pkey" PRIMARY KEY ("seq_procedencia")
 ;
 
--- Table Alimento
+-- Table public.producao_compra
 
-CREATE TABLE `Alimento`
-(
-  `cod_alimento` Int NOT NULL,
-  `des_Alimento` Text NOT NULL
+CREATE TABLE "public"."producao_compra"(
+ "seq_compra" Integer DEFAULT nextval('producao_compra_seq_compra_seq'::regclass) NOT NULL,
+ "cod_cnpj" Integer NOT NULL,
+ "cod_problema" Character(20),
+ "txt_observacao" Character varying(200)
 )
 ;
 
-ALTER TABLE `Alimento` ADD  PRIMARY KEY (`cod_alimento`)
+-- Create indexes for table public.producao_compra
+
+CREATE INDEX "ix_relationship28" ON "public"."producao_compra" ("cod_problema")
 ;
 
--- Table Controle_Producao
+CREATE INDEX "ix_relationship27" ON "public"."producao_compra" ("cod_cnpj")
+;
 
-CREATE TABLE `Controle_Producao`
-(
-  `seq_compra` Int NOT NULL,
-  `seq_Animal` Int NOT NULL,
-  `dat_Producao` Date NOT NULL
+-- Add keys for table public.producao_compra
+
+ALTER TABLE "public"."producao_compra" ADD CONSTRAINT "producao_compra_pkey" PRIMARY KEY ("seq_compra")
+;
+
+-- Table public.producao_leite
+
+CREATE TABLE "public"."producao_leite"(
+ "seq_animal" Integer DEFAULT nextval('producao_leite_seq_animal_seq'::regclass) NOT NULL,
+ "cod_email" Character(50) NOT NULL,
+ "dat_producao" Date NOT NULL,
+ "cod_grupo" Integer NOT NULL,
+ "qtd_leite_manha" Numeric(3,2) DEFAULT 0 NOT NULL,
+ "qtd_leite_tarde" Numeric(3,2) DEFAULT 0 NOT NULL
 )
 ;
 
-ALTER TABLE `Controle_Producao` ADD  PRIMARY KEY (`dat_Producao`,`seq_Animal`,`seq_compra`)
+-- Create indexes for table public.producao_leite
+
+CREATE INDEX "ix_relationship16" ON "public"."producao_leite" ("cod_grupo")
 ;
 
--- Table Comprador
+-- Add keys for table public.producao_leite
 
-CREATE TABLE `Comprador`
-(
-  `cod_CNPJ` Int NOT NULL,
-  `nom_Comprador` Char(40) NOT NULL
+ALTER TABLE "public"."producao_leite" ADD CONSTRAINT "producao_leite_pkey" PRIMARY KEY ("dat_producao","seq_animal","cod_email")
+;
+
+-- Table public.reproducao
+
+CREATE TABLE "public"."reproducao"(
+ "seq_reproducao" Integer DEFAULT nextval('reproducao_seq_reproducao_seq'::regclass) NOT NULL,
+ "seq_animal_gestante" Integer DEFAULT nextval('reproducao_seq_animal_gestante_seq'::regclass) NOT NULL,
+ "seq_animal" Integer DEFAULT nextval('reproducao_seq_animal_seq'::regclass) NOT NULL,
+ "dat_inseminacao" Date NOT NULL,
+ "hora_inseminacao" Time,
+ "dat_gestacao" Date NOT NULL,
+ "cod_email" Character(50)
 )
 ;
 
-ALTER TABLE `Comprador` ADD  PRIMARY KEY (`cod_CNPJ`)
+-- Create indexes for table public.reproducao
+
+CREATE INDEX "ix_relationship20" ON "public"."reproducao" ("seq_animal_gestante","cod_email")
 ;
 
--- Table Problema_Padrao
+CREATE INDEX "ix_relationship21" ON "public"."reproducao" ("seq_animal","cod_email")
+;
 
-CREATE TABLE `Problema_Padrao`
-(
-  `cod_Problema` Char(20) NOT NULL,
-  `des_Problema` Text NOT NULL
+-- Add keys for table public.reproducao
+
+ALTER TABLE "public"."reproducao" ADD CONSTRAINT "reproducao_pkey" PRIMARY KEY ("seq_reproducao")
+;
+
+-- Table public.setor
+
+CREATE TABLE "public"."setor"(
+ "cod_setor" Integer NOT NULL,
+ "nom_setor" Character(40)
 )
 ;
 
-ALTER TABLE `Problema_Padrao` ADD  PRIMARY KEY (`cod_Problema`)
+-- Add keys for table public.setor
+
+ALTER TABLE "public"."setor" ADD CONSTRAINT "setor_pkey" PRIMARY KEY ("cod_setor")
 ;
 
--- Table Producao_Compra
+-- Table public.usuario
 
-CREATE TABLE `Producao_Compra`
-(
-  `seq_compra` Serial NOT NULL,
-  `cod_CNPJ` Int NOT NULL,
-  `cod_Problema` Char(20),
-  `txt_observacao` Varchar(200)
+CREATE TABLE "public"."usuario"(
+ "cod_email" Character(50) NOT NULL,
+ "txt_senha" Text NOT NULL,
+ "nom_usuario" Character varying(100) NOT NULL,
+ "id_usuario" Integer DEFAULT nextval('usuario_id_usuario_seq'::regclass) NOT NULL
 )
 ;
 
-CREATE INDEX `IX_Relationship28` ON `Producao_Compra` (`cod_Problema`)
+-- Add keys for table public.usuario
+
+ALTER TABLE "public"."usuario" ADD CONSTRAINT "usuario_pkey" PRIMARY KEY ("cod_email")
 ;
 
-CREATE INDEX `IX_Relationship27` ON `Producao_Compra` (`cod_CNPJ`)
+-- Table public.vacina
+
+CREATE TABLE "public"."vacina"(
+ "cod_vacina" Integer NOT NULL,
+ "nom_vacina" Character(20) NOT NULL,
+ "qtd_doses" Integer
+)
 ;
 
-ALTER TABLE `Producao_Compra` ADD  PRIMARY KEY (`seq_compra`)
+-- Add keys for table public.vacina
+
+ALTER TABLE "public"."vacina" ADD CONSTRAINT "vacina_pkey" PRIMARY KEY ("cod_vacina")
 ;
 
 -- Create relationships section ------------------------------------------------- 
 
-ALTER TABLE `Animal` ADD CONSTRAINT `Relationship1` FOREIGN KEY (`seq_Procedencia`) REFERENCES `Procedencia` (`seq_Procedencia`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."animal" ADD CONSTRAINT "relationship2" FOREIGN KEY ("cod_grupo") REFERENCES "public"."grupo" ("cod_grupo") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Animal` ADD CONSTRAINT `Relationship2` FOREIGN KEY (`cod_Grupo`) REFERENCES `Grupo` (`cod_Grupo`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."animal" ADD CONSTRAINT "relationship1" FOREIGN KEY ("seq_procedencia") REFERENCES "public"."procedencia" ("seq_procedencia") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Animal` ADD CONSTRAINT `Relationship3` FOREIGN KEY (`seq_Animal_Pai`) REFERENCES `Animal` (`seq_Animal`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."animal" ADD CONSTRAINT "relationship31" FOREIGN KEY ("cod_email") REFERENCES "public"."usuario" ("cod_email") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Animal` ADD CONSTRAINT `Relationship4` FOREIGN KEY (`seq_Animal_Mae`) REFERENCES `Animal` (`seq_Animal`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."animal" ADD CONSTRAINT "relationship33" FOREIGN KEY ("cod_email") REFERENCES "public"."usuario" ("cod_email") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Historico_Localizacao` ADD CONSTRAINT `Relationship7` FOREIGN KEY (`cod_Setor`) REFERENCES `Setor` (`cod_Setor`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."animal_medicamento" ADD CONSTRAINT "relationship14" FOREIGN KEY ("seq_animal", "cod_email") REFERENCES "public"."animal" ("seq_animal", "cod_email") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Grupo_Alimento_Dieta` ADD CONSTRAINT `Relationship9` FOREIGN KEY (`cod_Grupo`) REFERENCES `Grupo` (`cod_Grupo`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."animal_medicamento" ADD CONSTRAINT "relationship15" FOREIGN KEY ("cod_medicamento") REFERENCES "public"."medicamento" ("cod_medicamento") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Grupo_Alimento_Dieta` ADD CONSTRAINT `Relationship10` FOREIGN KEY (`Alimento`) REFERENCES `Alimento` (`cod_alimento`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."animal_vacina" ADD CONSTRAINT "relationship23" FOREIGN KEY ("seq_animal", "cod_email") REFERENCES "public"."animal" ("seq_animal", "cod_email") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Animal_Medicamento` ADD CONSTRAINT `Relationship14` FOREIGN KEY (`seq_Animal`) REFERENCES `Animal` (`seq_Animal`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."animal_vacina" ADD CONSTRAINT "relationship24" FOREIGN KEY ("cod_vacina") REFERENCES "public"."vacina" ("cod_vacina") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Animal_Medicamento` ADD CONSTRAINT `Relationship15` FOREIGN KEY (`cod_Medicamento`) REFERENCES `Medicamento` (`cod_Medicamento`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."controle_producao" ADD CONSTRAINT "relationship29" FOREIGN KEY ("seq_compra") REFERENCES "public"."producao_compra" ("seq_compra") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Producao_Leite` ADD CONSTRAINT `Relationship16` FOREIGN KEY (`cod_Grupo`) REFERENCES `Grupo` (`cod_Grupo`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."controle_producao" ADD CONSTRAINT "relationship26" FOREIGN KEY ("seq_animal", "cod_email", "dat_producao") REFERENCES "public"."producao_leite" ("seq_animal", "cod_email", "dat_producao") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Reproducao` ADD CONSTRAINT `Relationship20` FOREIGN KEY (`seq_Animal_Gestante`) REFERENCES `Animal` (`seq_Animal`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."grupo_alimento_dieta" ADD CONSTRAINT "relationship10" FOREIGN KEY ("alimento") REFERENCES "public"."alimento" ("cod_alimento") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Reproducao` ADD CONSTRAINT `Relationship21` FOREIGN KEY (`seq_Animal`) REFERENCES `Animal` (`seq_Animal`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."grupo_alimento_dieta" ADD CONSTRAINT "relationship9" FOREIGN KEY ("cod_grupo") REFERENCES "public"."grupo" ("cod_grupo") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Historico_Localizacao` ADD CONSTRAINT `Relationship22` FOREIGN KEY (`seq_Animal`) REFERENCES `Animal` (`seq_Animal`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."historico_localizacao" ADD CONSTRAINT "relationship22" FOREIGN KEY ("seq_animal", "cod_email") REFERENCES "public"."animal" ("seq_animal", "cod_email") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Animal_Vacina` ADD CONSTRAINT `Relationship23` FOREIGN KEY (`seq_Animal`) REFERENCES `Animal` (`seq_Animal`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."historico_localizacao" ADD CONSTRAINT "relationship7" FOREIGN KEY ("cod_setor") REFERENCES "public"."setor" ("cod_setor") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Animal_Vacina` ADD CONSTRAINT `Relationship24` FOREIGN KEY (`cod_Vacina`) REFERENCES `Vacina` (`cod_Vacina`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."producao_compra" ADD CONSTRAINT "relationship27" FOREIGN KEY ("cod_cnpj") REFERENCES "public"."comprador" ("cod_cnpj") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Producao_Leite` ADD CONSTRAINT `Relationship25` FOREIGN KEY (`seq_Animal`) REFERENCES `Animal` (`seq_Animal`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."producao_compra" ADD CONSTRAINT "relationship28" FOREIGN KEY ("cod_problema") REFERENCES "public"."problema_padrao" ("cod_problema") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Controle_Producao` ADD CONSTRAINT `Relationship26` FOREIGN KEY (`dat_Producao`, `seq_Animal`) REFERENCES `Producao_Leite` (`dat_Producao`, `seq_Animal`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."producao_leite" ADD CONSTRAINT "relationship25" FOREIGN KEY ("seq_animal", "cod_email") REFERENCES "public"."animal" ("seq_animal", "cod_email") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Producao_Compra` ADD CONSTRAINT `Relationship27` FOREIGN KEY (`cod_CNPJ`) REFERENCES `Comprador` (`cod_CNPJ`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."producao_leite" ADD CONSTRAINT "relationship16" FOREIGN KEY ("cod_grupo") REFERENCES "public"."grupo" ("cod_grupo") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Producao_Compra` ADD CONSTRAINT `Relationship28` FOREIGN KEY (`cod_Problema`) REFERENCES `Problema_Padrao` (`cod_Problema`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."reproducao" ADD CONSTRAINT "relationship20" FOREIGN KEY ("seq_animal_gestante", "cod_email") REFERENCES "public"."animal" ("seq_animal", "cod_email") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
-ALTER TABLE `Controle_Producao` ADD CONSTRAINT `Relationship29` FOREIGN KEY (`seq_compra`) REFERENCES `Producao_Compra` (`seq_compra`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE "public"."reproducao" ADD CONSTRAINT "relationship21" FOREIGN KEY ("seq_animal", "cod_email") REFERENCES "public"."animal" ("seq_animal", "cod_email") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
+
+
+ALTER SEQUENCE "public"."animal_medicamento_seq_animal_seq" OWNED BY "public"."animal_medicamento"."seq_animal"
+;
+
+ALTER SEQUENCE "public"."animal_seq_animal_seq" OWNED BY "public"."animal"."seq_animal"
+;
+ALTER SEQUENCE "public"."animal_vacina_seq_animal_seq" OWNED BY "public"."animal_vacina"."seq_animal"
+;
+ALTER SEQUENCE "public"."animal_vacina_seq_vacina_seq" OWNED BY "public"."animal_vacina"."seq_vacina"
+;
+ALTER SEQUENCE "public"."controle_producao_seq_animal_seq" OWNED BY "public"."controle_producao"."seq_animal"
+;
+ALTER SEQUENCE "public"."controle_producao_seq_compra_seq" OWNED BY "public"."controle_producao"."seq_compra"
+;
+ALTER SEQUENCE "public"."historico_localizacao_seq_animal_seq" OWNED BY "public"."historico_localizacao"."seq_animal"
+;
+ALTER SEQUENCE "public"."producao_compra_seq_compra_seq" OWNED BY "public"."producao_compra"."seq_compra"
+;
+ALTER SEQUENCE "public"."producao_leite_seq_animal_seq" OWNED BY "public"."producao_leite"."seq_animal"
+;
+ALTER SEQUENCE "public"."reproducao_seq_animal_gestante_seq" OWNED BY "public"."reproducao"."seq_animal_gestante"
+;
+ALTER SEQUENCE "public"."reproducao_seq_animal_seq" OWNED BY "public"."reproducao"."seq_animal"
+;
+ALTER SEQUENCE "public"."reproducao_seq_reproducao_seq" OWNED BY "public"."reproducao"."seq_reproducao"
+;
+
+-- Create roles section -------------------------------------------------
+
+CREATE ROLE "pg_signal_backend"
+;
+
+-- Grant permissions section -------------------------------------------------
+
