@@ -1,8 +1,8 @@
 package br.cefetmg.inf.geral.model.dao.impl;
 
 import br.cefetmg.inf.geral.model.dao.IUsuarioDAO;
-import br.cefetmg.inf.util.db.ConnectionManager;
 import br.cefetmg.inf.geral.model.domain.Usuario;
+import br.cefetmg.inf.util.db.ConnectionManager;
 import br.cefetmg.inf.util.db.exception.PersistenciaException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -153,12 +153,15 @@ public class UsuarioDAO implements IUsuarioDAO {//SQL
     }
 
     @Override
-    public Usuario consultarPorUsuarioSenha(String usuarioLogin, String senha) throws PersistenciaException {
+    public Usuario consultarPorUsuarioSenha(String usuarioLogin, String senha, boolean cripto) throws PersistenciaException {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
-
-            String sql = "SELECT * FROM usuario WHERE cod_email = ? AND txt_Senha = md5(?);";
-
+            String sql = "";
+            if (cripto) {
+                sql = "SELECT * FROM usuario WHERE cod_email = ? AND txt_Senha = ?;";
+            } else {
+                sql = "SELECT * FROM usuario WHERE cod_email = ? AND txt_Senha = md5(?);";
+            }
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, usuarioLogin);
             pstmt.setString(2, senha);
