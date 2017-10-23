@@ -19,7 +19,7 @@ function validaCampo() {
     }  
 }
 
-function GravarUsuario (form) {
+function GravarUsuario () {
     var form = document.getElementById("formCadastroUsuario");
     var name = document.getElementById("name").value;
     var senha = document.getElementById("senha").value;

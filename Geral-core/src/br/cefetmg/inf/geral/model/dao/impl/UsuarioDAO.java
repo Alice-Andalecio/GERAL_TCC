@@ -162,6 +162,7 @@ public class UsuarioDAO implements IUsuarioDAO {//SQL
             } else {
                 sql = "SELECT * FROM usuario WHERE cod_email = ? AND txt_Senha = md5(?);";
             }
+
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, usuarioLogin);
             pstmt.setString(2, senha);

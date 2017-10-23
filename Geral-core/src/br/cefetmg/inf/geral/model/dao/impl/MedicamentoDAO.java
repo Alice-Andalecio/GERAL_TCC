@@ -15,17 +15,17 @@ public class MedicamentoDAO implements IMedicamentoDAO {
     public Long inserir(Medicamento medicamento) throws PersistenciaException {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
-
-            String sql = "INSERT INTO medicamento (des_Medicamento) VALUES(?)";
+            String sql = "INSERT INTO medicamento (nom_medicamento, des_Medicamento) VALUES(?,?) RETURNING cod_Medicamento";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, medicamento.getDes_Medicamento());
+            pstmt.setString(1, medicamento.getNomeMedicamento());
+            pstmt.setString(2, medicamento.getDes_Medicamento());
+            System.out.println(medicamento.getDes_Medicamento());
             ResultSet rs = pstmt.executeQuery();
 
             Long cod_Medicamento = null;
 
             if (rs.next()) {
                 cod_Medicamento = rs.getLong("cod_Medicamento");
-                medicamento.setCod_Medicamento(cod_Medicamento);
             }
 
             rs.close();
@@ -45,11 +45,14 @@ public class MedicamentoDAO implements IMedicamentoDAO {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
             String sql = "UPDATE medicamento "
-                    + " SET des_Medicamento = ? "
+                    + " SET nom_Medicamento = ?,"
+                    + " des_Medicamento = ? "
                     + " WHERE cod_Medicamento = ? ";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, medicamento.getDes_Medicamento());
+            pstmt.setString(1, medicamento.getNomeMedicamento());
+            pstmt.setString(2, medicamento.getDes_Medicamento());
+            pstmt.setLong(3, medicamento.getCod_Medicamento());
             pstmt.executeUpdate();
 
             pstmt.close();
@@ -100,6 +103,7 @@ public class MedicamentoDAO implements IMedicamentoDAO {
                 do {
                     Medicamento medicamento = new Medicamento();
                     medicamento.setCod_Medicamento(rs.getLong("cod_Medicamento"));
+                    medicamento.setNomeMedicamento(rs.getString("nom_medicamento"));
                     medicamento.setDes_Medicamento(rs.getString("des_Medicamento"));
                     listAll.add(medicamento);
                 } while (rs.next());
@@ -131,6 +135,7 @@ public class MedicamentoDAO implements IMedicamentoDAO {
             if (rs.next()) {
                 medicamento = new Medicamento();
                 medicamento.setCod_Medicamento(rs.getLong("cod_Medicamento"));
+                medicamento.setNomeMedicamento(rs.getString("nom_medicamento"));
                 medicamento.setDes_Medicamento(rs.getString("des_Medicamento"));
             }
 

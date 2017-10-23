@@ -35,7 +35,6 @@ public class CadastroUsuarioController {
 
         IUsuarioDAO manterUsuario = new UsuarioDAO();
         manterUsuario.inserir(usuario);
-
         jsp = "/VisualizarExcluirAnimal.jsp";
         return jsp;
     }
