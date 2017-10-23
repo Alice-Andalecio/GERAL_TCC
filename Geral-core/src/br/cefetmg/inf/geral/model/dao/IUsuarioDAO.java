@@ -10,5 +10,5 @@ public interface IUsuarioDAO {
     public boolean alterar(Usuario usuario) throws PersistenciaException;
     public boolean excluir(Usuario usuario) throws PersistenciaException;
     public List<Usuario> listar() throws PersistenciaException;
-    public Usuario consultarPorUsuarioSenha(String usuario, String senha) throws PersistenciaException;
+    public Usuario consultarPorUsuarioSenha(String usuario, String senha, boolean cripto) throws PersistenciaException;
 }
