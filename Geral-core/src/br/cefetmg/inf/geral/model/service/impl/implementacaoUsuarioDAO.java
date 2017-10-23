@@ -40,7 +40,7 @@ public class implementacaoUsuarioDAO implements IUsuarioDAO{
     }
     
     @Override
-    public Usuario consultarPorUsuarioSenha(String usuario, String senha) throws PersistenciaException{
-        return dao.consultarPorUsuarioSenha(usuario, senha);
+    public Usuario consultarPorUsuarioSenha(String usuario, String senha, boolean cripto) throws PersistenciaException{
+        return dao.consultarPorUsuarioSenha(usuario, senha, cripto);
     }
 }

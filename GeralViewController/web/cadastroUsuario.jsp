@@ -107,7 +107,7 @@
                </div>
             </div>
 
-            <a id="criarConta" class="waves-effect waves-light btn" style="background: green" onclick="GravarUsuario(document.formCad)">Criar Conta</a>
+            <a id="criarConta" class="waves-effect waves-light btn" style="background: green" onclick="GravarUsuario(document.formCadastroUsuario)">Criar Conta</a>
          </center>
         </form>
       </div>

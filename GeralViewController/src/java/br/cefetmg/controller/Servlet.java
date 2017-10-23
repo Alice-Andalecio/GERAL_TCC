@@ -36,9 +36,16 @@ public class Servlet extends HttpServlet {
                 Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-                if (acao.equals("SalvarCadAnimal")) {
+        if (acao.equals("SalvarCadAnimal")) {
             try {
                 jsp = CadastroAnimalController.execute(request);
+            } catch (Exception ex) {
+                Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if (acao.equals("CadAnimal")) {
+            try {
+                jsp = VisualizarExcluirAnimalController.execute(request);
             } catch (Exception ex) {
                 Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
             }

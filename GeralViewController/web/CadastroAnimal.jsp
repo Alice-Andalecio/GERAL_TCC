@@ -63,7 +63,7 @@
         <li><a class="waves-effect" href="#">Controle Reprodutivo</a>
          <ul>
             <li><a class="waves-effect" href="RepInseminacao.jsp">Inseminação/Cobrição</a></li>
-            <li><a class="waves-effect" href="RepDiagnostico">Diagnóstico</a></li>
+            <li><a class="waves-effect" href="RepDiagnostico.jsp">Diagnóstico</a></li>
             <li><a class="waves-effect" href="RepParto.jsp">Parto</a>
             </ul>
          </li>
@@ -74,7 +74,7 @@
       </ul>
       <ul class="left ">
          <li>
-            <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse green-text #FFFFFF"><b>Menu</b></button>
+             <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse green-text #FFFFFF"><b>Menu: <%= request.getAttribute("nome") %></b></button>
          </li>
       </ul>        
    </header>
@@ -145,48 +145,48 @@
       <div class="esconder" id="divCampAnimal">
         <div class="row">
           <div class="input-field col s2">
-            <input type="text" id="numSISBOV"></input>
+            <input type="text" name="numSISBOV" id="numSISBOV"></input>
             <label for="numSISBOV"><b>Nº SISBOV</b></label>
           </div>
           <div class="col s1"></div>
           <div class="input-field col s3">
-            <input type="text" id="brincoEle"></input>
+            <input type="text" name="brincoEle" id="brincoEle"></input>
             <label for="brincoEle"><b>Brinco Eletrônico</b></label>
           </div>
           <div class="col s1"></div>
           <div class="input-field col s2">
-            <input type="text" id="numRGN"></input>
+            <input type="text" name="numRGN" id="numRGN"></input>
             <label for="numRGN"><b>RGN</b></label>
           </div>
           <div class="col s1"></div>
           <div class="input-field col s2">
-            <input type="text" id="numRGD"></input>
+            <input type="text" name="numRGD" id="numRGD"></input>
             <label for="numRGD"><b>RGD</b></label>
           </div>
         </div>
 
         <div class="row">
           <div class="input-field col s2">
-            <input type="text" id="numAnimal"></input>
+            <input type="text" name="numAnimal" id="numAnimal"></input>
             <label for="numAnimal"><b>Nº do Animal</b></label>
           </div>
           <div class="col s1"></div>
           <div class="input-field col s3">
-            <input type="text" id="nomCompAnimal"></input>
+            <input type="text" id="nomCompAnimal" name="nomCompAnimal"></input>
             <label for="nomCompAnimal"><b>Nome Completo do Animal</b></label>
           </div>
           <div class="col s1"></div>
           <div class="input-field col s2">
-            <input type="text" id="nomAnimal"></input>
+            <input type="text" id="nomAnimal" nome="nomAnimal"></input>
             <label for="nomAnimal"><b>Nome Resumido</b></label>
           </div>
           <div class="col s1"></div>
           <div class="input-field col s1">
-            <input type="text" id="peso"></input>
+            <input type="text" id="peso" name="peso"></input>
             <label for="peso"><b>Peso</b></label>
           </div>
           <div class="input-field col s1">
-            <input type="text" id="idade"></input>
+            <input type="text" name="idade" id="idade"></input>
             <label for="idade"><b>Idade</b></label>
           </div>
         </div>  
@@ -217,27 +217,27 @@
           <div class="col s2">
             <select class="browser-default" name="pelagem" id="pelagem">
               <option value="" disabled selected>Pelagem</option>
-              <option value="1">Amarelada</option>
-              <option value="2">Branco</option>
-              <option value="3">Branco e Preta</option>
-              <option value="4">Cinzenta</option>
-              <option value="5">Chita</option>
-              <option value="6">Parda</option>
-              <option value="7">Vermelho e branco</option>
-              <option value="3">Parda</option>
-              <option value="2">Outro</option>
+              <option value="Amarelada">Amarelada</option>
+              <option value="Branco">Branco</option>
+              <option value="Branco e Preta">Branco e Preta</option>
+              <option value="Cinzenta">Cinzenta</option>
+              <option value="Chita">Chita</option>
+              <option value="Parda">Parda</option>
+              <option value="Vermelho e branco">Vermelho e branco</option>
+              <option value="Parda">Parda</option>
+              <option value="Outro">Outro</option>
             </select>
           </div>
           <div class="col s1"></div>
           <div class="col s3">
             <select class="browser-default" name="categoria" id="categoria">
               <option value="" disabled selected>Categoria</option>
-              <option value="1">Vacas em Lactação</option>
-              <option value="2">Vacas Pré-parto</option>
-              <option value="3">Vacas Secas</option>
-              <option value="4">Bezerras Lactantes</option>
-              <option value="5">Novilhas</option>
-              <option value="6">Touro</option>
+              <option value="Vacas em Lactação">Vacas em Lactação</option>
+              <option value="Vacas Pré-Parto">Vacas Pré-parto</option>
+              <option value="Vacas Secas">Vacas Secas</option>
+              <option value="Bezerras Lactantes">Bezerras Lactantes</option>
+              <option value="Novilhas">Novilhas</option>
+              <option value="Touro">Touro</option>
             </select>
           </div>
           <br><br><hr>
@@ -272,9 +272,9 @@
           <div class="input-field col s3">
             <select class="browser-default" name="classificacaoEmbriao" id="classificacaoEmbriao">
               <option value="" disabled selected>Classificação do Embrião</option>
-              <option value="1">Blastocisto</option>
-              <option value="2">Blastocisto Expandido</option>
-              <option value="3">Mórula</option>
+              <option value="Blastocisto">Blastocisto</option>
+              <option value="Blastocisto Expandido">Blastocisto Expandido</option>
+              <option value="Mórdula">Mórula</option>
             </select>
           </div>
           <br><br><br><hr>
@@ -286,7 +286,7 @@
       <div class="esconder" id="divCampSemen">
         <div class="row">
           <div class="input-field col s2">
-            <input type="text" id="numSemen"></input>
+            <input type="text" name="numSemen" id="numSemen"></input>
             <label for="numSemen"><b>Nº do Sêmen</b></label>
           </div>
           <br><br><br><hr>
@@ -299,11 +299,11 @@
           <b>Tipo de Raça:</b>
         </div>
         <div class="col s2"> 
-          <input class="with-gap" name="tipoRaca" type="radio" id="racaPuro"/>
+          <input class="with-gap" name="tipoRaca" type="radio" value="Puro" id="racaPuro"/>
           <label for="racaPuro"><b>Puro</b></label>
         </div>
         <div class="col s2">
-          <input class="with-gap" name="tipoRaca" type="radio" id="racaMest"/>
+          <input class="with-gap" name="tipoRaca" type="radio" value="Mestiço" id="racaMest"/>
           <label for="racaMest"><b>Mestiço</b></label>
         </div>
         <br><br>

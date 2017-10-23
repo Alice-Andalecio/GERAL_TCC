@@ -44,7 +44,7 @@ public class UsuarioDAO implements IUsuarioDAO {//SQL
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "SELECT * FROM usuario WHERE idt_Perfil = ?";
+            String sql = "SELECT * FROM usuario WHERE id_Usuario = ?";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setLong(1, idUsuario);
@@ -55,7 +55,7 @@ public class UsuarioDAO implements IUsuarioDAO {//SQL
                 usuario = new Usuario();
                 usuario.setId(rs.getLong("id_Usuario"));
                 usuario.setNome(rs.getString("nom_usuario"));
-                usuario.setSenha(rs.getString("senha"));
+                usuario.setSenha(rs.getString("txt_senha"));
                 usuario.setEmail(rs.getString("cod_Email"));
             }
 
@@ -153,11 +153,15 @@ public class UsuarioDAO implements IUsuarioDAO {//SQL
     }
 
     @Override
-    public Usuario consultarPorUsuarioSenha(String usuarioLogin, String senha) throws PersistenciaException {
+    public Usuario consultarPorUsuarioSenha(String usuarioLogin, String senha, boolean cripto) throws PersistenciaException {
         try {
+            String sql = "";
             Connection connection = ConnectionManager.getInstance().getConnection();
-
-            String sql = "SELECT * FROM usuario WHERE cod_email = ? AND txt_Senha = md5(?);";
+            if (cripto) {
+                sql = "SELECT * FROM usuario WHERE cod_email = ? AND txt_Senha = ?;";
+            } else {
+                sql = "SELECT * FROM usuario WHERE cod_email = ? AND txt_Senha = md5(?);";
+            }
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, usuarioLogin);

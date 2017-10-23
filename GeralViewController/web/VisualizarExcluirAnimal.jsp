@@ -56,7 +56,7 @@
            <img src="images/logoPreto.png">
         </div>
         <li><a class="waves-effect" href="VisualizarExcluirAnimal.jsp">Animais</a></li> 
-        <li><a class="waves-effect" href="CadastroAnimal.jsp">Cadastro de Animais</a></li>
+        <li><a id="ancorCadAnimal" class="waves-effect" href="" onclick="linkVisualizarExcluirAnimal()">Cadastro de Animais</a></li>
         <li><a class="waves-effect" href="controleLeiteiro.jsp">Controle Leiteiro</a></li>
         <li><a class="waves-effect" href="#">Controle Reprodutivo</a>
          <ul>
@@ -372,5 +372,6 @@
    <script src="js/materialize.js"></script>
    <script src="js/VisExclAnimal.js"></script>
    <script src="js/menu.js"></script>
+   <script src="js/linkMenu.js"></script>
 </body>
 </html>
