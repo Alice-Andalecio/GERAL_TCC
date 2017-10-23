@@ -106,12 +106,7 @@
                   <label for="confSenha"><b>Confirmar Senha</b></label>
                </div>
             </div>
-<<<<<<< HEAD
             <a id="criarConta" class="waves-effect waves-light btn" style="background: green" onclick="GravarUsuario()">Criar Conta</a>
-=======
-
-            <a id="criarConta" class="waves-effect waves-light btn" style="background: green" onclick="GravarUsuario(document.formCadastroUsuario)">Criar Conta</a>
->>>>>>> origin/master
          </center>
         </form>
       </div>
