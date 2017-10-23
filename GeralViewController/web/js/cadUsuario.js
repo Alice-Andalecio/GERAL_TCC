@@ -20,7 +20,7 @@ function validaCampo() {
 }
 
 function GravarUsuario (form) {
-    var form = document.formCad;
+    var form = document.getElementById("formCadastroUsuario");
     var name = document.getElementById("name").value;
     var senha = document.getElementById("senha").value;
     var confSenha = document.getElementById("confSenha").value;
@@ -57,9 +57,9 @@ function GravarUsuario (form) {
     } 
 
     
-    else if (document.getElementById("acao").value == "gravarCadUsuario") { // ainda não tá rolando
-        
-        caminhourl = "/GeralViewController/Servlet?acao=GravarUsuario";
+    else if (document.getElementById("acao").value == "gravarCadUsuario") {
+       // alert("AteAquiROlou");
+        caminhourl = "/GeralViewController/Servlet?acao=gravarCadUsuario";
         form.action = caminhourl;
         form.submit();
     }

@@ -19,6 +19,7 @@
    <link rel="stylesheet" href="css/vendor.css">    
    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ 
 
    <!-- Ajustando o header -->
    <style type="text/css">
@@ -62,7 +63,7 @@
    </header>
 
    <!-- Formulário para realizar login no sistema -->
-   <section id="process">  
+   <form id="process" name="formLogin" method="POST">  
       <div class="row">
          <center>
             <div class="col s12"> 
@@ -72,24 +73,24 @@
                <div class="row">
                   <div class="col s3"></div>
                   <div class="input-field col s6 center-block">
-                     <input id="email" type="email" class="validate">
+                     <input id="email" name="email" type="email" class="validate">
                      <label for="email"><b>Email</b></label>
                   </div>
                </div>
                <div class="row">
                   <div class="col s3"></div>
                   <div class="input-field col s6 center-block">
-                     <input id="senha" type="password" class="validate">
+                     <input id="senha" name="password" type="password" class="validate">
                      <label for="senha"><b>Senha</b></label>
                   </div>
                </div>
                <br>
                <h6><a href="esqueceuSenha.jsp" style="color: green">Esqueceu a senha? Clique aqui!</a></h6>
                <br>
-               <a class="waves-effect waves-light btn" style="background: green">Entrar</a>
+               <a class="waves-effect waves-light btn" onclick="logarRedirect()" style="background: green">Entrar</a>
         </center>
       </div>
-   </section>   
+   </form>   
 
    <!-- Footer -->
    <footer>
@@ -154,5 +155,6 @@
    <script src="js/plugins.js"></script>
    <script src="js/main.js"></script>
    <script src="js/materialize.js"></script>
+   <script src="js/login.js"></script>
 </body>
 </html>

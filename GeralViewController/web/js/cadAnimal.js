@@ -259,10 +259,19 @@ function validacaoCampos() {
         document.getElementById("racaMest").focus();
         return false;
     }
-    
+  /* 
     else if ( == ""){
         alert ("");
         document.getElementById("").focus();
         return false;
     }
+   */  
+}
+
+function salvarRedirect(){
+        var frm = document.getElementById("formCadastroAnimal");
+        caminhourl = "Servlet?acao=SalvarCadAnimal";
+        frm.action = caminhourl;
+        frm.submit();
+        return true;
 }

@@ -3,9 +3,10 @@
     Created on : 16/10/2017, 11:58:01
     Author     : jaops
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="br.cefetmg.controller.Login"%>
 <!DOCTYPE html>
+<% Login.validarSessao(request,response); %>%>
 <html class="no-js" lang="en">
 <head>
    <meta charset="utf-8">
@@ -71,7 +72,7 @@
       </ul>
       <ul class="left ">
          <li>
-            <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse green-text #FFFFFF"><b>Menu</b></button>
+             <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse green-text #FFFFFF"><b>Menu : <%= request.getAttribute("nome") %></b></button>
          </li>
       </ul>        
    </header>

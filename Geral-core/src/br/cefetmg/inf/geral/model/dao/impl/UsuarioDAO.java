@@ -15,16 +15,14 @@ public class UsuarioDAO implements IUsuarioDAO {//SQL
     @Override
     public void inserir(Usuario usuario) throws PersistenciaException {
 
-        try {
-            Connection connection = ConnectionManager.getInstance().getConnection();
+        try (Connection connection = ConnectionManager.getInstance().getConnection()) {
 
-            String sql = "INSERT INTO usuario (nom_usuario, txt_Senha, cod_Email, idt_Perfil) VALUES(?,md5(?),?,?) RETURNING id_Usuario";
+            String sql = "INSERT INTO usuario (nom_usuario, txt_Senha, cod_Email) VALUES(?,md5(?),?) RETURNING id_Usuario";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, usuario.getNome());
             pstmt.setString(2, usuario.getSenha());
             pstmt.setString(3, usuario.getEmail());
-            pstmt.setString(4, ""+usuario.getIdtPerfil()); // Arrumar conversao de tipo
             ResultSet rs = pstmt.executeQuery();
 
             Long id = null;
@@ -35,7 +33,6 @@ public class UsuarioDAO implements IUsuarioDAO {//SQL
 
             rs.close();
             pstmt.close();
-            connection.close();
 
         } catch (Exception e) {
             throw new PersistenciaException(e.getMessage());

@@ -94,7 +94,7 @@
             <div class="row">
                <div class="col s3"></div>
                <div class="input-field col s6">
-                  <input id="senha" type="password" class="validate">
+                  <input id="senha" name="password" type="password" class="validate">
                   <label for="senha"><b>Senha</b></label>
                </div>
             </div>

@@ -5,6 +5,10 @@
  */
 package br.cefetmg.controller;
 
+import br.cefetmg.inf.geral.model.dao.IUsuarioDAO;
+import br.cefetmg.inf.geral.model.dao.impl.UsuarioDAO;
+import br.cefetmg.inf.geral.model.domain.Usuario;
+import br.cefetmg.inf.util.db.exception.PersistenciaException;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -13,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class CadastroUsuarioController {
 
-    public static String execute(HttpServletRequest request) {
+    public static String execute(HttpServletRequest request) throws PersistenciaException {
         System.out.println("debug");
         String jsp = "";
         String nome = request.getParameter("name");
@@ -23,7 +27,7 @@ public class CadastroUsuarioController {
         request.setAttribute("name", nome);
         request.setAttribute("email", email);
         request.setAttribute("senha", senha);
-/*
+
         Usuario usuario = new Usuario();
         usuario.setNome(nome);
         usuario.setEmail(email);
@@ -31,8 +35,8 @@ public class CadastroUsuarioController {
 
         IUsuarioDAO manterUsuario = new UsuarioDAO();
         manterUsuario.inserir(usuario);
-*/
-        jsp = "/index.jsp";
+
+        jsp = "/VisualizarExcluirAnimal.jsp";
         return jsp;
     }
 }

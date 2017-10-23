@@ -9,7 +9,7 @@ public class ConnectionManager {
     private static ConnectionFactory CR;
 
     private ConnectionManager() {
-        ConnectionManager.CR = new MySQLConnection();
+        ConnectionManager.CR = new JDBCPostgreSQLConnection();
     }
 
     public static ConnectionManager getInstance() {
