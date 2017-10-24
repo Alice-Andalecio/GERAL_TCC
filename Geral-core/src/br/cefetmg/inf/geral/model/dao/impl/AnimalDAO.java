@@ -17,12 +17,43 @@ public class AnimalDAO implements IAnimalDAO {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "INSERT INTO animal (seq_Animal_Pai, seq_Animal_Mae, nro_Animal, dat_Nascimento ) VALUES(?, ?, ?, ?)";
+            String sql = "INSERT INTO public.animal(seq_procedencia, "
+                    + " cod_grupo, cod_email, nro_animal,dat_nascimento, idt_tipo,"
+                    + " idt_status, pelagem, peso, idade, nom_animal,num_sisbov, "
+                    + " desmama, aptidao, num_pai,num_mae, entrada, brinco_eletronico,"
+                    + " raca_pura, raca_mestica_1, raca_mestica_2, porcentagem_1, porcentagem_2,"
+                    + " nome_pai, nome_mae)"
+                    + " VALUES (?, ?, ?, ?, ?, "
+                    + "            ?, ?, ?, ?, ?, ?, ?,"
+                    + "            ?, ?, ?, ?, ?, ?, ?,"
+                    + "            ?, ?, ?, ?, ?,"
+                    + "            ?, ?);";
+
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setLong(1, animal.getSeq_Animal_Pai());
-            pstmt.setLong(2, animal.getSeq_Animal_Mae());
-            pstmt.setString(3, animal.getNro_Animal());
+            pstmt.setLong(1, animal.getSeq_Procedencia());
+            pstmt.setLong(2, animal.getCod_Grupo());
+            pstmt.setLong(3, animal.getNro_Animal());
             pstmt.setDate(4, (Date) animal.getDat_Nascimento());
+            pstmt.setString(5, animal.getIdt_Tipo());
+            pstmt.setString(6, animal.getIdt_Status());
+            pstmt.setString(7, animal.getPelagem());
+            pstmt.setLong(8, animal.getPeso());
+            pstmt.setLong(9, animal.getIdade());
+            pstmt.setString(10, animal.getNomeAnimal());
+            pstmt.setLong(11, animal.getNumSisbov());
+            pstmt.setDate(12, (Date) animal.getDesmama());
+            pstmt.setDate(13, (Date) animal.getAptidao());
+            pstmt.setLong(14, animal.getNumPai());
+            pstmt.setLong(15, animal.getNumMae());
+            pstmt.setDate(16, (Date) animal.getEntrada());
+            pstmt.setLong(17, animal.getBrincoEletronico());
+            pstmt.setString(18, animal.getRacaMestica_1());
+            pstmt.setString(19, animal.getRacaMestica_2());
+            pstmt.setLong(20, animal.getPorcentagem_1());
+            pstmt.setLong(21, animal.getPorcentagem_2());
+            pstmt.setString(22, animal.getNomePai());
+            pstmt.setString(23, animal.getNomeMae());
+
             ResultSet rs = pstmt.executeQuery();
 
             Long seq_Animal = null;
@@ -48,18 +79,41 @@ public class AnimalDAO implements IAnimalDAO {
 
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "UPDATE animal "
-                    + " SET seq_Animal_Pai = ?, "
-                    + "     seq_Animal_Mae = ? "
-                    + "     nro_Animal = ? "
-                    + "     dat_Nascimento = ? "
-                    + " WHERE nro_Animal = ?";
+            String sql = "UPDATE public.animal\n"
+                    + "   SET seq_animal=?, seq_procedencia=?, cod_grupo=?, cod_email=?, nro_animal=?,"
+                    + "       dat_nascimento=?, idt_tipo=?, idt_status=?, pelagem=?, peso=?,"
+                    + "       idade=?, nom_animal=?, num_sisbov=?, desmama=?, aptidao=?, num_pai=?,"
+                    + "       num_mae=?, entrada=?, brinco_eletronico=?, raca_pura=?, raca_mestica_1=?,"
+                    + "       raca_mestica_2=?, porcentagem_1=?, porcentagem_2=?, nome_pai=?,"
+                    + "       nome_mae=?"
+                    + " WHERE seq_animal = ?;";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setLong(1, animal.getSeq_Animal_Pai());
-            pstmt.setLong(2, animal.getSeq_Animal_Mae());
-            pstmt.setString(3, animal.getNro_Animal());
+            
+            pstmt.setLong(1, animal.getSeq_Procedencia());
+            pstmt.setLong(2, animal.getCod_Grupo());
+            pstmt.setLong(3, animal.getNro_Animal());
             pstmt.setDate(4, (Date) animal.getDat_Nascimento());
+            pstmt.setString(5, animal.getIdt_Tipo());
+            pstmt.setString(6, animal.getIdt_Status());
+            pstmt.setString(7, animal.getPelagem());
+            pstmt.setLong(8, animal.getPeso());
+            pstmt.setLong(9, animal.getIdade());
+            pstmt.setString(10, animal.getNomeAnimal());
+            pstmt.setLong(11, animal.getNumSisbov());
+            pstmt.setDate(12, (Date) animal.getDesmama());
+            pstmt.setDate(13, (Date) animal.getAptidao());
+            pstmt.setLong(14, animal.getNumPai());
+            pstmt.setLong(15, animal.getNumMae());
+            pstmt.setDate(16, (Date) animal.getEntrada());
+            pstmt.setLong(17, animal.getBrincoEletronico());
+            pstmt.setString(18, animal.getRacaMestica_1());
+            pstmt.setString(19, animal.getRacaMestica_2());
+            pstmt.setLong(20, animal.getPorcentagem_1());
+            pstmt.setLong(21, animal.getPorcentagem_2());
+            pstmt.setString(22, animal.getNomePai());
+            pstmt.setString(23, animal.getNomeMae());
+
             pstmt.executeUpdate();
 
             pstmt.close();
@@ -108,11 +162,34 @@ public class AnimalDAO implements IAnimalDAO {
                 listAll = new ArrayList<>();
                 do {
                     Animal animal = new Animal();
+
                     animal.setSeq_Animal(rs.getLong("seq_Animal"));
-                    animal.setSeq_Animal_Pai(rs.getLong("seq_Animal_Pai"));
-                    animal.setSeq_Animal_Mae(rs.getLong("seq_Animal_Mae"));
-                    animal.setNro_Animal(rs.getString("nro_Animal"));
-                    animal.setDat_Nascimento(rs.getDate("dat_Nascimento"));
+                    animal.setSeq_Procedencia(rs.getLong("seq_Procedencia"));
+                    animal.setCod_Grupo(rs.getLong("cod_grupo"));
+                    animal.setNro_Animal(rs.getLong("nro_animal"));
+                    animal.setDat_Nascimento(rs.getDate("dat_nascimento"));
+                    animal.setIdt_Tipo(rs.getString("idt_tipo"));
+                    animal.setIdt_Status(rs.getString("idt_status"));
+                    animal.setPelagem(rs.getString("pelagem"));
+                    animal.setPeso(rs.getInt("peso"));
+                    animal.setIdade(rs.getInt("idade"));
+                    animal.setNomeAnimal(rs.getString("nom_animal"));
+                    animal.setNumSisbov(rs.getLong("num_sisbov"));
+                    animal.setDesmama(rs.getDate("desmama"));
+                    animal.setAptidao(rs.getDate("aptidao"));
+                    animal.setNumPai(rs.getLong("num_pai"));
+                    animal.setNumMae(rs.getLong("num_mae"));
+                    animal.setEntrada(rs.getDate("entrada"));
+                    animal.setBrincoEletronico(rs.getLong("brinco_eletronico"));
+                    animal.setRacaPura(rs.getString("raca_pura"));
+                    animal.setRacaMestica_1(rs.getString("raca_mestica_1"));
+                    animal.setRacaMestica_2(rs.getString("raca_mestica_2"));
+                    animal.setPorcentagem_1(rs.getLong("porcentagem_1"));
+                    animal.setPorcentagem_2(rs.getLong("porcentagem_2"));
+                    animal.setNomePai(rs.getString("nome_pai"));
+                    animal.setNomeMae(rs.getString("nome_mae"));
+                    
+                    
                     listAll.add(animal);
                 } while (rs.next());
             }
@@ -143,11 +220,32 @@ public class AnimalDAO implements IAnimalDAO {
             IAnimalDAO estadoDAO = new AnimalDAO();
             if (rs.next()) {
                 animal = new Animal();
-                animal.setSeq_Animal(rs.getLong("seq_Animal"));
-                animal.setSeq_Animal_Pai(rs.getLong("seq_Animal_Pai"));
-                animal.setSeq_Animal_Pai(rs.getLong("seq_Animal_Mae"));
-                animal.setNro_Animal(rs.getString("nro_Animal"));
-                animal.setDat_Nascimento(rs.getDate("dat_Nascimento"));
+                                animal.setSeq_Animal(rs.getLong("seq_Animal"));
+                    animal.setSeq_Procedencia(rs.getLong("seq_Procedencia"));
+                    animal.setCod_Grupo(rs.getLong("cod_grupo"));
+                    animal.setNro_Animal(rs.getLong("nro_animal"));
+                    animal.setDat_Nascimento(rs.getDate("dat_nascimento"));
+                    animal.setIdt_Tipo(rs.getString("idt_tipo"));
+                    animal.setIdt_Status(rs.getString("idt_status"));
+                    animal.setPelagem(rs.getString("pelagem"));
+                    animal.setPeso(rs.getInt("peso"));
+                    animal.setIdade(rs.getInt("idade"));
+                    animal.setNomeAnimal(rs.getString("nom_animal"));
+                    animal.setNumSisbov(rs.getLong("num_sisbov"));
+                    animal.setDesmama(rs.getDate("desmama"));
+                    animal.setAptidao(rs.getDate("aptidao"));
+                    animal.setNumPai(rs.getLong("num_pai"));
+                    animal.setNumMae(rs.getLong("num_mae"));
+                    animal.setEntrada(rs.getDate("entrada"));
+                    animal.setBrincoEletronico(rs.getLong("brinco_eletronico"));
+                    animal.setRacaPura(rs.getString("raca_pura"));
+                    animal.setRacaMestica_1(rs.getString("raca_mestica_1"));
+                    animal.setRacaMestica_2(rs.getString("raca_mestica_2"));
+                    animal.setPorcentagem_1(rs.getLong("porcentagem_1"));
+                    animal.setPorcentagem_2(rs.getLong("porcentagem_2"));
+                    animal.setNomePai(rs.getString("nome_pai"));
+                    animal.setNomeMae(rs.getString("nome_mae"));
+                    
             }
 
             rs.close();

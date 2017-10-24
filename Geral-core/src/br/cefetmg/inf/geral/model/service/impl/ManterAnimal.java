@@ -26,7 +26,7 @@ public class ManterAnimal implements IManterAnimal {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 
-        if ((animal.getNro_Animal() == null) || (animal.getNro_Animal().isEmpty())) {
+        if (animal.getNro_Animal() == null) {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 
@@ -48,7 +48,7 @@ public class ManterAnimal implements IManterAnimal {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 
-        if ((animal.getNro_Animal() == null) || (animal.getNro_Animal().isEmpty())) {
+        if (animal.getNro_Animal() == null) {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 

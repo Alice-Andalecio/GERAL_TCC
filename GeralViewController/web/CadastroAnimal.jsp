@@ -150,17 +150,17 @@
           </div>
           <div class="col s1"></div>
           <div class="input-field col s3">
-            <input type="text" name="brincoEle" id="brincoEle"></input>
+            <input type="text" name="brincoEle" id="brincoEle" ></input>
             <label for="brincoEle"><b>Brinco Eletrônico</b></label>
           </div>
           <div class="col s1"></div>
           <div class="input-field col s2">
-            <input type="text" name="numRGN" id="numRGN"></input>
+            <input type="text" name="numRGN" id="numRGN" disabled></input>
             <label for="numRGN"><b>RGN</b></label>
           </div>
           <div class="col s1"></div>
           <div class="input-field col s2">
-            <input type="text" name="numRGD" id="numRGD"></input>
+              <input type="text" name="numRGD" id="numRGD" disabled></input>
             <label for="numRGD"><b>RGD</b></label>
           </div>
         </div>
@@ -172,13 +172,13 @@
           </div>
           <div class="col s1"></div>
           <div class="input-field col s3">
-            <input type="text" id="nomCompAnimal" name="nomCompAnimal"></input>
+            <input type="text" id="nomCompAnimal" name="nomCompAnimal" disabled></input>
             <label for="nomCompAnimal"><b>Nome Completo do Animal</b></label>
           </div>
           <div class="col s1"></div>
           <div class="input-field col s2">
             <input type="text" id="nomAnimal" nome="nomAnimal"></input>
-            <label for="nomAnimal"><b>Nome Resumido</b></label>
+            <label for="nomAnimal"><b>Nome do Animal</b></label>
           </div>
           <div class="col s1"></div>
           <div class="input-field col s1">
@@ -775,7 +775,7 @@
         </div>
         <div class="col s1"></div>
         <div class="input-field col s3">
-          <input type="text" id="nomCompPai"></input>
+            <input type="text" id="nomCompPai" disabled></input>
           <label for="nomCompPai"><b>Nome Completo do Pai</b></label>
         </div>
         <div class="col s1"></div>
@@ -792,7 +792,7 @@
         </div>
         <div class="col s1"></div>
         <div class="input-field col s3">
-          <input type="text" id="nomCompMae"></input>
+          <input type="text" id="nomCompMae" disabled></input>
           <label for="nomCompMae"><b>Nome Completo da Mãe</b></label>
         </div>
         <div class="col s1"></div>
