@@ -29,6 +29,9 @@ public class Login {
 
             IUsuarioDAO usuario = new UsuarioDAO();
             Usuario usr = usuario.consultarPorUsuarioSenha(email, senha,false);
+            if(usr == null){
+                return "/login.jsp";
+            }
             String nome = usr.getNome();
             
             if (email.isEmpty() || senha.isEmpty()) {
