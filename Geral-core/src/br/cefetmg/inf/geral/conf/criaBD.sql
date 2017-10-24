@@ -110,7 +110,12 @@ CREATE SEQUENCE "public"."usuario_id_usuario_seq"
  NO MINVALUE
  CACHE 1
 ;
-
+CREATE SEQUENCE "public"."medicamento_cod_medicamento_seq"
+ INCREMENT BY 1
+ NO MAXVALUE
+ NO MINVALUE
+ CACHE 1
+;
 -- Create tables section -------------------------------------------------
 
 -- Table public.alimento
@@ -294,7 +299,8 @@ ALTER TABLE "public"."historico_localizacao" ADD CONSTRAINT "historico_localizac
 -- Table public.medicamento
 
 CREATE TABLE "public"."medicamento"(
- "cod_medicamento" Integer NOT NULL,
+ "cod_medicamento" Integer DEFAULT nextval('medicamento_cod_medicamento_seq'::regclass) NOT NULL,
+ "nom_medicamento" Character NOT NULL,
  "des_medicamento" Character(20) NOT NULL
 )
 ;
