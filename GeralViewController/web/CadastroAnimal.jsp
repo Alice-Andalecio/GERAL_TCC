@@ -177,7 +177,7 @@
           </div>
           <div class="col s1"></div>
           <div class="input-field col s2">
-            <input type="text" id="nomAnimal" nome="nomAnimal"></input>
+            <input type="text" id="nomAnimal" name="nomAnimal"></input>
             <label for="nomAnimal"><b>Nome do Animal</b></label>
           </div>
           <div class="col s1"></div>
@@ -257,7 +257,7 @@
         <div class="row">
           <br>
           <div class="input-field col s3">
-            <input type="text" id="numEmbriao"></input>
+            <input type="text" id="numEmbriao" name="numEmbriao"></input>
             <label for="numEmbriao"><b>Nº do Embrião</b></label>
           </div>
           <div class="col s1"></div>

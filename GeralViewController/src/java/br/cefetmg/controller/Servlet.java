@@ -42,11 +42,18 @@ public class Servlet extends HttpServlet {
                 Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        if (acao.equals("gravarMedicamento")){
+        if (acao.equals("gravarMedicamento")) {
             try {
-                    jsp = CadastroMedicamentoController.execute(request);
+                jsp = CadastroMedicamentoController.execute(request);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
+            }
+        }
+        if (acao.equals("CadAnimal")) {
+            try {
+                jsp = VisualizarExcluirAnimalController.execute(request);
+            } catch (Exception ex) {
+                Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
