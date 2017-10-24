@@ -54,7 +54,7 @@
       <div class="background">
        <img src="images/logoPreto.png">
      </div>
-     <li><a class="waves-effect" href="VisualizarExcluirAnimal.jsp">Animais</a></li> 
+     <li><a class="waves-effect" href="" onClick="linkVisualizarExcluirAnimal()">Animais</a></li> 
      <li><a class="waves-effect" href="CadastroAnimal.jsp">Cadastro de Animais</a></li>
      <li><a class="waves-effect" href="controleLeiteiro.jsp">Controle Leiteiro</a></li>
      <li><a class="waves-effect" href="#">Controle Reprodutivo</a>
@@ -209,6 +209,7 @@
 <script src="js/medicacao.js"></script>
 <script src="js/menu.js"></script>
 <script src="js/cadMedicamento.js"></script>
+<script src="js/linkMenu.js"></script>
 
 </body>
 </html>

@@ -109,9 +109,15 @@ function CadastrarMedicamento() {
     
     var form = document.getElementById("formMedicamentos");
     var nomeMedicamento = document.getElementById("nomMed").value;
+    var prescricaoMedicamento = document.getElementById("prescricaoMed").value;
     if(nomeMedicamento === "" || nomeMedicamento === null){
         alert("Campo nome medicamento obrigatório!");
         document.getElementById("nomMed").focus();
+        return false;
+    }
+    if(prescricaoMedicamento === "" || prescricaoMedicamento === null){
+        alert("Campo prescricao medicamento obrigatório!");
+        document.getElementById("prescricaoMed").focus();
         return false;
     }
     caminhourl = "/GeralViewController/Servlet?acao=gravarMedicamento";

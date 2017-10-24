@@ -103,7 +103,7 @@
 
         <div class="row">
           <div class="col s2">
-            <a class="waves-effect waves-light btn" id="aplicar" style="background: green">
+            <a class="waves-effect waves-light btn" id="aplicar" style="background: green" onClick="geraDadosLeite()">
               <i class="material-icons right">send</i>Aplicar</a>
           </div>
           <br><br>

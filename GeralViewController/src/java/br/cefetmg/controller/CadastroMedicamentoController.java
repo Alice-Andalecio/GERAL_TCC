@@ -31,6 +31,7 @@ public class CadastroMedicamentoController {
             jsp = "/VisualizarExcluirAnimal.jsp";
         } catch (PersistenciaException ex) {
             Logger.getLogger(CadastroMedicamentoController.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
         return jsp;
     }
