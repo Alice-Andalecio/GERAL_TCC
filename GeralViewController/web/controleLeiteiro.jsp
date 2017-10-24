@@ -61,11 +61,17 @@
                             <ul>
                                 <li><a class="waves-effect" href="RepInseminacao.jsp">Inseminação/Cobrição</a></li>
                                 <li><a class="waves-effect" href="RepDiagnostico.jsp">Diagnóstico</a></li>
-                                <li><a class="waves-effect" href="RepParto.jsp">Parto</a>
+                                <li><a class="waves-effect" href="RepParto.jsp">Parto</a></li>
                             </ul>
                         </li>
                         <li><a class="waves-effect" href="Dieta.jsp">Dieta</a></li>
                         <li><a class="waves-effect" href="medicamentos.jsp">Prescrição de Medicamentos</a></li>     
+                        <li><a class="waves-effect" href="#">Relatórios</a>
+                            <ul>
+                                <li><a class="waves-effect" href="#">Controle Leiteiro</a></li>
+                                <li><a class="waves-effect" href="#">Resumo do Animal</a></li>
+                            </ul>
+                        </li>
                         <li><a class="waves-effect" href="vendaLeite.jsp">Venda de Leite</a></li>
                         <li><a class="waves-effect" href="index.jsp" style="color: green">SAIR</a></li>
             </ul>
