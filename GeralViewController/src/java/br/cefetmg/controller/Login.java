@@ -28,7 +28,7 @@ public class Login {
             String senha = request.getParameter("password");
 
             IUsuarioDAO usuario = new UsuarioDAO();
-            Usuario usr = usuario.consultarPorUsuarioSenha(email, senha, false);
+            Usuario usr = usuario.consultarPorUsuarioSenha(email, senha,false);
             String nome = usr.getNome();
             
             if (email.isEmpty() || senha.isEmpty()) {

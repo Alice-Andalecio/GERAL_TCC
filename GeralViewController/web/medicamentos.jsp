@@ -54,7 +54,7 @@
       <div class="background">
        <img src="images/logoPreto.png">
      </div>
-     <li><a class="waves-effect" href="VisualizarExcluirAnimal.jsp">Animais</a></li> 
+     <li><a class="waves-effect" href="" onClick="linkVisualizarExcluirAnimal()">Animais</a></li> 
      <li><a class="waves-effect" href="CadastroAnimal.jsp">Cadastro de Animais</a></li>
      <li><a class="waves-effect" href="controleLeiteiro.jsp">Controle Leiteiro</a></li>
      <li><a class="waves-effect" href="#">Controle Reprodutivo</a>
@@ -80,8 +80,8 @@
 <section id="process"> 
   <br> 
   <div class="row">
-    <form id="formMedicamentos" class="col s12">
-
+    <form id="formMedicamentos" action="" method="POST" class="col s12">
+        <input type='hidden' name='acao' id="acao" value='gravarMedicamento'>
       <div class="row section-intro">
         <div class="col-twelve">
           <br>
@@ -93,7 +93,7 @@
       <div class="row">
         <div class="col s1"></div>
         <div class="input-field col s10">
-          <input type="text" id="nomMed">
+          <input type="text" id="nomMed" name="nomMed">
           <label for="nomMed"><b>Insira o nome do medicamento</b></label>
         </div>
       </div>
@@ -109,7 +109,7 @@
       <div class="row">
         <div class="col s1"></div>
         <div class=" col s10">
-          <textarea id="prescricaoMed" placeholder="Insira a prescrição e observações necessárias"></textarea>
+          <textarea id="prescricaoMed" name="prescricaoMed" placeholder="Insira a prescrição e observações necessárias"></textarea>
         </div>
       </div>
 
@@ -135,7 +135,7 @@
       <br><br>
       <div class="col s1"></div>
       <div class="col s10" align="right">
-        <a class="waves-effect waves-light btn" id="salvarMed" style="background: green">
+        <a class="waves-effect waves-light btn" id="salvarMed" style="background: green" onclick="CadastrarMedicamento()">
           <i class="material-icons right">done</i>Salvar</a>
         </div>
       </div>
@@ -208,7 +208,8 @@
 <script src="js/materialize.js"></script>
 <script src="js/medicacao.js"></script>
 <script src="js/menu.js"></script>
-<script src="js/cadMedicamentos.js"></script>
+<script src="js/cadMedicamento.js"></script>
+<script src="js/linkMenu.js"></script>
 
 </body>
 </html>

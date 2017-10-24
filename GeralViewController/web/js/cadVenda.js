@@ -4,6 +4,24 @@ window.onload = function(){
 
 var numDias = 0;
 
+function geraDadosLeite(){
+    var form = document.getElementById("formVendaLeite");
+    var mesVenda = document.getElementById("mesVenda").value;
+    var anoVenda = document.getElementById("anoVenda").value;
+    if(mesVenda === null || mesVenda < 1 || mesVenda > 12){
+        alert("Mês Inválido!");
+        document.getElementById("mesVenda").focus();
+        return false;
+    }
+    if(anoVenda === null || anoVenda < 1){
+        alert("Ano Inválido!");
+        document.getElementById("mesVenda").focus();
+        return false;
+    }
+    
+    
+}
+
 function CriarTabela(){
 	var mes = document.querySelector('#mesVenda').value;
 	var ano = document.querySelector('#anoVenda').value;
