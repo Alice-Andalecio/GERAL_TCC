@@ -56,6 +56,13 @@ public class Servlet extends HttpServlet {
                 Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        if (acao.equals("GerarDieta")) {
+            try { 
+                jsp = DietaController.execute(request);
+            } catch (Exception ex) {
+                Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
     }
