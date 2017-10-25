@@ -1,6 +1,6 @@
 /*
-Created: 24/10/2017
-Modified: 24/10/2017
+Created: 25/10/2017
+Modified: 25/10/2017
 Model: RE PostgreSQL 9.4
 Database: PostgreSQL 9.4
 */
@@ -110,12 +110,7 @@ CREATE SEQUENCE "public"."usuario_id_usuario_seq"
  NO MINVALUE
  CACHE 1
 ;
-CREATE SEQUENCE "public"."medicamento_cod_medicamento_seq"
- INCREMENT BY 1
- NO MAXVALUE
- NO MINVALUE
- CACHE 1
-;
+
 -- Create tables section -------------------------------------------------
 
 -- Table public.alimento
@@ -135,13 +130,12 @@ ALTER TABLE "public"."alimento" ADD CONSTRAINT "alimento_pkey" PRIMARY KEY ("cod
 
 CREATE TABLE "public"."animal"(
  "seq_animal" Integer DEFAULT nextval('animal_seq_animal_seq'::regclass) NOT NULL,
- "seq_procedencia" Integer,
  "cod_grupo" Integer,
  "cod_email" Character(50) NOT NULL,
  "nro_animal" Character(5) NOT NULL,
- "dat_nascimento" Date NOT NULL,
+ "dat_nascimento" Date,
  "idt_tipo" Character(1),
- "idt_status" Character(1),
+ "idt_status" Character(50),
  "pelagem" Character varying(25),
  "peso" Integer,
  "idade" Integer,
@@ -164,9 +158,6 @@ CREATE TABLE "public"."animal"(
 ;
 
 -- Create indexes for table public.animal
-
-CREATE INDEX "ix_relationship1" ON "public"."animal" ("seq_procedencia")
-;
 
 CREATE INDEX "ix_relationship2" ON "public"."animal" ("cod_grupo")
 ;
@@ -299,8 +290,7 @@ ALTER TABLE "public"."historico_localizacao" ADD CONSTRAINT "historico_localizac
 -- Table public.medicamento
 
 CREATE TABLE "public"."medicamento"(
- "cod_medicamento" Integer DEFAULT nextval('medicamento_cod_medicamento_seq'::regclass) NOT NULL,
- "nom_medicamento" Character NOT NULL,
+ "cod_medicamento" Integer NOT NULL,
  "des_medicamento" Character(20) NOT NULL
 )
 ;
@@ -468,9 +458,6 @@ ALTER TABLE "public"."vacina" ADD CONSTRAINT "vacina_pkey" PRIMARY KEY ("cod_vac
 -- Create relationships section ------------------------------------------------- 
 
 ALTER TABLE "public"."animal" ADD CONSTRAINT "relationship2" FOREIGN KEY ("cod_grupo") REFERENCES "public"."grupo" ("cod_grupo") ON DELETE RESTRICT ON UPDATE RESTRICT
-;
-
-ALTER TABLE "public"."animal" ADD CONSTRAINT "relationship1" FOREIGN KEY ("seq_procedencia") REFERENCES "public"."procedencia" ("seq_procedencia") ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
 ALTER TABLE "public"."animal" ADD CONSTRAINT "relationship31" FOREIGN KEY ("cod_email") REFERENCES "public"."usuario" ("cod_email") ON DELETE RESTRICT ON UPDATE RESTRICT
