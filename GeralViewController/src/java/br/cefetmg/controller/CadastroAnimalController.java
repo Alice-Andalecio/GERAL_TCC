@@ -98,7 +98,9 @@ public class CadastroAnimalController {
         String racaPura = request.getParameter("selectRacaPuro");
 //------------------------------------------------------------------------------
         //setAttribute raca pura
-        request.setAttribute(racaPura, "selectRacaPuro");
+        if (!(racaPura.equals(""))) {
+            request.setAttribute(racaPura, "selectRacaPuro");
+        }
 //------------------------------------------------------------------------------
         //Apenas para raca mestica...
         String porcentMest1 = request.getParameter("porcentagem1");
@@ -114,39 +116,35 @@ public class CadastroAnimalController {
             request.setAttribute(racaMest2, "raca2");
         }
 //------------------------------------------------------------------------------
-        Date Nasc = null;
-        Date Desm = null;
-        Date Aptd = null;
-        Date Entr = null;
+        java.sql.Date Nasc = null;
+        java.sql.Date Desm = null;
+        java.sql.Date Aptd = null;
+        java.sql.Date Entr = null;
 
         SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
         Animal animal = new Animal();
 
         if (!(Nascimento.equals("") && Desmama.equals("") && Aptidao.equals("") && Entrada.equals(""))) {
-            Nasc = (Date) formato.parse(Nascimento);
-            java.sql.Date nasc = new java.sql.Date(Nasc.getTime());
-            Desm = (Date) formato.parse(Desmama);
-            java.sql.Date desm = new java.sql.Date(Desm.getTime());
-            Aptd = (Date) formato.parse(Aptidao);
-            java.sql.Date aptd = new java.sql.Date(Aptd.getTime());
-            Entr = (Date) formato.parse(Entrada);
-            java.sql.Date entr = new java.sql.Date(Entr.getTime());
-            animal.setDat_Nascimento(nasc);
-            animal.setDesmama(desm);
-            animal.setAptidao(aptd);
+            Nasc = new java.sql.Date(formato.parse(Nascimento).getTime());
+            animal.setDat_Nascimento(Nasc);
+            Desm = new java.sql.Date(formato.parse(Desmama).getTime());
+            animal.setDesmama(Desm);
+            Aptd = new java.sql.Date(formato.parse(Aptidao).getTime());
+            animal.setAptidao(Aptd);
+            Entr = new java.sql.Date(formato.parse(Entrada).getTime());
+            animal.setEntrada(Entr);
             animal.setPelagem(Pelagem);
         }
 
         if (!(numeroAnimal.equals("") && numeroSisBov.equals("") && Peso.equals("")
-                && Idade.equals("") && brincoEletronico.equals("")&&numPai.equals("")&&numMae.equals(""))) {
+                && Idade.equals("") && brincoEletronico.equals("") && numPai.equals("") && numMae.equals(""))) {
             animal.setNro_Animal(Long.parseLong(numeroAnimal));
             animal.setNumSisbov(Long.parseLong(numeroSisBov));
             animal.setPeso(Integer.parseInt(Peso));
             animal.setIdade(Integer.parseInt(Idade));
             animal.setBrincoEletronico(Long.parseLong(brincoEletronico));
             animal.setNumPai(Long.parseLong(numPai));
-            animal.setNumPai(Long.parseLong(numMae));
-
+            animal.setNumMae(Long.parseLong(numMae));
         } else {
             animal.setNro_Animal(-1L);
             animal.setNumSisbov(-1L);
@@ -160,10 +158,15 @@ public class CadastroAnimalController {
         animal.setIdt_Tipo(opCadastro);
         animal.setIdt_Status(Categoria);
         animal.setNomeAnimal(nomeAnimal);
-        animal.setEntrada(Entr);
         animal.setRacaPura(racaPura);
-        animal.setRacaMestica_1(racaMest1);
-        animal.setRacaMestica_2(racaMest2);
+        if (!(racaMest1 == null && racaMest2 == null)) {
+            animal.setRacaMestica_1(racaMest1);
+            animal.setRacaMestica_2(racaMest2);
+        } else {
+            animal.setRacaMestica_1("");
+            animal.setRacaMestica_2("");
+
+        }
         if (!(porcentMest1.equals("") && porcentMest2.equals(""))) {
             animal.setPorcentagem_1(Long.parseLong(porcentMest1));
             animal.setPorcentagem_2(Long.parseLong(porcentMest2));
@@ -176,7 +179,7 @@ public class CadastroAnimalController {
         String email = (String) request.getSession().getAttribute("email");
         animal.setCod_email(email);
         animal.setCod_Grupo(1L);
-        
+
         IAnimalDAO manterAnimal = new AnimalDAO();
         manterAnimal.inserir(animal);
         jsp = "/VisualizarExcluirAnimal.jsp";

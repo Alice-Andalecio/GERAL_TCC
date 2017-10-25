@@ -78,12 +78,6 @@
                         <li><a class="waves-effect" href="vendaLeite.jsp">Venda de Leite</a></li>
                         <li><a class="waves-effect" href="index.jsp" style="color: green">SAIR</a></li>
             </ul>
-         </li>
-         <li><a class="waves-effect" href="Dieta.jsp">Dieta</a></li>
-         <li><a class="waves-effect" href="medicamentos.jsp">Prescrição de Medicamentos</a></li>     
-         <li><a class="waves-effect" href="vendaLeite.jsp">Venda de Leite</a></li>
-         <li><a class="waves-effect" href="index.jsp" style="color: green">SAIR</a></li>
-      </ul>
       <ul class="left ">
          <li>
              <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse green-text #FFFFFF"><b>Menu: <%= request.getAttribute("nome") %></b></button>
