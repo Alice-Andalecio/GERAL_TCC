@@ -8,8 +8,7 @@ package br.cefetmg.controller;
 import br.cefetmg.inf.geral.model.dao.IAnimalDAO;
 import br.cefetmg.inf.geral.model.dao.impl.AnimalDAO;
 import br.cefetmg.inf.geral.model.domain.Animal;
-import br.cefetmg.inf.util.FormatadorData;
-import java.util.Date;
+import java.sql.Date;
 import br.cefetmg.inf.util.db.exception.PersistenciaException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -49,6 +48,8 @@ public class CadastroAnimalController {
         String Categoria = request.getParameter("categoria");
         String nomePai = request.getParameter("nomPai");
         String nomeMae = request.getParameter("nomMae");
+        String numPai = request.getParameter("numPai");
+        String numMae = request.getParameter("numMae");
 //------------------------------------------------------------------------------
         //setAtributte de animal
         request.setAttribute(numeroSisBov, "numSISBOV");
@@ -61,9 +62,10 @@ public class CadastroAnimalController {
         request.setAttribute(Entrada, "entrada");
         request.setAttribute(Desmama, "desmama");
         request.setAttribute(Aptidao, "aptidao");
-        request.setAttribute(Pelagem, "pelagem");
-        request.setAttribute(Categoria, "pelagem");
-
+        if (!(Pelagem == null && Categoria == null)) {
+            request.setAttribute(Pelagem, "pelagem");
+            request.setAttribute(Categoria, "categoria");
+        }
 //------------------------------------------------------------------------------
         //campos referentes ao embriao 
         String entradaEmbriao = request.getParameter("entradaEmbriao");
@@ -74,8 +76,11 @@ public class CadastroAnimalController {
         //setAttribute embriao
         request.setAttribute(entradaEmbriao, "entradaEmbriao");
         request.setAttribute(numeroEmbriao, "numeroEmbriao");
-        request.setAttribute(tipoEmbriao, "tipoEmbriao");
-        request.setAttribute(classificacaoEmbriao, "classificacaoEmbriao");
+
+        if (!(tipoEmbriao == null || classificacaoEmbriao == null)) {
+            request.setAttribute(tipoEmbriao, "tipoEmbriao");
+            request.setAttribute(classificacaoEmbriao, "classificacaoEmbriao");
+        }
 //------------------------------------------------------------------------------
         // campos referentes ao semen
         String numSemen = request.getParameter("numSemen");
@@ -101,47 +106,81 @@ public class CadastroAnimalController {
         String racaMest1 = request.getParameter("raca1");
         String racaMest2 = request.getParameter("raca2");
 //------------------------------------------------------------------------------
-    //setAtributte para mestica
+        //setAtributte para mestica
         request.setAttribute(porcentMest1, "porcentagem1");
         request.setAttribute(porcentMest2, "porcentagem2");
-        request.setAttribute(racaMest1, "raca1");
-        request.setAttribute(racaMest2, "raca2");
+        if (!(racaMest1 == null || racaMest2 == null)) {
+            request.setAttribute(racaMest1, "raca1");
+            request.setAttribute(racaMest2, "raca2");
+        }
 //------------------------------------------------------------------------------
-    // completar bd amanha 
-       
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        Date Nasc = formato.parse(Nascimento);
-        Date Desm = formato.parse(Desmama);
-        Date Aptd = formato.parse(Aptidao);
-        Date Entr = formato.parse(Entrada);
-        
+        Date Nasc = null;
+        Date Desm = null;
+        Date Aptd = null;
+        Date Entr = null;
+
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
         Animal animal = new Animal();
+
+        if (!(Nascimento.equals("") && Desmama.equals("") && Aptidao.equals("") && Entrada.equals(""))) {
+            Nasc = (Date) formato.parse(Nascimento);
+            java.sql.Date nasc = new java.sql.Date(Nasc.getTime());
+            Desm = (Date) formato.parse(Desmama);
+            java.sql.Date desm = new java.sql.Date(Desm.getTime());
+            Aptd = (Date) formato.parse(Aptidao);
+            java.sql.Date aptd = new java.sql.Date(Aptd.getTime());
+            Entr = (Date) formato.parse(Entrada);
+            java.sql.Date entr = new java.sql.Date(Entr.getTime());
+            animal.setDat_Nascimento(nasc);
+            animal.setDesmama(desm);
+            animal.setAptidao(aptd);
+            animal.setPelagem(Pelagem);
+        }
+
+        if (!(numeroAnimal.equals("") && numeroSisBov.equals("") && Peso.equals("")
+                && Idade.equals("") && brincoEletronico.equals("")&&numPai.equals("")&&numMae.equals(""))) {
+            animal.setNro_Animal(Long.parseLong(numeroAnimal));
+            animal.setNumSisbov(Long.parseLong(numeroSisBov));
+            animal.setPeso(Integer.parseInt(Peso));
+            animal.setIdade(Integer.parseInt(Idade));
+            animal.setBrincoEletronico(Long.parseLong(brincoEletronico));
+            animal.setNumPai(Long.parseLong(numPai));
+            animal.setNumPai(Long.parseLong(numMae));
+
+        } else {
+            animal.setNro_Animal(-1L);
+            animal.setNumSisbov(-1L);
+            animal.setPeso(-1);
+            animal.setIdade(-1);
+            animal.setBrincoEletronico(-1L);
+            animal.setNumPai(-1L);
+            animal.setNumMae(-1L);
+        }
+
         animal.setIdt_Tipo(opCadastro);
         animal.setIdt_Status(Categoria);
-        animal.setNro_Animal(Long.parseLong(numeroAnimal));
-        animal.setNumSisbov(Long.parseLong(numeroSisBov));
         animal.setNomeAnimal(nomeAnimal);
-        animal.setPeso(Integer.parseInt(Peso));
-        animal.setIdade(Integer.parseInt(Idade));
-        animal.setDat_Nascimento(Nasc);
-        animal.setDesmama(Desm);
-        animal.setAptidao(Aptd);
-        animal.setPelagem(Pelagem);
         animal.setEntrada(Entr);
-        animal.setBrincoEletronico(Long.parseLong(brincoEletronico));
         animal.setRacaPura(racaPura);
         animal.setRacaMestica_1(racaMest1);
         animal.setRacaMestica_2(racaMest2);
-        animal.setPorcentagem_1(Long.parseLong(porcentMest1));
-        animal.setPorcentagem_2(Long.parseLong(porcentMest2));
+        if (!(porcentMest1.equals("") && porcentMest2.equals(""))) {
+            animal.setPorcentagem_1(Long.parseLong(porcentMest1));
+            animal.setPorcentagem_2(Long.parseLong(porcentMest2));
+        } else {
+            animal.setPorcentagem_1(-1L);
+            animal.setPorcentagem_2(-1L);
+        }
         animal.setNomePai(nomePai);
         animal.setNomeMae(nomeMae);
+        String email = (String) request.getSession().getAttribute("email");
+        animal.setCod_email(email);
+        animal.setCod_Grupo(1L);
         
         IAnimalDAO manterAnimal = new AnimalDAO();
         manterAnimal.inserir(animal);
-        
         jsp = "/VisualizarExcluirAnimal.jsp";
-        
+
         return jsp;
     }
 

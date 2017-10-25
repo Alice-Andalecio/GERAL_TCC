@@ -10,5 +10,4 @@ function linkVisualizarExcluirAnimal() {
     ancor.href = caminhourl;
     ancor.submit();
     return true;
-
 }

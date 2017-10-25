@@ -31,7 +31,8 @@ public class Animal {
     private Long porcentagem_2;
     private String nomeMae;
     private String nomePai;
-
+    
+    
     public Date getEntrada() {
         return entrada;
     }
@@ -257,4 +258,6 @@ public class Animal {
     public void setIdt_Status(String idt_Status) {
         this.idt_Status = idt_Status;
     }  
+
+
 }

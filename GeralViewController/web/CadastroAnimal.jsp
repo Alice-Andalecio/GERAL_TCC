@@ -104,15 +104,15 @@
 
       <div class="row">
         <div class="col s2">
-          <input class="with-gap" name="radioCadastro" type="radio" value="Animal" id="radioAnimal"/>
+          <input class="with-gap" name="radioCadastro" type="radio" value="A" id="radioAnimal"/>
           <label for="radioAnimal"><b>Animal</b></label>
         </div>
         <div class="col s2">
-          <input class="with-gap" name="radioCadastro" type="radio" value="Embrião" id="radioEmbriao"/>
+          <input class="with-gap" name="radioCadastro" type="radio" value="E" id="radioEmbriao"/>
           <label for="radioEmbriao"><b>Embrião</b></label>
         </div>
         <div class="col s2">
-          <input class="with-gap" name="radioCadastro" type="radio" value="Sêmen" id="radioSemen"/>
+          <input class="with-gap" name="radioCadastro" type="radio" value="S" id="radioSemen"/>
           <label for="radioSemen"><b>Sêmen</b></label>
         </div>
         <div class="col s3">
@@ -770,7 +770,7 @@
 
       <div class="row esconder" id="divPai">
         <div class="input-field col s2">
-          <input type="text" id="numPai"></input>
+          <input type="text" id="numPai" name="numPai"></input>
           <label for="numPai"><b>Nº do Pai</b></label>
         </div>
         <div class="col s1"></div>
@@ -780,14 +780,14 @@
         </div>
         <div class="col s1"></div>
         <div class="input-field col s2">
-          <input type="text" id="nomPai"></input>
+          <input type="text" id="nomPai" name="nomPai"></input>
           <label for="nomPai"><b>Nome do Pai</b></label>
         </div>
       </div>
 
       <div class="row esconder" id="divMae">
         <div class="input-field col s2">
-          <input type="text" id="numMae"></input>
+          <input type="text" id="numMae" name="numMae"></input>
           <label for="numMae"><b>Nº da Mãe</b></label>
         </div>
         <div class="col s1"></div>
@@ -797,7 +797,7 @@
         </div>
         <div class="col s1"></div>
         <div class="input-field col s2">
-          <input type="text" id="nomMae"></input>
+          <input type="text" id="nomMae" name="nomMae"></input>
           <label for="nomMae"><b>Nome da Mãe</b></label>
         </div>
       </div>

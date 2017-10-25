@@ -26,13 +26,13 @@ public class VisualizarExcluirAnimalController {
         String senha = usu.getSenha();
         Usuario usr = usuario.consultarPorUsuarioSenha(email, senha, true);
         String nome = usr.getNome();
- 
+        String email_ = usr.getEmail();
 //       String email = request.getParameter("email");
 //       String senha = request.getParameter("password");
 
         request.setAttribute("nome", nome);
-
         HttpSession session = request.getSession();
+        request.getSession().setAttribute("email", email_);
         request.getSession().setAttribute("codUsuario", usr.getIdUsuario());
         jsp = "/CadastroAnimal.jsp";
 

@@ -6,7 +6,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.cefetmg.controller.Login"%>
 <!DOCTYPE html>
-<% Login.validarSessao(request,response); %>%>
+<% Login.validarSessao(request,response); %>
 <html class="no-js" lang="en">
 <head>
    <meta charset="utf-8">
