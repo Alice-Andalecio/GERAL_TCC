@@ -57,7 +57,7 @@ public class Servlet extends HttpServlet {
             }
         }
         if (acao.equals("GerarDieta")) {
-            try { 
+            try {
                 jsp = DietaController.execute(request);
             } catch (Exception ex) {
                 Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -65,6 +65,13 @@ public class Servlet extends HttpServlet {
         }
         RequestDispatcher rd = request.getRequestDispatcher(jsp);
         rd.forward(request, response);
-    }
 
+        if (acao.equals("gravarInfoParto")) {
+            try {
+                jsp = RepPartoController.execute(request);
+            } catch (Exception ex) {
+                Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 }
