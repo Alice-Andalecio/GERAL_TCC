@@ -9,62 +9,74 @@
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-<% Login.validarSessao(request,response); %>%>
-<head>
-  <meta charset="utf-8">
-  <title>Cadastro de Animais</title>
-  <meta name="description" content="">  
-  <meta name="author" content="">
+    <% Login.validarSessao(request, response);%>%>
+    <head>
+        <meta charset="utf-8">
+        <title>Cadastro de Animais</title>
+        <meta name="description" content="">  
+        <meta name="author" content="">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/base.css">  
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/vendor.css">    
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/base.css">  
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/vendor.css">    
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!-- Ajustando o header -->
-   <style type="text/css">
-      header {
-         width: 100%;
-         position: absolute;
-         left: 0;
-         top: 0px;
-         z-index: 600;
-         background: #14171c;
-      }
+        <!-- Ajustando o header -->
+        <style type="text/css">
+            header {
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 0px;
+                z-index: 600;
+                background: #14171c;
+            }
 
-      li ul{
-         display: none;
-      }
+            li ul{
+                display: none;
+            }
 
-      li:hover ul { 
-         display: block; 
-      }
+            li:hover ul { 
+                display: block; 
+            }
 
-   </style>
+        </style>
 
-</head>
+    </head>
 
-<body id="top">
+    <body id="top">
 
-   <!-- Header -->
-   <header>
-      <ul id="slide-out" class="side-nav">
-        <li>
-         <br>
-         <div class="user-view">
-          <div class="background">
-           <img src="images/logoPreto.png">
-        </div>
-        <li><a class="waves-effect" href="VisualizarExcluirAnimal.jsp">Animais</a></li> 
-        <li><a class="waves-effect" href="CadastroAnimal.jsp">Cadastro de Animais</a></li>
-        <li><a class="waves-effect" href="controleLeiteiro.jsp">Controle Leiteiro</a></li>
-        <li><a class="waves-effect" href="#">Controle Reprodutivo</a>
-         <ul>
-            <li><a class="waves-effect" href="RepInseminacao.jsp">Inseminação/Cobrição</a></li>
-            <li><a class="waves-effect" href="RepDiagnostico.jsp">Diagnóstico</a></li>
-            <li><a class="waves-effect" href="RepParto.jsp">Parto</a>
+        <!-- Header -->
+        <header>
+            <ul id="slide-out" class="side-nav">
+                <li>
+                    <br>
+                    <div class="user-view">
+                        <div class="background">
+                            <img src="images/logoPreto.png">
+                        </div>
+                        <li><a class="waves-effect" href="VisualizarExcluirAnimal.jsp">Animais</a></li> 
+                        <li><a class="waves-effect" href="CadastroAnimal.jsp">Cadastro de Animais</a></li>
+                        <li><a class="waves-effect" href="controleLeiteiro.jsp">Controle Leiteiro</a></li>
+                        <li><a class="waves-effect" href="#">Controle Reprodutivo</a>
+                            <ul>
+                                <li><a class="waves-effect" href="RepInseminacao.jsp">Inseminação/Cobrição</a></li>
+                                <li><a class="waves-effect" href="RepDiagnostico.jsp">Diagnóstico</a></li>
+                                <li><a class="waves-effect" href="RepParto.jsp">Parto</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="waves-effect" href="Dieta.jsp">Dieta</a></li>
+                        <li><a class="waves-effect" href="medicamentos.jsp">Prescrição de Medicamentos</a></li> 
+                        <li><a class="waves-effect" href="#">Relatórios</a>
+                            <ul>
+                                <li><a class="waves-effect" href="#">Controle Leiteiro</a></li>
+                                <li><a class="waves-effect" href="#">Resumo do Animal</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="waves-effect" href="vendaLeite.jsp">Venda de Leite</a></li>
+                        <li><a class="waves-effect" href="index.jsp" style="color: green">SAIR</a></li>
             </ul>
          </li>
          <li><a class="waves-effect" href="Dieta.jsp">Dieta</a></li>

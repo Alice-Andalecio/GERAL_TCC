@@ -1,86 +1,85 @@
-<%-- 
-    Document   : RepParto
-    Created on : 16/10/2017, 11:57:33
-    Author     : jaops
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-<head>
-   <meta charset="utf-8">
-   <title>Parto</title>
-   <meta name="description" content="">  
-   <meta name="author" content="">
+    <head>
+        <meta charset="utf-8">
+        <title>Parto</title>
+        <meta name="description" content="">  
+        <meta name="author" content="">
 
-   <!-- CSS -->
-   <link rel="stylesheet" href="css/base.css">  
-   <link rel="stylesheet" href="css/main.css">
-   <link rel="stylesheet" href="css/vendor.css">    
-   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/base.css">  
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/vendor.css">    
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!-- Ajustando o header -->
-   <style type="text/css">
-      header {
-         width: 100%;
-         position: absolute;
-         left: 0;
-         top: 0px;
-         z-index: 600;
-         background: #14171c;
-      }
+        <!-- Ajustando o header -->
+        <style type="text/css">
+            header {
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 0px;
+                z-index: 600;
+                background: #14171c;
+            }
+            li ul{
+                display: none;
+            }
+            li:hover ul { 
+                display: block; 
+            }
+        </style>
 
-      li ul{
-         display: none;
-      }
+    </head>
 
-      li:hover ul { 
-         display: block; 
-      }
+    <body id="top">
 
-   </style>
-
-</head>
-
-<body id="top">
-
-   <!-- Header -->
-   <header>
-      <ul id="slide-out" class="side-nav">
-        <li>
-         <br>
-         <div class="user-view">
-          <div class="background">
-           <img src="images/logoPreto.png">
-        </div>
-        <li><a class="waves-effect" href="VisualizarExcluirAnimal.jsp">Animais</a></li> 
-        <li><a class="waves-effect" href="CadastroAnimal.jsp">Cadastro de Animais</a></li>
-        <li><a class="waves-effect" href="controleLeiteiro.jsp">Controle Leiteiro</a></li>
-        <li><a class="waves-effect" href="#">Controle Reprodutivo</a>
-         <ul>
-            <li><a class="waves-effect" href="RepInseminacao.jsp">Inseminação/Cobrição</a></li>
-            <li><a class="waves-effect" href="RepDiagnostico.jsp">Diagnóstico</a></li>
-            <li><a class="waves-effect" href="RepParto.jsp">Parto</a>
+        <!-- Header -->
+        <header>
+            <ul id="slide-out" class="side-nav">
+                <li>
+                    <br>
+                    <div class="user-view">
+                        <div class="background">
+                            <img src="images/logoPreto.png">
+                        </div>
+                        <li><a class="waves-effect" href="VisualizarExcluirAnimal.jsp">Animais</a></li> 
+                        <li><a class="waves-effect" href="CadastroAnimal.jsp">Cadastro de Animais</a></li>
+                        <li><a class="waves-effect" href="controleLeiteiro.jsp">Controle Leiteiro</a></li>
+                        <li><a class="waves-effect" href="#">Controle Reprodutivo</a>
+                            <ul>
+                                <li><a class="waves-effect" href="RepInseminacao.jsp">Inseminação/Cobrição</a></li>
+                                <li><a class="waves-effect" href="RepDiagnostico.jsp">Diagnóstico</a></li>
+                                <li><a class="waves-effect" href="RepParto.jsp">Parto</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="waves-effect" href="Dieta.jsp">Dieta</a></li>
+                        <li><a class="waves-effect" href="medicamentos.jsp">Prescrição de Medicamentos</a></li>     
+                        <li><a class="waves-effect" href="#">Relatórios</a>
+                            <ul>
+                                <li><a class="waves-effect" href="#">Controle Leiteiro</a></li>
+                                <li><a class="waves-effect" href="#">Resumo do Animal</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="waves-effect" href="vendaLeite.jsp">Venda de Leite</a></li>
+                        <li><a class="waves-effect" href="index.jsp" style="color: green">SAIR</a></li>
             </ul>
-         </li>
-         <li><a class="waves-effect" href="Dieta.jsp">Dieta</a></li>
-         <li><a class="waves-effect" href="medicamentos.jsp">Prescrição de Medicamentos</a></li>     
-         <li><a class="waves-effect" href="vendaLeite.jsp">Venda de Leite</a></li>
-         <li><a class="waves-effect" href="index.jsp" style="color: green">SAIR</a></li>
-      </ul>
-      <ul class="left ">
-         <li>
-            <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse green-text #FFFFFF"><b>Menu</b></button>
-         </li>
-      </ul>        
-   </header>
-
+            <ul class="left ">
+                <li>
+                    <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse green-text #FFFFFF"><b>Menu</b></button>
+                </li>
+            </ul>        
+        </header>
+        
 <!-- Formulário: Controle Reprodutivo - Parto -->
 <section id="process">  
    <br>
    <div class="row">
-      <form id="formParto" class="col s12">
+       <form id="formParto" action="" method="POST" class="col s12">
+            
+      <input type='hidden' name='acao' id="acao" value='gravarInfoParto'>
 
          <div class="row section-intro">
             <div class="col-twelve">
@@ -126,17 +125,17 @@
             <div class="col s2">
                <b>Tipo:</b>
                <br>
-               <input type="checkbox" id="padrao"></input>
-               <label for="padrao"><b>Padrão</b></label>
+               <input type="checkbox" name="padrao"  id="padrao"></input>
+               <label for="padrao" value="padrao"><b>Padrão</b></label>
                <br>
-               <input type="checkbox" id="doadora"></input>
-               <label for="doadora"><b>Doadora</b></label>
+               <input type="checkbox" name="doadora"  id="doadora"></input>
+               <label for="doadora" value="doadora"><b>Doadora</b></label>
                <br>
-               <input type="checkbox" id="receptora"></input>
-               <label for="receptora"><b>Receptora</b></label>
+               <input type="checkbox" id="receptora" name="receptora"></input>
+               <label for="receptora" value="receptora"><b>Receptora</b></label>
                <br>
-               <input type="checkbox" id="descarte"></input>
-               <label for="descarte"><b>Descarte</b></label>
+               <input type="checkbox" id="descarte" name="descarte"></input>
+               <label for="descarte" value="descarte"><b>Descarte</b></label>
             </div>
             <div class="col s1"></div>
             <div class="input-field col s2">
@@ -277,8 +276,8 @@
                <div class="row">
                   <br>
                   <div class="col s3">
-                     <a class="waves-effect waves-light btn" id="salvarParto" style="background: green">
-                        <i class="material-icons right">done</i>Salvar</a>
+                     <a class="waves-effect waves-light btn" id="salvarParto" style="background: green" >
+                        <i class="material-icons right" onclick="gravarInfoParto()">done</i>Salvar</a>
                      </div>
                   </div>
 
