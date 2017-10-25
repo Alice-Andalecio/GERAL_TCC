@@ -20,11 +20,11 @@ public class RepPartoDAO implements IRepPartoDAO {
 
             String sql = "INSERT INTO repparto (nro_Animal, nom_Animal, perParto1, perParto2, diasGest, tipo, dataParto, horaParto, grau, numCria1, pelagem1, peso1, sexo1, numCria2, pelagem2, peso2, sexo2) VALUES(?)";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, repparto.getNro_Animal());
+            pstmt.setLong(1, repparto.getNro_Animal());
             pstmt.setString(2, repparto.getNom_Animal());
             pstmt.setDate(3, (Date) repparto.getPerParto1());
             pstmt.setDate(4, (Date) repparto.getPerParto2());
-            pstmt.setString(5, repparto.getDiasGest());
+            pstmt.setLong(5, repparto.getDiasGest());
             pstmt.setString(6, repparto.getTipo());
             pstmt.setDate(7, (Date) repparto.getDataParto());
             pstmt.setTime(8, (Time) repparto.getHoraParto());
@@ -38,6 +38,10 @@ public class RepPartoDAO implements IRepPartoDAO {
             pstmt.setString(16, repparto.getPelagem2());
             pstmt.setString(17, repparto.getPeso2());
             pstmt.setString(18, repparto.getSexo2());
+            pstmt.setString(19, repparto.getPadrao());
+            pstmt.setString(20, repparto.getDoadora());
+            pstmt.setString(21, repparto.getReceptora());
+            pstmt.setString(22, repparto.getDescarte());
             ResultSet rs = pstmt.executeQuery();
             
             Long seq = null;
@@ -82,14 +86,18 @@ public class RepPartoDAO implements IRepPartoDAO {
                     + "     pelagem2 = ?"
                     + "     peso2 = ?"
                     + "     sexo2 = ?"
+                    + "     padrao = ?"
+                    + "     doadora = ?"
+                    + "     receptora = ?"
+                    + "     descarte = ?"
                     + " WHERE seq_ReproducaoParto = ?";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, repparto.getNro_Animal());
+            pstmt.setLong(1, repparto.getNro_Animal());
             pstmt.setString(2, repparto.getNom_Animal());
             pstmt.setDate(3, (Date) repparto.getPerParto1());
             pstmt.setDate(4, (Date) repparto.getPerParto2());
-            pstmt.setString(5, repparto.getDiasGest());
+            pstmt.setLong(5, repparto.getDiasGest());
             pstmt.setString(6, repparto.getTipo());
             pstmt.setDate(7, (Date) repparto.getDataParto());
             pstmt.setTime(8, (Time) repparto.getHoraParto());
@@ -103,6 +111,10 @@ public class RepPartoDAO implements IRepPartoDAO {
             pstmt.setString(16, repparto.getPelagem2());
             pstmt.setString(17, repparto.getPeso2());
             pstmt.setString(18, repparto.getSexo2());
+            pstmt.setString(19, repparto.getPadrao());
+            pstmt.setString(20, repparto.getDoadora());
+            pstmt.setString(21, repparto.getReceptora());
+            pstmt.setString(22, repparto.getDescarte());
             pstmt.executeUpdate();
 
             pstmt.close();
@@ -123,11 +135,11 @@ public class RepPartoDAO implements IRepPartoDAO {
             String sql = "DELETE FROM repparto WHERE seq_ReproducaoParto = ?";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, repparto.getNro_Animal());
+            pstmt.setLong(1, repparto.getNro_Animal());
             pstmt.setString(2, repparto.getNom_Animal());
             pstmt.setDate(3, (Date) repparto.getPerParto1());
             pstmt.setDate(4, (Date) repparto.getPerParto2());
-            pstmt.setString(5, repparto.getDiasGest());
+            pstmt.setLong(5, repparto.getDiasGest());
             pstmt.setString(6, repparto.getTipo());
             pstmt.setDate(7, (Date) repparto.getDataParto());
             pstmt.setTime(8, (Time) repparto.getHoraParto());
@@ -141,6 +153,10 @@ public class RepPartoDAO implements IRepPartoDAO {
             pstmt.setString(16, repparto.getPelagem2());
             pstmt.setString(17, repparto.getPeso2());
             pstmt.setString(18, repparto.getSexo2());
+            pstmt.setString(19, repparto.getPadrao());
+            pstmt.setString(20, repparto.getDoadora());
+            pstmt.setString(21, repparto.getReceptora());
+            pstmt.setString(22, repparto.getDescarte());
             pstmt.executeUpdate();
 
             pstmt.close();
@@ -168,11 +184,11 @@ public class RepPartoDAO implements IRepPartoDAO {
                 listAll = new ArrayList<>();
                 do {
                     RepParto repparto = new RepParto();
-                    repparto.setNro_Animal(rs.getString("nro_Animal"));
+                    repparto.setNro_Animal(rs.getLong("nro_Animal"));
                     repparto.setNom_Animal(rs.getString("nom_Animal"));
                     repparto.setPerParto1(rs.getDate("perParto1"));
                     repparto.setPerParto2(rs.getDate("perParto2"));
-                    repparto.setDiasGest(rs.getString("diasGest"));
+                    repparto.setDiasGest(rs.getLong("diasGest"));
                     repparto.setTipo(rs.getString("tipo"));
                     repparto.setDataParto(rs.getDate("dataParto")); 
                     repparto.setHoraParto(rs.getTime("horaParto"));        
@@ -186,6 +202,10 @@ public class RepPartoDAO implements IRepPartoDAO {
                     repparto.setPelagem2(rs.getString("pelagem2")); 
                     repparto.setPeso2(rs.getString("peso2")); 
                     repparto.setSexo2(rs.getString("sexo2")); 
+                    repparto.setPadrao(rs.getString("padrao"));
+                    repparto.setDoadora(rs.getString("doadora"));
+                    repparto.setReceptora(rs.getString("receptora"));
+                    repparto.setDescarte(rs.getString("descarte"));
                     listAll.add(repparto);
                 } while (rs.next());
             }
@@ -214,11 +234,11 @@ public class RepPartoDAO implements IRepPartoDAO {
             RepParto repparto = null;
             if (rs.next()) {
                 repparto = new RepParto();
-                repparto.setNro_Animal(rs.getString("nro_Animal"));
+                repparto.setNro_Animal(rs.getLong("nro_Animal"));
                 repparto.setNom_Animal(rs.getString("nom_Animal"));
                 repparto.setPerParto1(rs.getDate("perParto1"));
                 repparto.setPerParto2(rs.getDate("perParto2"));
-                repparto.setDiasGest(rs.getString("diasGest"));
+                repparto.setDiasGest(rs.getLong("diasGest"));
                 repparto.setTipo(rs.getString("tipo"));
                 repparto.setDataParto(rs.getDate("dataParto")); 
                 repparto.setHoraParto(rs.getTime("horaParto"));        
@@ -232,6 +252,11 @@ public class RepPartoDAO implements IRepPartoDAO {
                 repparto.setPelagem2(rs.getString("pelagem2")); 
                 repparto.setPeso2(rs.getString("peso2")); 
                 repparto.setSexo2(rs.getString("sexo2")); 
+                repparto.setPadrao(rs.getString("padrao"));
+                repparto.setDoadora(rs.getString("doadora"));
+                repparto.setReceptora(rs.getString("receptora"));
+                repparto.setDescarte(rs.getString("descarte"));
+                    
             }
 
             rs.close();
