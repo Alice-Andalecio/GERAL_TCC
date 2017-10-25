@@ -1,20 +1,19 @@
 package br.cefetmg.inf.geral.model.domain;
 
-import java.awt.Checkbox;
 import java.sql.Time;
 import java.util.Date;
 
 public class RepParto {
     private Long seq_ReproducaoParto;
-    private String nro_Animal;
+    private Long nro_Animal;
     private String nom_Animal;
-    private Checkbox padrao;
-    private Checkbox doadora;
-    private Checkbox receptora;
-    private Checkbox descarte;
+    private String padrao;
+    private String doadora;
+    private String receptora;
+    private String descarte;
     private Date perParto1;
     private Date perParto2;
-    private String diasGest;
+    private Long diasGest;
     private String tipo;
     private Long retencao;
     private Date dataParto;
@@ -39,11 +38,11 @@ public class RepParto {
         this.seq_ReproducaoParto = seq_ReproducaoParto;
     }
 
-    public String getNro_Animal() {
+    public Long getNro_Animal() {
         return nro_Animal;
     }
 
-    public void setNro_Animal(String nro_Animal) {
+    public void setNro_Animal(Long nro_Animal) {
         this.nro_Animal = nro_Animal;
     }
 
@@ -55,35 +54,35 @@ public class RepParto {
         this.nom_Animal = nom_Animal;
     }
 
-    public Checkbox getPadrao() {
+    public String getPadrao() {
         return padrao;
     }
 
-    public void setPadrao(Checkbox padrao) {
+    public void setPadrao(String padrao) {
         this.padrao = padrao;
     }
 
-    public Checkbox getDoadora() {
+    public String getDoadora() {
         return doadora;
     }
 
-    public void setDoadora(Checkbox doadora) {
+    public void setDoadora(String doadora) {
         this.doadora = doadora;
     }
 
-    public Checkbox getReceptora() {
+    public String getReceptora() {
         return receptora;
     }
 
-    public void setReceptora(Checkbox receptora) {
+    public void setReceptora(String receptora) {
         this.receptora = receptora;
     }
 
-    public Checkbox getDescarte() {
+    public String getDescarte() {
         return descarte;
     }
 
-    public void setDescarte(Checkbox descarte) {
+    public void setDescarte(String descarte) {
         this.descarte = descarte;
     }
 
@@ -103,11 +102,11 @@ public class RepParto {
         this.perParto2 = perParto2;
     }
 
-    public String getDiasGest() {
+    public Long getDiasGest() {
         return diasGest;
     }
 
-    public void setDiasGest(String diasGest) {
+    public void setDiasGest(Long diasGest) {
         this.diasGest = diasGest;
     }
 
