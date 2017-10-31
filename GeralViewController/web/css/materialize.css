@@ -1033,11 +1033,11 @@
 }
 
 .teal.lighten-1 {
-  background-color: #26a69a !important;
+  background-color: green !important;
 }
 
 .teal-text.text-lighten-1 {
-  color: #26a69a !important;
+  color: green !important;
 }
 
 .teal.darken-1 {
@@ -1105,11 +1105,11 @@
 }
 
 .green {
-  background-color: #4CAF50 !important;
+  background-color: green !important;
 }
 
 .green-text {
-  color: #4CAF50 !important;
+  color: green !important;
 }
 
 .green.lighten-5 {
@@ -3073,7 +3073,7 @@ td, th {
 }
 
 .collection .collection-item.active {
-  background-color: #26a69a;
+  background-color: green;
   color: #eafaf9;
 }
 
@@ -3084,7 +3084,7 @@ td, th {
 .collection a.collection-item {
   display: block;
   transition: .25s;
-  color: #26a69a;
+  color: green;
 }
 
 .collection a.collection-item:not(.active):hover {
@@ -3107,7 +3107,7 @@ td, th {
 
 .secondary-content {
   float: right;
-  color: #26a69a;
+  color: green;
 }
 
 .collapsible .collection {
@@ -3146,12 +3146,12 @@ td, th {
   top: 0;
   left: 0;
   bottom: 0;
-  background-color: #26a69a;
+  background-color: green;
   transition: width .3s linear;
 }
 
 .progress .indeterminate {
-  background-color: #26a69a;
+  background-color: green;
 }
 
 .progress .indeterminate:before {
@@ -3314,7 +3314,7 @@ span.badge.new {
   font-weight: 300;
   font-size: 0.8rem;
   color: #fff;
-  background-color: #26a69a;
+  background-color: green;
   border-radius: 2px;
 }
 
@@ -5178,7 +5178,7 @@ strong {
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-  background-color: #26a69a;
+  background-color: green;
   text-align: center;
   letter-spacing: .5px;
   transition: .2s ease-out;
@@ -5199,7 +5199,7 @@ strong {
   height: 40px;
   line-height: 40px;
   padding: 0;
-  background-color: #26a69a;
+  background-color: green;
   border-radius: 50%;
   transition: .3s;
   cursor: pointer;
@@ -5207,7 +5207,7 @@ strong {
 }
 
 .btn-floating:hover {
-  background-color: #26a69a;
+  background-color: green;
 }
 
 .btn-floating:before {
@@ -5354,7 +5354,7 @@ button.btn-floating {
   z-index: -1;
   width: 40px;
   height: 40px;
-  background-color: #26a69a;
+  background-color: green;
   border-radius: 50%;
   -webkit-transform: scale(0);
           transform: scale(0);
@@ -5439,7 +5439,7 @@ button.btn-floating {
 
 .dropdown-content li > a, .dropdown-content li > span {
   font-size: 16px;
-  color: #26a69a;
+  color: green;
   display: block;
   line-height: 22px;
   padding: 14px 16px;
@@ -5808,8 +5808,8 @@ button.btn-floating {
 }
 
 .chips.focus {
-  border-bottom: 1px solid #26a69a;
-  box-shadow: 0 1px 0 0 #26a69a;
+  border-bottom: 1px solid green;
+  box-shadow: 0 1px 0 0 green;
 }
 
 .chips:hover {
@@ -5817,7 +5817,7 @@ button.btn-floating {
 }
 
 .chips .chip.selected {
-  background-color: #26a69a;
+  background-color: green;
   color: #fff;
 }
 
@@ -6035,8 +6035,8 @@ input[type=tel]:focus:not([readonly]),
 input[type=number]:focus:not([readonly]),
 input[type=search]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #26a69a;
-  box-shadow: 0 1px 0 0 #26a69a;
+  border-bottom: 1px solid green;
+  box-shadow: 0 1px 0 0 green;
 }
 
 input:not([type]):focus:not([readonly]) + label,
@@ -6052,7 +6052,7 @@ input[type=tel]:focus:not([readonly]) + label,
 input[type=number]:focus:not([readonly]) + label,
 input[type=search]:focus:not([readonly]) + label,
 textarea.materialize-textarea:focus:not([readonly]) + label {
-  color: #26a69a;
+  color: green;
 }
 
 input:not([type]).valid, input:not([type]):focus.valid,
@@ -6080,8 +6080,8 @@ input[type=search].valid,
 input[type=search]:focus.valid,
 textarea.materialize-textarea.valid,
 textarea.materialize-textarea:focus.valid {
-  border-bottom: 1px solid #4CAF50;
-  box-shadow: 0 1px 0 0 #4CAF50;
+  border-bottom: 1px solid green;
+  box-shadow: 0 1px 0 0 green;
 }
 
 input:not([type]).valid + label:after,
@@ -6111,7 +6111,7 @@ input[type=search]:focus.valid + label:after,
 textarea.materialize-textarea.valid + label:after,
 textarea.materialize-textarea:focus.valid + label:after {
   content: attr(data-success);
-  color: #4CAF50;
+  color: green;
   opacity: 1;
 }
 
@@ -6263,7 +6263,7 @@ textarea.materialize-textarea + label:after {
 }
 
 .input-field .prefix.active {
-  color: #26a69a;
+  color: green;
 }
 
 .input-field .prefix ~ input,
@@ -6443,12 +6443,12 @@ textarea.materialize-textarea {
 [type="radio"]:checked + label:after,
 [type="radio"].with-gap:checked + label:before,
 [type="radio"].with-gap:checked + label:after {
-  border: 2px solid #26a69a;
+  border: 2px solid green;
 }
 
 [type="radio"]:checked + label:after,
 [type="radio"].with-gap:checked + label:after {
-  background-color: #26a69a;
+  background-color: green;
 }
 
 [type="radio"]:checked + label:after {
@@ -6581,8 +6581,8 @@ form p:last-child {
   height: 22px;
   border-top: 2px solid transparent;
   border-left: 2px solid transparent;
-  border-right: 2px solid #26a69a;
-  border-bottom: 2px solid #26a69a;
+  border-right: 2px solid green;
+  border-bottom: 2px solid green;
   -webkit-transform: rotate(40deg);
           transform: rotate(40deg);
   -webkit-backface-visibility: hidden;
@@ -6604,7 +6604,7 @@ form p:last-child {
   height: 22px;
   border-top: none;
   border-left: none;
-  border-right: 2px solid #26a69a;
+  border-right: 2px solid green;
   border-bottom: none;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
@@ -6673,8 +6673,8 @@ form p:last-child {
   top: 0;
   width: 20px;
   height: 20px;
-  border: 2px solid #26a69a;
-  background-color: #26a69a;
+  border: 2px solid green;
+  background-color: green;
   z-index: 0;
 }
 
@@ -6686,8 +6686,8 @@ form p:last-child {
 
 [type="checkbox"].filled-in.tabbed:checked:focus + label:after {
   border-radius: 2px;
-  background-color: #26a69a;
-  border-color: #26a69a;
+  background-color: green;
+  border-color: green;
 }
 
 [type="checkbox"].filled-in:disabled:not(:checked) + label:before {
@@ -6730,11 +6730,11 @@ form p:last-child {
 }
 
 .switch label input[type=checkbox]:checked + .lever {
-  background-color: #84c7c1;
+  background-color: #1b5e20;
 }
 
 .switch label input[type=checkbox]:checked + .lever:after {
-  background-color: #26a69a;
+  background-color: green;
   left: 24px;
 }
 
@@ -6983,7 +6983,7 @@ input[type=range] + .thumb {
   height: 0;
   width: 0;
   border-radius: 50%;
-  background-color: #26a69a;
+  background-color: green;
   margin-left: 7px;
   -webkit-transform-origin: 50% 50%;
           transform-origin: 50% 50%;
@@ -6995,7 +6995,7 @@ input[type=range] + .thumb .value {
   display: block;
   width: 30px;
   text-align: center;
-  color: #26a69a;
+  color: green;
   font-size: 0;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
@@ -7028,7 +7028,7 @@ input[type=range]::-webkit-slider-thumb {
   height: 14px;
   width: 14px;
   border-radius: 50%;
-  background-color: #26a69a;
+  background-color: green;
   -webkit-transform-origin: 50% 50%;
           transform-origin: 50% 50%;
   margin: -5px 0 0 0;
@@ -7056,7 +7056,7 @@ input[type=range]::-moz-range-thumb {
   height: 14px;
   width: 14px;
   border-radius: 50%;
-  background: #26a69a;
+  background: green;
   margin-top: -5px;
 }
 
@@ -7091,7 +7091,7 @@ input[type=range]::-ms-thumb {
   height: 14px;
   width: 14px;
   border-radius: 50%;
-  background: #26a69a;
+  background: green;
 }
 
 input[type=range]:focus::-ms-fill-lower {
@@ -7211,7 +7211,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .side-nav li > a.btn-floating:hover {
-  background-color: #26a69a;
+  background-color: green;
 }
 
 .side-nav li > a > i,
@@ -7417,7 +7417,7 @@ input[type=range]:focus::-ms-fill-upper {
   width: 100%;
   height: 100%;
   opacity: 0;
-  border-color: #26a69a;
+  border-color: green;
 }
 
 .spinner-blue,
@@ -7953,7 +7953,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .slider .indicators .indicator-item.active {
-  background-color: #4CAF50;
+  background-color: green;
 }
 
 .carousel {
@@ -8700,7 +8700,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .picker__date-display {
   text-align: center;
-  background-color: #26a69a;
+  background-color: green;
   color: #fff;
   padding-bottom: 15px;
   font-weight: 300;
@@ -8763,7 +8763,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .picker__day.picker__day--today {
-  color: #26a69a;
+  color: green;
 }
 
 .picker__day.picker__day--today.picker__day--selected {
@@ -8780,7 +8780,7 @@ input[type=range]:focus::-ms-fill-upper {
   border-radius: 50%;
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
-  background-color: #26a69a;
+  background-color: green;
   color: #ffffff;
 }
 
@@ -8798,7 +8798,7 @@ input[type=range]:focus::-ms-fill-upper {
 .picker__close, .picker__today {
   font-size: 1.1rem;
   padding: 0 1rem;
-  color: #26a69a;
+  color: green;
 }
 
 .picker__nav--prev:before,
