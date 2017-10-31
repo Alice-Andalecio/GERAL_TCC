@@ -1425,11 +1425,11 @@ function CalcTotalFuba() {
 }
 
 function CalcTotalBicarbonato() {
-    var manha = document.querySelector('#bicarbonatoManha').value;
-    var tarde = document.querySelector('#bicarbonatoTarde').value;
+    var manha = document.querySelector('#bicarbonatoManha' + numLote).value;
+    var tarde = document.querySelector('#bicarbonatoTarde' + numLote).value;
     var total = parseInt(manha) + parseInt(tarde);
 
-    document.querySelector('#bicarbonatoTotal').setAttribute('value', total);
+    document.querySelector('#bicarbonatoTotal' + numLote).setAttribute('value', total);
 }
 
 function CalcTotalNucleo() {
