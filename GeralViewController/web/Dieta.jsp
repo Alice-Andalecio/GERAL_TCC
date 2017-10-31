@@ -1,7 +1,7 @@
 <%-- 
     Document   : Dieta
     Created on : 16/10/2017, 11:56:00
-    Author     : alice
+    Author     : Alice
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -51,8 +51,9 @@
                 <li>
                     <br>
                     <div class="user-view">
-                        <div class="background">
+                        <div class="background center-align">
                             <img src="images/logoPreto.png">
+                            <hr>
                         </div>
                         <li><a class="waves-effect" href="VisualizarExcluirAnimal.jsp">Animais</a></li> 
                         <li><a class="waves-effect" href="CadastroAnimal.jsp">Cadastro de Animais</a></li>
@@ -60,33 +61,29 @@
                         <li><a class="waves-effect" href="#">Controle Reprodutivo</a>
                             <ul>
                                 <li><a class="waves-effect" href="RepInseminacao.jsp">Inseminação/Cobrição</a></li>
-                                <li><a class="waves-effect" href="RepDiagnostico">Diagnóstico</a></li>
+                                <li><a class="waves-effect" href="RepDiagnostico.jsp">Diagnóstico</a></li>
                                 <li><a class="waves-effect" href="RepParto.jsp">Parto</a></li>
                             </ul>
                         </li>
                         <li><a class="waves-effect" href="Dieta.jsp">Dieta</a></li>
                         <li><a class="waves-effect" href="medicamentos.jsp">Prescrição de Medicamentos</a></li>     
-                        <li><a class="waves-effect" href="#">Relatórios</a>
-                            <ul>
-                                <li><a class="waves-effect" href="#">Controle Leiteiro</a></li>
-                                <li><a class="waves-effect" href="#">Resumo do Animal</a></li>
-                            </ul>
-                        </li>
+                        <li><a class="waves-effect" href="Relatorio.jsp">Relatórios</a></li>
                         <li><a class="waves-effect" href="vendaLeite.jsp">Venda de Leite</a></li>
                         <li><a class="waves-effect" href="index.jsp" style="color: green">SAIR</a></li>
             </ul>
-            <ul class="left ">
+            <ul>
                 <li>
-                    <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse green-text #FFFFFF"><b>Menu</b></button>
+                    <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse white-text #FFFFFF"><b>Menu: <%= request.getAttribute("nome")%></b></button>
                 </li>
-            </ul>        
+            </ul>
         </header>
 
-        <!-- Formulário: Controle Reprodutivo - Diagnóstico -->
+        <!-- Formulário para cadastro de Dietas -->
+
         <section id="process">  
             <div class="row">
                 <form id="formDieta" action="" method="POST" class="col s12">
-                    
+
                     <input type='hidden' name='acao' id="acao" value='GerarDieta'>
                     <input type='hidden' name='num' id="num" value=''>
 

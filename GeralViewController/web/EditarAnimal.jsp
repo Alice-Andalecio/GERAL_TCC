@@ -51,8 +51,9 @@
                 <li>
                     <br>
                     <div class="user-view">
-                        <div class="background">
+                        <div class="background center-align">
                             <img src="images/logoPreto.png">
+                            <hr>
                         </div>
                         <li><a class="waves-effect" href="VisualizarExcluirAnimal.jsp">Animais</a></li> 
                         <li><a class="waves-effect" href="CadastroAnimal.jsp">Cadastro de Animais</a></li>
@@ -66,23 +67,19 @@
                         </li>
                         <li><a class="waves-effect" href="Dieta.jsp">Dieta</a></li>
                         <li><a class="waves-effect" href="medicamentos.jsp">Prescrição de Medicamentos</a></li>     
-                        <li><a class="waves-effect" href="#">Relatórios</a>
-                            <ul>
-                                <li><a class="waves-effect" href="#">Controle Leiteiro</a></li>
-                                <li><a class="waves-effect" href="#">Resumo do Animal</a></li>
-                            </ul>
-                        </li>
+                        <li><a class="waves-effect" href="Relatorio.jsp">Relatórios</a></li>
                         <li><a class="waves-effect" href="vendaLeite.jsp">Venda de Leite</a></li>
                         <li><a class="waves-effect" href="index.jsp" style="color: green">SAIR</a></li>
             </ul>
-            <ul class="left ">
+            <ul>
                 <li>
-                    <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse green-text #FFFFFF"><b>Menu</b></button>
+                    <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse white-text #FFFFFF"><b>Menu: <%= request.getAttribute("nome")%></b></button>
                 </li>
-            </ul>        
+            </ul>
         </header>
 
         <!-- Formulário para edição de animais -->
+
         <section id="process">  
             <br>
             <div class="row">
@@ -91,7 +88,7 @@
                     <div class="row section-intro">
                         <div class="col-twelve">
                             <br>
-                            <h2 style="color: green">Edição de Animais</h2>
+                            <h2 style="color: green">EDIÇÃO DE ANIMAIS</h2>
                             <br>
                         </div>         
                     </div>

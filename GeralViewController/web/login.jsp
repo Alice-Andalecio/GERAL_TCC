@@ -55,7 +55,7 @@
                 <nav id="main-nav-wrap">
                     <ul class="main-navigation">
                         <li><a href="index.jsp" title="">Início</a></li>
-                        <li class="highlight with-sep"><a href="cadastro.jsp" title="" style="color: green">Cadastre-se</a></li>                             
+                        <li class="highlight with-sep"><a href="cadastroUsuario.jsp" title="" style="color: green">Cadastre-se</a></li>                             
                     </ul>
                 </nav>
                 <a class="menu-toggle" href="#"><span>Menu</span></a>   
@@ -88,7 +88,7 @@
                         <h6><a href="esqueceuSenha.jsp" style="color: green">Esqueceu a senha? Clique aqui!</a></h6>
                         <br>
                         <a class="waves-effect waves-light btn" onclick="logarRedirect()" style="background: green">Entrar</a>
-                        
+
                         <div class="row">
                             <div class="input-field col s6 center-block">
                                 <input id="loginInvalido" name="loginInvalido" type="hidden">
