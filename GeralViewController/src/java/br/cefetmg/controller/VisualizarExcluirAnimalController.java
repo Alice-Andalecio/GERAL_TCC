@@ -32,6 +32,7 @@ public class VisualizarExcluirAnimalController {
 
         request.setAttribute("nome", nome);
         HttpSession session = request.getSession();
+        request.getSession().setAttribute("nome", nome);
         request.getSession().setAttribute("email", email_);
         request.getSession().setAttribute("codUsuario", usr.getIdUsuario());
         jsp = "/CadastroAnimal.jsp";

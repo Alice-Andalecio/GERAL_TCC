@@ -121,7 +121,7 @@ public class CadastroAnimalController {
         java.sql.Date Aptd = null;
         java.sql.Date Entr = null;
 
-        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         Animal animal = new Animal();
 
         if (!(Nascimento.equals("") && Desmama.equals("") && Aptidao.equals("") && Entrada.equals(""))) {

@@ -42,6 +42,7 @@ public class Login {
                 request.setAttribute("nome", nome);
 
                 HttpSession session = request.getSession();
+                request.getSession().setAttribute("nome",nome);
                 request.getSession().setAttribute("codUsuario", usr.getIdUsuario());
                 jsp = "/VisualizarExcluirAnimal.jsp";
             }

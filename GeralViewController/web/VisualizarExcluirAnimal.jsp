@@ -78,7 +78,7 @@
             </ul>
             <ul class="left ">
                 <li>
-                    <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse green-text #FFFFFF"><b>Menu : <%= request.getAttribute("nome")%></b></button>
+                    <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse green-text #FFFFFF"><b>Menu : <%= request.getSession().getAttribute("nome")%></b></button>
                 </li>
             </ul>        
         </header>

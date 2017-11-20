@@ -57,16 +57,21 @@ public class AnimalDAO implements IAnimalDAO {
                     pstmt.setLong(22, animal.getPorcentagem_2());
                     pstmt.setString(23, animal.getNomePai());
                     pstmt.setString(24, animal.getNomeMae());
+                 
+                    pstmt.execute();
+                    /*  
                     ResultSet rs = pstmt.executeQuery();
                     seq_Animal = null;
+                    
                     if (rs.next()) {
                         seq_Animal = new Long(rs.getLong("seq_Animal"));
                         animal.setSeq_Animal(seq_Animal);
                     }   rs.close();
+                    */
                 }
             }
 
-            return seq_Animal;
+            return null;
         } catch (Exception e) {
             e.printStackTrace();
             throw new PersistenciaException(e.getMessage(), e);
