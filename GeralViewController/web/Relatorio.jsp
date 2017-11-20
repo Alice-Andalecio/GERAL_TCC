@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Dieta
-    Created on : 16/10/2017, 11:56:00
+    Document   : Relatorio
+    Created on : 30/10/2017, 19:45:33
     Author     : Alice
 --%>
 
@@ -9,7 +9,7 @@
 <html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Dieta</title>
+        <title>Relatórios</title>
         <meta name="description" content="">  
         <meta name="author" content="">
 
@@ -78,65 +78,85 @@
             </ul>
         </header>
 
-        <!-- Formulário para cadastro de Dietas -->
+        <!-- Formulário: Relatórios -->
 
         <section id="process">  
             <div class="row">
-                <form id="formDieta" action="" method="POST" class="col s12">
+                <form id="formRelatorio" action="" method="POST" class="col s12">
 
-                    <input type='hidden' name='acao' id="acao" value='GerarDieta'>
-                    <input type='hidden' name='num' id="num" value=''>
+                    <input type='hidden' name='acao' id="acao" value='GerarRelatorio'>
 
                     <div class="row section-intro">
                         <div class="col-twelve">
                             <br>
-                            <h2 style="color: green">DIETA</h2>
+                            <h2 style="color: green">RELATÓRIOS</h2>
                             <br>
                         </div>         
                     </div>
 
                     <div class="row">
-                        <div class="col s3">
-                            <p>Data</p>
-                            <input type="date" name="dataDieta" id="dataDieta"/>
+                        <div class="input-field col s3">
+                            <input type="text" id="pesquisarAnimal"></input>
+                            <label for="pesquisarAnimal"><b>Número do Animal</b></label>
                         </div>
-                    </div>
-
-                    <div class="esconder" id="dietaOutrosLotes">
-                        <!-- Espaço para inserir a dieta dos outros lotes -->
-                    </div>
-
-                    <div class="row " id="divBotoesAdReLotes">
-                        <hr>
-                        <br>
-                        <div class="col s2">
-                            <a class="waves-effect waves-light btn" id="adicionarLote" style="background: green">
-                                <i class="material-icons right">add</i>Adicionar Lote</a>
+                        <div class="col s1">
+                            <a id="pesquisar" class="btn-floating waves-effect waves-light" style="background: green"><i class="material-icons">search</i></a>
                         </div>
-                        <div class="col s2">
-                            <a class="waves-effect waves-light btn" id="removerLote" style="background: green">
-                                <i class="material-icons right">delete</i>Remover Lote</a>
+                        <div class="col s4"></div>
+                        <div class="switch col s4">
+                            <label>
+                                <input type="checkbox" name="gerarRelFaz" id="gerarRelFaz">
+                                <span class="lever"></span>
+                                <b>Gerar Relatório da Fazenda</b>
+                            </label>
                         </div>
                     </div>
 
                     <div class="row" style="color: green">
                         <hr><br>
                         <i class="material-icons">edit</i>
-                        <b>Observações:</b>
+                        <b>Tipo de Relatório:</b>
                         <br><br>
                     </div>
 
                     <div class="row">
-                        <div class="col s12">
-                            <textarea id="obs"></textarea>
+                        <div class="col s4">
+                            <input type="checkbox" id="RelContrLeiteiro"/>
+                            <label for="RelContrLeiteiro"><b>Controle Leiteiro</b></label>
+                        </div>
+                        <div class="col s4">
+                            <input type="checkbox" id="RelMedicamento" name="RelMedicamento"/>
+                            <label for="RelMedicamento"><b>Medicamentos</b></label>
                         </div>
                     </div>
 
-                    <div class="row " id="divBotaoGerarDieta">
+                    <div class="row">
+                        <div class="col s4">
+                            <input type="checkbox" id="RelResumoAnimal"/>
+                            <label for="RelResumoAnimal"><b>Resumo do Animal</b></label>
+                        </div>
+                        <div class="col s4">
+                            <input type="checkbox" id="RelDieta"/>
+                            <label for="RelDieta"><b>Dieta</b></label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s4">
+                            <input type="checkbox" id="RelVendaLeite" name="RelVendaLeite"/>
+                            <label for="RelVendaLeite"><b>Venda de Leite</b></label>
+                        </div>
+                        <div class="col s4">
+                            <input type="checkbox" id="RelTodos" name="RelTodos"/>
+                            <label for="RelTodos"><b>Todos</b></label>
+                        </div>
+                    </div>
+
+                    <div class="row " id="divBotaoGerarRelatorio">
                         <br>
                         <div class="col s12" align="right">
-                            <a class="waves-effect waves-light btn" id="gerarDieta" style="background: green">
-                                <i class="material-icons right">assignment</i>Gerar Dieta</a>
+                            <a class="waves-effect waves-light btn" id="gerarRelatorio" style="background: green">
+                                <i class="material-icons right">assignment</i>Gerar Relatório(s)</a>
                         </div>
                     </div>
 
@@ -207,7 +227,7 @@
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
         <script src="js/materialize.js"></script>
-        <script src="js/dieta.js"></script>
+        <script src="js/Relatorio.js"></script>
         <script src="js/menu.js"></script>
     </body>
 </html>

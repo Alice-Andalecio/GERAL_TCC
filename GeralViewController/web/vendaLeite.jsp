@@ -51,8 +51,9 @@
                 <li>
                     <br>
                     <div class="user-view">
-                        <div class="background">
+                        <div class="background center-align">
                             <img src="images/logoPreto.png">
+                            <hr>
                         </div>
                         <li><a class="waves-effect" href="VisualizarExcluirAnimal.jsp">Animais</a></li> 
                         <li><a class="waves-effect" href="CadastroAnimal.jsp">Cadastro de Animais</a></li>
@@ -66,22 +67,19 @@
                         </li>
                         <li><a class="waves-effect" href="Dieta.jsp">Dieta</a></li>
                         <li><a class="waves-effect" href="medicamentos.jsp">Prescrição de Medicamentos</a></li>     
-                        <li><a class="waves-effect" href="#">Relatórios</a>
-                            <ul>
-                                <li><a class="waves-effect" href="#">Controle Leiteiro</a></li>
-                                <li><a class="waves-effect" href="#">Resumo do Animal</a></li>
-                            </ul>
-                        </li>
+                        <li><a class="waves-effect" href="Relatorio.jsp">Relatórios</a></li>
                         <li><a class="waves-effect" href="vendaLeite.jsp">Venda de Leite</a></li>
                         <li><a class="waves-effect" href="index.jsp" style="color: green">SAIR</a></li>
             </ul>
-            <ul class="left ">
+            <ul>
                 <li>
-                    <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse green-text #FFFFFF"><b>Menu</b></button>
+                    <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse white-text #FFFFFF"><b>Menu: <%= request.getAttribute("nome")%></b></button>
                 </li>
-            </ul>        
+            </ul>
         </header>
-        <!-- Formulário para realizar login no sistema -->
+
+        <!-- Formulário para cadastro de vendas de leite -->
+
         <section id="process">
             <br>  
             <div class="row">
@@ -90,7 +88,7 @@
                     <div class="row section-intro">
                         <div class="col-twelve">
                             <br>
-                            <h2 style="color: green">Controle de Vendas de Leite</h2>
+                            <h2 style="color: green">CONTROLE DE VENDAS DE LEITE</h2>
                             <br>
                         </div>         
                     </div>
@@ -115,23 +113,14 @@
                         <br><br>
                     </div>
 
-                    <div class="row">
+                    <div class="row esconder" id="divTabela">
                         <div class="col s2"></div>
                         <div class="col s12">
                             <table class="striped" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>Dia</th>
-                                        <th>Func</th> 
-                                        <th>SEDE</th>
-                                        <th>Bezerras</th>
-                                        <th>Indústria</th>
-                                        <th>UFC</th>
-                                        <th>CCS</th>
-                                        <th>Vc MASTITE</th>
-                                        <th>Nº Vacas</th>
-                                        <th>Total</th>
-                                    </tr>
+                                
+                                <!-- Espaço onde será adicionado o cabeçalho da tabela -->
+                                
+                                <thead id="theadInserirLinha">
                                 </thead>
 
                                 <!-- Espaço onde serão adicionadas as linhas da tabela -->
@@ -144,6 +133,7 @@
                     </div>
 
                     <div class="row">
+                        <hr>
                         <div class="input-field col s3">
                             <input type="text" id="numVacasLactacao"></input>
                             <label for="numVacasLactacao"><b>Nº de Vacas em Lactação/Médio: </b></label>
@@ -174,7 +164,7 @@
 
                     <div class="row">
                         <br><br>
-                        <div class="col s2">
+                        <div class="col s12" align="right">
                             <a class="waves-effect waves-light btn" id="SalvarVenda" style="background: green">
                                 <i class="material-icons right">done</i>Salvar</a>
                         </div>
@@ -248,7 +238,7 @@
         <script src="js/main.js"></script>
         <script src="js/materialize.js"></script>
         <script src="js/menu.js"></script>
-        <script src="js/cadVendas.js"></script>
+        <script src="js/cadVenda.js"></script>
 
     </body>
 </html>

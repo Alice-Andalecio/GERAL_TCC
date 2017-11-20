@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Dieta
-    Created on : 16/10/2017, 11:56:00
+    Document   : erro
+    Created on : 31/10/2017, 00:17:27
     Author     : Alice
 --%>
 
@@ -9,7 +9,7 @@
 <html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Dieta</title>
+        <title>ERRO</title>
         <meta name="description" content="">  
         <meta name="author" content="">
 
@@ -78,69 +78,16 @@
             </ul>
         </header>
 
-        <!-- Formulário para cadastro de Dietas -->
-
+        <!-- ERRO DEPOIS QUE O USUÁRIO JÁ FEZ LOGIN NO SISTEMA -->
+        
         <section id="process">  
             <div class="row">
-                <form id="formDieta" action="" method="POST" class="col s12">
-
-                    <input type='hidden' name='acao' id="acao" value='GerarDieta'>
-                    <input type='hidden' name='num' id="num" value=''>
-
-                    <div class="row section-intro">
-                        <div class="col-twelve">
-                            <br>
-                            <h2 style="color: green">DIETA</h2>
-                            <br>
-                        </div>         
-                    </div>
-
-                    <div class="row">
-                        <div class="col s3">
-                            <p>Data</p>
-                            <input type="date" name="dataDieta" id="dataDieta"/>
-                        </div>
-                    </div>
-
-                    <div class="esconder" id="dietaOutrosLotes">
-                        <!-- Espaço para inserir a dieta dos outros lotes -->
-                    </div>
-
-                    <div class="row " id="divBotoesAdReLotes">
-                        <hr>
-                        <br>
-                        <div class="col s2">
-                            <a class="waves-effect waves-light btn" id="adicionarLote" style="background: green">
-                                <i class="material-icons right">add</i>Adicionar Lote</a>
-                        </div>
-                        <div class="col s2">
-                            <a class="waves-effect waves-light btn" id="removerLote" style="background: green">
-                                <i class="material-icons right">delete</i>Remover Lote</a>
-                        </div>
-                    </div>
-
-                    <div class="row" style="color: green">
-                        <hr><br>
-                        <i class="material-icons">edit</i>
-                        <b>Observações:</b>
-                        <br><br>
-                    </div>
-
-                    <div class="row">
-                        <div class="col s12">
-                            <textarea id="obs"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="row " id="divBotaoGerarDieta">
-                        <br>
-                        <div class="col s12" align="right">
-                            <a class="waves-effect waves-light btn" id="gerarDieta" style="background: green">
-                                <i class="material-icons right">assignment</i>Gerar Dieta</a>
-                        </div>
-                    </div>
-
-                </form>
+                <br><br><br><br>
+                <center>
+                <div class="col s12">
+                    <h1>Opss! Ocorreu um erro!!! :(</h1>
+                </div>
+                </center>
             </div>
         </section>   
 
@@ -207,7 +154,7 @@
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
         <script src="js/materialize.js"></script>
-        <script src="js/dieta.js"></script>
         <script src="js/menu.js"></script>
+        <script src="js/linkMenu.js"></script>
     </body>
 </html>

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : esqueceuSenha
-    Created on : 16/10/2017, 11:56:22
-    Author     : jaops
+    Document   : erroLog
+    Created on : 31/10/2017, 00:17:53
+    Author     : Alice
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,15 +9,14 @@
 <html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Esqueceu a Senha?</title>
+        <title>ERRO</title>
         <meta name="description" content="">  
         <meta name="author" content="">
 
         <!-- CSS -->
         <link rel="stylesheet" href="css/base.css">  
         <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/vendor.css">    
-        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link rel="stylesheet" href="css/vendor.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!-- Ajustando o header -->
@@ -30,14 +29,15 @@
                 z-index: 600;
                 background: #14171c;
             }
-            nav {
-                color: transparent;
-                background-color: transparent;
-                width: auto;
-                height: auto;
-                line-height: auto;
-                border: none;
+
+            li ul{
+                display: none;
             }
+
+            li:hover ul { 
+                display: block; 
+            }
+
         </style>
 
     </head>
@@ -54,31 +54,23 @@
                 <nav id="main-nav-wrap">
                     <ul class="main-navigation">
                         <li><a href="index.jsp" title="">Início</a></li>
-                        <li><a href="cadastroUsuario.jsp" title="">Cadastre-se</a></li>
-                        <li class="highlight with-sep"><a href="index.jsp" title="" style="color: green">Sair</a></li>                             
+                        <li class="highlight with-sep"><a href="login.jsp" title="" style="color: green">Login</a></li>
+                        <li class="highlight with-sep"><a href="cadastroUsuario.jsp" title="" style="color: green">Cadastre-se</a></li>
                     </ul>
                 </nav>
                 <a class="menu-toggle" href="#"><span>Menu</span></a>   
             </div>        
         </header>
 
-        <!-- Formulário para envio de nova senha -->
-        
+        <!-- ERRO ANTES DE O USUÁRIO FAZER LOGIN NO SISTEMA -->
+
         <section id="process">  
             <div class="row">
+                <br><br><br><br>
                 <center>
-                    <div class="col s12"> 
-                        <br><br><br>        
-                        <h5><b>Esqueceu a Senha?</b></h5>
-                        <br>
-                        <div class="row">
-                            <div class="col s3"></div>
-                            <div class="input-field col s6 center-block">
-                                <input id="email" type="email" class="validate">
-                                <label for="email"><b>Email</b></label>
-                            </div>
-                        </div>
-                        <a class="waves-effect waves-light btn" style="background: green">Enviar nova senha</a>
+                    <div class="col s12">
+                        <h1>Opss! Ocorreu um erro!!! :(</h1>
+                    </div>
                 </center>
             </div>
         </section>   
@@ -145,6 +137,7 @@
         <script src="js/jquery-migrate-1.2.1.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/materialize.js"></script>
+        <script src="js/menu.js"></script>
+        <script src="js/linkMenu.js"></script>
     </body>
 </html>
