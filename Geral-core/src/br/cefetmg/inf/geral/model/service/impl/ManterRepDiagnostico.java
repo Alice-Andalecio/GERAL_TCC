@@ -18,27 +18,160 @@ public class ManterRepDiagnostico implements IManterRepDiagnostico{
 
     @Override
     public Long cadastrar(RepDiagnostico repdiag) throws PersistenciaException, NegocioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (repdiag.getDataDiagnostico() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getHoraDiagnostico() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getDiagnostico() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getSexo() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getNumDias() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getReprodutor() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getRaca() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getDataCio() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getHoraCio() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getCio() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getMuco() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getTe() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getUtero() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getOvD() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getOvE() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getBase() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        Long result = repdiagDAO.inserir(repdiag);
+        return result;
     }
 
     @Override
     public boolean alterar(RepDiagnostico repdiag) throws PersistenciaException, NegocioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        if (repdiag.getDataDiagnostico() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getHoraDiagnostico() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getDiagnostico() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getSexo() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getNumDias() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getReprodutor() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getRaca() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getDataCio() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getHoraCio() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getCio() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getMuco() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getTe() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getUtero() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getOvD() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getOvE() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        if (repdiag.getBase() == null) {
+            throw new NegocioException("Insira a opção.");
+        }
+        
+        boolean result = repdiagDAO.atualizar(repdiag);
+        return result;
     }
 
     @Override
     public boolean excluir(RepDiagnostico repdiag) throws PersistenciaException, NegocioException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean result = repdiagDAO.delete(repdiag);
+        return result;
     }
 
     @Override
     public List<RepDiagnostico> pesquisarTodos() throws PersistenciaException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<RepDiagnostico> result = repdiagDAO.listarTodos();
+        return result;
     }
 
     @Override
     public RepDiagnostico pesquisarPorSeq(Long seq) throws PersistenciaException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         RepDiagnostico result = repdiagDAO.consultarPorSeq(seq);
+        return result;
     }
-
 }
