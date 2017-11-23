@@ -18,13 +18,117 @@ public class ManterRepInseminacao implements IManterRepInseminacao {
 
     @Override
     public Long cadastrar(RepInseminacao repinseminacao) throws PersistenciaException, NegocioException {
-      
+
+        if (repinseminacao.getDataInseminacao() == null) {
+            throw new NegocioException("Insira a Data da Inseminação!");
+        }
+
+        if (repinseminacao.getHoraInseminacao() == null) {
+            throw new NegocioException("Insira a Hora da Inseminação!");
+        }
+
+        if (repinseminacao.getReprodutor() == null) {
+            throw new NegocioException("Insira o reprodutor.");
+        }
+
+        if (repinseminacao.getRaca() == null) {
+            throw new NegocioException("Insira a raca.");
+        }
+
+        if (repinseminacao.getInseminador() == null) {
+            throw new NegocioException("Insira o inseminador.");
+        }
+
+        if (repinseminacao.getNumDoses() == null) {
+            throw new NegocioException("Insira o numero de doses.");
+        }
+
+        if (repinseminacao.getDataCio() == null) {
+            throw new NegocioException("Insira a data do cio.");
+        }
+
+        if (repinseminacao.getHoraCio() == null) {
+            throw new NegocioException("Insira a hora do cio.");
+        }
+
+        if (repinseminacao.getCio() == null) {
+            throw new NegocioException("Insira a opcao.");
+        }
+
+        if (repinseminacao.getMuco() == null) {
+            throw new NegocioException("Insira a opcao");
+        }
+
+        if (repinseminacao.getTe() == null) {
+            throw new NegocioException("Insira a opcao");
+        }
+
+        if (repinseminacao.getEcc() == null) {
+            throw new NegocioException("Insira o ECC");
+        }
+
+        if (repinseminacao.getProIATF() == null) {
+            throw new NegocioException("Insira o IATF.");
+        }
+
         Long result = repinseminacaoDAO.inserir(repinseminacao);
         return result;
     }
 
     @Override
     public boolean alterar(RepInseminacao repinseminacao) throws PersistenciaException, NegocioException {
+
+        if (repinseminacao.getDataInseminacao() == null) {
+            throw new NegocioException("Insira a Data da Inseminação!");
+        }
+
+        if (repinseminacao.getHoraInseminacao() == null) {
+            throw new NegocioException("Insira a Hora da Inseminação!");
+        }
+
+        if (repinseminacao.getReprodutor() == null) {
+            throw new NegocioException("Insira o reprodutor.");
+        }
+
+        if (repinseminacao.getRaca() == null) {
+            throw new NegocioException("Insira a raca.");
+        }
+
+        if (repinseminacao.getInseminador() == null) {
+            throw new NegocioException("Insira o inseminador.");
+        }
+
+        if (repinseminacao.getNumDoses() == null) {
+            throw new NegocioException("Insira o numero de doses.");
+        }
+
+        if (repinseminacao.getDataCio() == null) {
+            throw new NegocioException("Insira a data do cio.");
+        }
+
+        if (repinseminacao.getHoraCio() == null) {
+            throw new NegocioException("Insira a hora do cio.");
+        }
+
+        if (repinseminacao.getCio() == null) {
+            throw new NegocioException("Insira a opcao.");
+        }
+
+        if (repinseminacao.getMuco() == null) {
+            throw new NegocioException("Insira a opcao");
+        }
+
+        if (repinseminacao.getTe() == null) {
+            throw new NegocioException("Insira a opcao");
+        }
+
+        if (repinseminacao.getEcc() == null) {
+            throw new NegocioException("Insira o ECC");
+        }
+
+        if (repinseminacao.getProIATF() == null) {
+            throw new NegocioException("Insira o IATF.");
+        }
 
         boolean result = repinseminacaoDAO.atualizar(repinseminacao);
         return result;
