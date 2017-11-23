@@ -27,7 +27,7 @@ public class UsuarioDAO implements IUsuarioDAO {//SQL
 
             Long id = null;
             if (rs.next()) {
-                id = new Long(rs.getLong("id_Usuario"));
+                id = rs.getLong("id_Usuario");
                 usuario.setId(id);
             }
 

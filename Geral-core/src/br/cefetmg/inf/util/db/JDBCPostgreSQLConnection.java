@@ -1,6 +1,5 @@
 package br.cefetmg.inf.util.db;
 
-import br.cefetmg.inf.util.db.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

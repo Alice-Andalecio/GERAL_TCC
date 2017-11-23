@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ To change this license header, choose License Headers in Project Properties.
+ To change this template file, choose Tools | Templates
+ and open the template in the editor.
  */
 package br.cefetmg.controller;
 
@@ -12,8 +12,8 @@ import br.cefetmg.inf.util.db.exception.PersistenciaException;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- *
- * @author jaops
+
+ @author jaops
  */
 public class CadastroUsuarioController {
 
@@ -35,6 +35,12 @@ public class CadastroUsuarioController {
 
         IUsuarioDAO manterUsuario = new UsuarioDAO();
         manterUsuario.inserir(usuario);
+        request.setAttribute("email", email);
+        request.setAttribute("password", senha);
+        request.setAttribute("nome", nome);
+
+        request.getSession().setAttribute("nome", nome);
+        request.getSession().setAttribute("codUsuario", usuario.getIdUsuario());
         jsp = "/VisualizarExcluirAnimal.jsp";
         return jsp;
     }
