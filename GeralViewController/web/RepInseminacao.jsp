@@ -82,7 +82,8 @@
 
         <section id="process">  
             <div class="row">
-                <form id="formInseminacao" class="col s12">
+                <form id="formInseminacao" class="col s12" action="" method="POST">
+                    <input type='hidden' name='acao' id="acao" value='gravarInfoInseminacao'>
 
                     <div class="row section-intro">
                         <div class="col-twelve">
@@ -289,7 +290,7 @@
                         <br>
                         <div class="col s3">
                             <a class="waves-effect waves-light btn" id="salvarIns" style="background: green">
-                                <i class="material-icons right">done</i>Salvar</a>
+                                <i class="material-icons right"onclick="gravarInfoInseminacao()">done</i>Salvar</a>
                         </div>
                     </div>
 

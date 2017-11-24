@@ -305,7 +305,7 @@
                         <br>
                         <div class="col s3">
                             <a class="waves-effect waves-light btn" id="salvarDiag" style="background: green">
-                                <i class="material-icons right">done</i>Salvar</a>
+                                <i class="material-icons right"onclick="gravarInfoDiagnostico()">done</i>Salvar</a>
                         </div>
                     </div>
 
