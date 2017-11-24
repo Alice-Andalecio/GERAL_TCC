@@ -87,6 +87,7 @@ public class RepPartoController {
         Date hParto = formatoHora.parse(partoHora);
 
         RepParto repparto = new RepParto();
+        
         repparto.setNro_Animal(Long.parseLong(numeroAnimal));
         repparto.setNom_Animal(nomeAnimal);
         
