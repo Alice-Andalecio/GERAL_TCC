@@ -6,10 +6,10 @@ import br.cefetmg.inf.util.db.exception.PersistenciaException;
 import java.util.List;
 
 public interface IManterAlimento {
-    Long cadastrar(Alimento alimento) throws PersistenciaException, NegocioException;
-    boolean alterar(Alimento alimento) throws PersistenciaException, NegocioException;
-    boolean excluir(Alimento alimento) throws PersistenciaException, NegocioException;
-    List<Alimento> pesquisarTodos() throws PersistenciaException;
-    Alimento pesquisarPorCod(Long cod) throws PersistenciaException;
+    public void cadastrar(Alimento alimento) throws PersistenciaException, NegocioException;
+    public boolean alterar(Alimento alimento) throws PersistenciaException, NegocioException;
+    public boolean excluir(Alimento alimento) throws PersistenciaException, NegocioException;
+    public List<Alimento> pesquisarTodos() throws PersistenciaException;
+    public Alimento pesquisarPorCod(Long cod) throws PersistenciaException;
 }
 

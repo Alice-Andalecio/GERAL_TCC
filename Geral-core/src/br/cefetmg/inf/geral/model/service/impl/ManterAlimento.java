@@ -17,13 +17,12 @@ public class ManterAlimento implements IManterAlimento {
     }
 
     @Override
-    public Long cadastrar(Alimento alimento) throws PersistenciaException, NegocioException {
+    public void cadastrar(Alimento alimento) throws PersistenciaException, NegocioException {
         if ((alimento.getDes_Alimento() == null) || (alimento.getDes_Alimento().isEmpty())) {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 
-        Long result = alimentoDAO.inserir(alimento);
-        return result;
+        alimentoDAO.inserir(alimento);
     }
 
     @Override

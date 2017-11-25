@@ -5,13 +5,12 @@
  */
 package br.cefetmg.inf.geral.model.service.impl.Teste;
 
-import br.cefetmg.inf.geral.model.domain.Grupo;
 import br.cefetmg.inf.geral.model.domain.GrupoAlimentoDieta;
-import org.junit.Test;
-import static org.junit.Assert.*;
 import br.cefetmg.inf.geral.model.service.impl.ManterGrupoAlimentoDieta;
 import br.cefetmg.inf.util.db.exception.NegocioException;
 import br.cefetmg.inf.util.db.exception.PersistenciaException;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
 /**
  *
@@ -70,8 +69,8 @@ public class ManterGrupoAlimentoDietaTest {
         ManterGrupoAlimentoDieta objeto = new ManterGrupoAlimentoDieta();
         System.out.println("Teste do método pesquisarPorCod");
 
-        try{
-            GrupoAlimentoDieta pesquisarPorCod = objeto.pesquisarPorCod(null);
+        try {
+            GrupoAlimentoDieta pesquisarPorData = objeto.pesquisarPorData(null);
         } catch (PersistenciaException e) {
             return;
         }

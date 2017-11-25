@@ -2,7 +2,6 @@ package br.cefetmg.inf.geral.model.dao.impl;
 
 import br.cefetmg.inf.geral.model.dao.IAnimalDAO;
 import br.cefetmg.inf.geral.model.domain.Animal;
-import br.cefetmg.inf.geral.model.domain.Usuario;
 import br.cefetmg.inf.util.db.ConnectionManager;
 import br.cefetmg.inf.util.db.exception.PersistenciaException;
 import java.sql.Connection;
@@ -34,7 +33,7 @@ public class AnimalDAO implements IAnimalDAO {
                 try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
                     pstmt.setLong(1, animal.getCod_Grupo());
                     pstmt.setString(2, animal.getCod_email());
-                    pstmt.setLong(3, animal.getNro_Animal());
+                    pstmt.setString(3, String.format("%s",animal.getNro_Animal()));
                     pstmt.setDate(4, (Date) animal.getDat_Nascimento());
                     pstmt.setString(5, animal.getIdt_Tipo());
                     pstmt.setString(6, animal.getIdt_Status());

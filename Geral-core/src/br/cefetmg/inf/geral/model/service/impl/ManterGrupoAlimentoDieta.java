@@ -6,6 +6,7 @@ import br.cefetmg.inf.geral.model.domain.GrupoAlimentoDieta;
 import br.cefetmg.inf.geral.model.service.IManterGrupoAlimentoDieta;
 import br.cefetmg.inf.util.db.exception.NegocioException;
 import br.cefetmg.inf.util.db.exception.PersistenciaException;
+import java.sql.Date;
 import java.util.List;
 
 public class ManterGrupoAlimentoDieta implements IManterGrupoAlimentoDieta {
@@ -17,18 +18,17 @@ public class ManterGrupoAlimentoDieta implements IManterGrupoAlimentoDieta {
     }
 
     @Override
-    public Long cadastrar(GrupoAlimentoDieta grupoAlimentoDieta) throws PersistenciaException, NegocioException {
-        if (grupoAlimentoDieta.getPer_Composicao() == null) {
+    public void cadastrar(GrupoAlimentoDieta grupoAlimentoDieta) throws PersistenciaException, NegocioException {
+        if (grupoAlimentoDieta.getDat_dieta() == null) {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 
-        Long result = grupoAlimentoDietaDAO.inserir(grupoAlimentoDieta);
-        return result;
+        grupoAlimentoDietaDAO.inserir(grupoAlimentoDieta);
     }
 
     @Override
     public boolean alterar(GrupoAlimentoDieta grupoAlimentoDieta) throws PersistenciaException, NegocioException {
-        if (grupoAlimentoDieta.getPer_Composicao() == null) {
+        if (grupoAlimentoDieta.getDat_dieta() == null) {
             throw new NegocioException("O campo não pode ser nulo.");
         }
 
@@ -48,9 +48,9 @@ public class ManterGrupoAlimentoDieta implements IManterGrupoAlimentoDieta {
         return result;
     }
 
-    @Override
-    public GrupoAlimentoDieta pesquisarPorCod(Long cod) throws PersistenciaException {
-        GrupoAlimentoDieta result = grupoAlimentoDietaDAO.consultarPorCod(cod);
+   @Override
+    public GrupoAlimentoDieta pesquisarPorData(Date data) throws PersistenciaException {
+        GrupoAlimentoDieta result = grupoAlimentoDietaDAO.consultarPorData(data);
         return result;
     }
 }

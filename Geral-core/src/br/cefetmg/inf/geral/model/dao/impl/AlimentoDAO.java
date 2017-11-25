@@ -5,34 +5,25 @@ import br.cefetmg.inf.geral.model.domain.Alimento;
 import br.cefetmg.inf.util.db.ConnectionManager;
 import br.cefetmg.inf.util.db.exception.PersistenciaException;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class AlimentoDAO implements IAlimentoDAO{
-
+    
     @Override
-    public Long inserir(Alimento alimento) throws PersistenciaException {
+    public void inserir(Alimento alimento) throws PersistenciaException {
         try {
             Connection connection = ConnectionManager.getInstance().getConnection();
 
-            String sql = "INSERT INTO alimento (des_alimento) VALUES(?)";
+            String sql = "INSERT INTO alimento (cod_alimento, des_alimento) VALUES(?,?)";
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, alimento.getDes_Alimento());
-            ResultSet rs = pstmt.executeQuery();
+            pstmt.setLong(1, alimento.getCod_alimento());
+            pstmt.setString(2, alimento.getDes_Alimento());
+            pstmt.executeUpdate();
 
-            Long cod_Alimento = null;
-            if (rs.next()) {
-                cod_Alimento = new Long(rs.getLong("cod_Alimento"));
-                alimento.setCod_alimento(cod_Alimento);
-            }
-
-            rs.close();
             pstmt.close();
             connection.close();
-
-            return cod_Alimento;
         } catch (Exception e) {
             e.printStackTrace();
             throw new PersistenciaException(e.getMessage(), e);
@@ -146,4 +137,4 @@ public class AlimentoDAO implements IAlimentoDAO{
             throw new PersistenciaException(e.getMessage(), e);
         }
     } 
-}
+} 

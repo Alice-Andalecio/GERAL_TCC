@@ -54,7 +54,9 @@ public class Login {
     }
 
     public static void validarSessao(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
         Long codUsuario = (Long) request.getSession().getAttribute("codUsuario");
+        System.out.println(request.getSession().getAttribute("codUsuario"));
         String jsp = "";
         if (codUsuario == null) {
             jsp = "/index.jsp";
