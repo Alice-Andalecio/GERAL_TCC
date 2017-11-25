@@ -709,24 +709,7 @@ ALTER TABLE ONLY reproducao ALTER COLUMN seq_animal SET DEFAULT nextval('reprodu
 -- Data for Name: alimento; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY alimento (cod_alimento, des_alimento) FROM stdin;
 
-
---
--- Data for Name: animal; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY animal (seq_animal, cod_grupo, cod_email, nro_animal, dat_nascimento, idt_tipo, idt_status, pelagem, peso, idade, nom_animal, num_sisbov, desmama, aptidao, num_pai, num_mae, entrada, brinco_eletronico, raca_pura, raca_mestica_1, raca_mestica_2, porcentagem_1, porcentagem_2, nome_pai, nome_mae) FROM stdin;
-
---
--- Data for Name: animal_medicamento; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY animal_medicamento (seq_animal, cod_email, seq_medicamento, cod_medicamento, dat_inicio, dat_fim, txt_prescricao, qtd_dosagem, qtd_frequencia) FROM stdin;
-
---
--- Name: animal_medicamento_seq_animal_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
 
 SELECT pg_catalog.setval('animal_medicamento_seq_animal_seq', 1, false);
 
@@ -744,15 +727,6 @@ SELECT pg_catalog.setval('animal_medicamento_seq_medicamento_seq', 1, false);
 
 SELECT pg_catalog.setval('animal_seq_animal_seq', 1, false);
 
-
---
--- Data for Name: animal_vacina; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY animal_vacina (seq_animal, cod_vacina, cod_email, seq_vacina, dat_vacinacao) FROM stdin;
-
-
-
 --
 -- Name: animal_vacina_seq_animal_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -765,22 +739,6 @@ SELECT pg_catalog.setval('animal_vacina_seq_animal_seq', 1, false);
 --
 
 SELECT pg_catalog.setval('animal_vacina_seq_vacina_seq', 1, false);
-
-
---
--- Data for Name: comprador; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY comprador (cod_cnpj, nom_comprador) FROM stdin;
-
-
-
---
--- Data for Name: controle_producao; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY controle_producao (seq_compra, seq_animal, dat_producao, cod_email) FROM stdin;
-
 
 --
 -- Name: controle_producao_seq_animal_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
@@ -797,69 +755,10 @@ SELECT pg_catalog.setval('controle_producao_seq_compra_seq', 1, false);
 
 
 --
--- Data for Name: grupo; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY grupo (cod_grupo, nom_grupo, "qtd_media_produção") FROM stdin;
-
-
---
--- Data for Name: grupo_alimento_dieta; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY grupo_alimento_dieta (cod_grupo, alimento, per_composicao) FROM stdin;
-
-
---
--- Data for Name: historico_localizacao; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY historico_localizacao (seq_animal, cod_email, dat_inicio_localizacao, cod_setor) FROM stdin;
-
-
-
---
 -- Name: historico_localizacao_seq_animal_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('historico_localizacao_seq_animal_seq', 1, false);
-
-
---
--- Data for Name: medicamento; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY medicamento (cod_medicamento, des_medicamento) FROM stdin;
-
-
-
---
--- Data for Name: parametro; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY parametro (cod_parametro, qtd_dia_secagem, qtd_dia_amamentacao) FROM stdin;
-
-
-
---
--- Data for Name: problema_padrao; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY problema_padrao (cod_problema, des_problema) FROM stdin;
-
-
---
--- Data for Name: procedencia; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY procedencia (seq_procedencia, nom_fazenda, nom_proprietario, idt_proprietario) FROM stdin;
-
-
---
--- Data for Name: producao_compra; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY producao_compra (seq_compra, cod_cnpj, cod_problema, txt_observacao) FROM stdin;
 
 
 --
@@ -870,24 +769,10 @@ SELECT pg_catalog.setval('producao_compra_seq_compra_seq', 1, false);
 
 
 --
--- Data for Name: producao_leite; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY producao_leite (seq_animal, cod_email, dat_producao, cod_grupo, qtd_leite_manha, qtd_leite_tarde) FROM stdin;
-
-
---
 -- Name: producao_leite_seq_animal_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('producao_leite_seq_animal_seq', 1, false);
-
-
---
--- Data for Name: reproducao; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY reproducao (seq_reproducao, seq_animal_gestante, seq_animal, dat_inseminacao, hora_inseminacao, dat_gestacao, cod_email) FROM stdin;
 
 
 --
@@ -910,15 +795,6 @@ SELECT pg_catalog.setval('reproducao_seq_animal_seq', 1, false);
 
 SELECT pg_catalog.setval('reproducao_seq_reproducao_seq', 1, false);
 
-
---
--- Data for Name: setor; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY setor (cod_setor, nom_setor) FROM stdin;
-
-
-
 --
 -- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -930,14 +806,6 @@ COPY setor (cod_setor, nom_setor) FROM stdin;
 --
 
 SELECT pg_catalog.setval('usuario_id_usuario_seq', 10, true);
-
-
---
--- Data for Name: vacina; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY vacina (cod_vacina, nom_vacina, qtd_doses) FROM stdin;
-
 
 --
 -- Name: alimento alimento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
@@ -2011,29 +1879,6 @@ ALTER TABLE ONLY reproducao ALTER COLUMN seq_animal SET DEFAULT nextval('reprodu
 
 
 --
--- Data for Name: alimento; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY alimento (cod_alimento, des_alimento) FROM stdin;
-
-
---
--- Data for Name: animal; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY animal (seq_animal, cod_grupo, cod_email, nro_animal, dat_nascimento, idt_tipo, idt_status, pelagem, peso, idade, nom_animal, num_sisbov, desmama, aptidao, num_pai, num_mae, entrada, brinco_eletronico, raca_pura, raca_mestica_1, raca_mestica_2, porcentagem_1, porcentagem_2, nome_pai, nome_mae) FROM stdin;
-
-
-
---
--- Data for Name: animal_medicamento; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY animal_medicamento (seq_animal, cod_email, seq_medicamento, cod_medicamento, dat_inicio, dat_fim, txt_prescricao, qtd_dosagem, qtd_frequencia) FROM stdin;
-
-
-
---
 -- Name: animal_medicamento_seq_animal_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -2055,13 +1900,6 @@ SELECT pg_catalog.setval('animal_seq_animal_seq', 1, false);
 
 
 --
--- Data for Name: animal_vacina; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY animal_vacina (seq_animal, cod_vacina, cod_email, seq_vacina, dat_vacinacao) FROM stdin;
-
-
---
 -- Name: animal_vacina_seq_animal_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -2074,18 +1912,6 @@ SELECT pg_catalog.setval('animal_vacina_seq_animal_seq', 1, false);
 
 SELECT pg_catalog.setval('animal_vacina_seq_vacina_seq', 1, false);
 
-
---
--- Data for Name: comprador; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY comprador (cod_cnpj, nom_comprador) FROM stdin;
-
---
--- Data for Name: controle_producao; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY controle_producao (seq_compra, seq_animal, dat_producao, cod_email) FROM stdin;
 
 --
 -- Name: controle_producao_seq_animal_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
@@ -2101,26 +1927,6 @@ SELECT pg_catalog.setval('controle_producao_seq_animal_seq', 1, false);
 SELECT pg_catalog.setval('controle_producao_seq_compra_seq', 1, false);
 
 
---
--- Data for Name: grupo; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY grupo (cod_grupo, nom_grupo, "qtd_media_produção") FROM stdin;
-
-
---
--- Data for Name: grupo_alimento_dieta; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY grupo_alimento_dieta (cod_grupo, alimento, per_composicao) FROM stdin;
-
-
---
--- Data for Name: historico_localizacao; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY historico_localizacao (seq_animal, cod_email, dat_inicio_localizacao, cod_setor) FROM stdin;
-
 
 --
 -- Name: historico_localizacao_seq_animal_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
@@ -2130,52 +1936,11 @@ SELECT pg_catalog.setval('historico_localizacao_seq_animal_seq', 1, false);
 
 
 --
--- Data for Name: medicamento; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY medicamento (cod_medicamento, des_medicamento) FROM stdin;
-
-
---
--- Data for Name: parametro; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY parametro (cod_parametro, qtd_dia_secagem, qtd_dia_amamentacao) FROM stdin;
-
-
---
--- Data for Name: problema_padrao; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY problema_padrao (cod_problema, des_problema) FROM stdin;
-
-
---
--- Data for Name: procedencia; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY procedencia (seq_procedencia, nom_fazenda, nom_proprietario, idt_proprietario) FROM stdin;
-
-
---
--- Data for Name: producao_compra; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY producao_compra (seq_compra, cod_cnpj, cod_problema, txt_observacao) FROM stdin;
-
-
---
 -- Name: producao_compra_seq_compra_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('producao_compra_seq_compra_seq', 1, false);
 
-
---
--- Data for Name: producao_leite; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY producao_leite (seq_animal, cod_email, dat_producao, cod_grupo, qtd_leite_manha, qtd_leite_tarde) FROM stdin;
 
 
 --
@@ -2183,13 +1948,6 @@ COPY producao_leite (seq_animal, cod_email, dat_producao, cod_grupo, qtd_leite_m
 --
 
 SELECT pg_catalog.setval('producao_leite_seq_animal_seq', 1, false);
-
-
---
--- Data for Name: reproducao; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY reproducao (seq_reproducao, seq_animal_gestante, seq_animal, dat_inseminacao, hora_inseminacao, dat_gestacao, cod_email) FROM stdin;
 
 
 --
@@ -2212,34 +1970,11 @@ SELECT pg_catalog.setval('reproducao_seq_animal_seq', 1, false);
 
 SELECT pg_catalog.setval('reproducao_seq_reproducao_seq', 1, false);
 
-
---
--- Data for Name: setor; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY setor (cod_setor, nom_setor) FROM stdin;
-
-
---
--- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY usuario (cod_email, txt_senha, nom_usuario, id_usuario, email_verificado, codigo_validacao) FROM stdin;
-
-
 --
 -- Name: usuario_id_usuario_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('usuario_id_usuario_seq', 10, true);
-
-
---
--- Data for Name: vacina; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY vacina (cod_vacina, nom_vacina, qtd_doses) FROM stdin;
-
 
 --
 -- Name: alimento alimento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
