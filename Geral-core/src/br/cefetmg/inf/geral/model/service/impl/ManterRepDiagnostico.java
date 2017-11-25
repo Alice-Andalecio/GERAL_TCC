@@ -8,8 +8,8 @@ import br.cefetmg.inf.util.db.exception.NegocioException;
 import br.cefetmg.inf.util.db.exception.PersistenciaException;
 import java.util.List;
 
-public class ManterRepDiagnostico implements IManterRepDiagnostico{
-    
+public class ManterRepDiagnostico implements IManterRepDiagnostico {
+
     private IRepDiagnosticoDAO repdiagDAO;
 
     public ManterRepDiagnostico() {
@@ -21,138 +21,138 @@ public class ManterRepDiagnostico implements IManterRepDiagnostico{
         if (repdiag.getDataDiagnostico() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getHoraDiagnostico() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getDiagnostico() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getSexo() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getNumDias() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getReprodutor() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getRaca() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getDataCio() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getHoraCio() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getCio() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getMuco() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getTe() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getUtero() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getOvD() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getOvE() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getBase() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         Long result = repdiagDAO.inserir(repdiag);
         return result;
     }
 
     @Override
     public boolean alterar(RepDiagnostico repdiag) throws PersistenciaException, NegocioException {
-        
+
         if (repdiag.getDataDiagnostico() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getHoraDiagnostico() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getDiagnostico() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getSexo() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getNumDias() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getReprodutor() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getRaca() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getDataCio() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getHoraCio() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getCio() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getMuco() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getTe() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getUtero() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getOvD() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getOvE() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         if (repdiag.getBase() == null) {
             throw new NegocioException("Insira a opção.");
         }
-        
+
         boolean result = repdiagDAO.atualizar(repdiag);
         return result;
     }
@@ -171,7 +171,7 @@ public class ManterRepDiagnostico implements IManterRepDiagnostico{
 
     @Override
     public RepDiagnostico pesquisarPorSeq(Long seq) throws PersistenciaException {
-         RepDiagnostico result = repdiagDAO.consultarPorSeq(seq);
+        RepDiagnostico result = repdiagDAO.consultarPorSeq(seq);
         return result;
     }
 }
