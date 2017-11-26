@@ -23,10 +23,25 @@ public class implementacaoUsuarioDAO implements IUsuarioDAO{
     public Usuario consultar(long id)  throws PersistenciaException{
         return dao.consultar(id);
     }
+    
+    @Override
+    public Usuario consultarEmail(String email)  throws PersistenciaException{
+        return dao.consultarEmail(email);
+    }
 
     @Override
     public boolean alterar(Usuario usuario)  throws PersistenciaException{
         return dao.alterar(usuario);
+    }
+    
+    @Override
+    public boolean alterar(String email, boolean emailVerificado)  throws PersistenciaException{
+        return dao.alterar(email, emailVerificado);
+    }
+    
+    @Override
+    public boolean alterar(String email, int codigoValidacao)  throws PersistenciaException{
+        return dao.alterar(email, codigoValidacao);
     }
 
     @Override

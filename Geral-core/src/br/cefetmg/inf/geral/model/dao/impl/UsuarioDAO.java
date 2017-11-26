@@ -7,22 +7,25 @@ import br.cefetmg.inf.util.db.exception.PersistenciaException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioDAO implements IUsuarioDAO {//SQL
+public class UsuarioDAO implements IUsuarioDAO {
 
     @Override
     public void inserir(Usuario usuario) throws PersistenciaException {
 
         try (Connection connection = ConnectionManager.getInstance().getConnection()) {
 
-            String sql = "INSERT INTO usuario (nom_usuario, txt_Senha, cod_Email) VALUES(?,md5(?),?) RETURNING id_Usuario";
+            String sql = "INSERT INTO usuario (nom_usuario, txt_Senha, cod_Email, email_verificado, codigo_validacao) VALUES(?,md5(?),?,?,?) RETURNING id_Usuario";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, usuario.getNome());
             pstmt.setString(2, usuario.getSenha());
             pstmt.setString(3, usuario.getEmail());
+            pstmt.setBoolean(4, usuario.isEmailVerificado());
+            pstmt.setInt(5, usuario.getCodigoValidacao());
             ResultSet rs = pstmt.executeQuery();
 
             Long id = null;
@@ -57,6 +60,8 @@ public class UsuarioDAO implements IUsuarioDAO {//SQL
                 usuario.setNome(rs.getString("nom_usuario"));
                 usuario.setSenha(rs.getString("txt_senha"));
                 usuario.setEmail(rs.getString("cod_Email"));
+                usuario.setEmailVerificado(rs.getBoolean("email_verificado"));
+                usuario.setCodigoValidacao(rs.getInt("codigo_validacao"));
             }
 
             rs.close();
@@ -65,6 +70,39 @@ public class UsuarioDAO implements IUsuarioDAO {//SQL
 
             return usuario;
         } catch (Exception e) {
+            e.printStackTrace();
+            throw new PersistenciaException(e.getMessage());
+        }
+    }
+    
+    @Override
+    public Usuario consultarEmail(String email) throws PersistenciaException {
+        try {
+            Connection connection = ConnectionManager.getInstance().getConnection();
+
+            String sql = "SELECT * FROM usuario WHERE cod_email = ?";
+
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setString(1, email);
+            ResultSet rs = pstmt.executeQuery();
+
+            Usuario usuario = null;
+            if (rs.next()) {
+                usuario = new Usuario();
+                usuario.setId(rs.getLong("id_Usuario"));
+                usuario.setNome(rs.getString("nom_usuario"));
+                usuario.setSenha(rs.getString("txt_senha"));
+                usuario.setEmail(rs.getString("cod_Email"));
+                usuario.setEmailVerificado(rs.getBoolean("email_verificado"));
+                usuario.setCodigoValidacao(rs.getInt("codigo_validacao"));
+            }
+
+            rs.close();
+            pstmt.close();
+            connection.close();
+
+            return usuario;
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             throw new PersistenciaException(e.getMessage());
         }
@@ -86,6 +124,53 @@ public class UsuarioDAO implements IUsuarioDAO {//SQL
             pstmt.setString(2, usuario.getSenha());
             pstmt.setString(3, usuario.getEmail());
             pstmt.setLong(4, usuario.getId());
+            pstmt.executeUpdate();
+
+            pstmt.close();
+            connection.close();
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new PersistenciaException(e.getMessage());
+        }
+    }
+    
+    @Override
+    public boolean alterar(String email, boolean emailVerificado) throws PersistenciaException {
+        try {
+            Connection connection = ConnectionManager.getInstance().getConnection();
+
+            String sql = "UPDATE usuario "
+                    + "   SET email_verificado = ?, "
+                    + " WHERE cod_email = ?;";
+
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setBoolean(1, emailVerificado);
+            pstmt.setString(2, email);
+            pstmt.executeUpdate();
+
+            pstmt.close();
+            connection.close();
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new PersistenciaException(e.getMessage());
+        }
+    }
+    @Override
+    public boolean alterar(String email, int codigoValidacao) throws PersistenciaException {
+        try {
+            Connection connection = ConnectionManager.getInstance().getConnection();
+
+            String sql = "UPDATE usuario "
+                    + "   SET codigo_validacao = ?, "
+                    + " WHERE cod_email = ?;";
+
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setInt(1, codigoValidacao);
+            pstmt.setString(2, email);
             pstmt.executeUpdate();
 
             pstmt.close();

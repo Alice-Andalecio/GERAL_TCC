@@ -1,7 +1,5 @@
 package br.cefetmg.inf.geral.model.domain;
 
-import java.util.Map;
-
 public class Usuario {
 
     private long idUsuario;
@@ -9,7 +7,10 @@ public class Usuario {
     private String senha;
     private char idtPerfil;
     private String nome;
+    private boolean emailVerificado;
 
+    private int codigoValidacao;
+    
     public String getNome() {
         return nome;
     }
@@ -76,5 +77,21 @@ public class Usuario {
 
     public void setIdtPerfil(char idtPerfil) {
         this.idtPerfil = idtPerfil;
+    }
+    
+    public boolean isEmailVerificado() {
+        return emailVerificado;
+    }
+
+    public void setEmailVerificado(boolean emailVerificado) {
+        this.emailVerificado = emailVerificado;
+    }
+
+    public int getCodigoValidacao() {
+        return codigoValidacao;
+    }
+
+    public void setCodigoValidacao(int codigoValidacao) {
+        this.codigoValidacao = codigoValidacao;
     }
 }
