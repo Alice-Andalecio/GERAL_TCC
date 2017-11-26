@@ -5,9 +5,9 @@ import br.cefetmg.inf.util.db.exception.PersistenciaException;
 import java.util.ArrayList;
 
 public interface IMedicamentoDAO {
-    Long inserir(Medicamento medicamento) throws PersistenciaException;
-    boolean atualizar(Medicamento medicamento) throws PersistenciaException;
-    boolean delete(Medicamento medicamento) throws PersistenciaException;
-    ArrayList<Medicamento> listarTodos() throws PersistenciaException;
-    Medicamento consultarPorCod(Long cod) throws PersistenciaException;
+    public Long inserir(Medicamento medicamento) throws PersistenciaException;
+    public boolean atualizar(Medicamento medicamento) throws PersistenciaException;
+    public boolean delete(Medicamento medicamento) throws PersistenciaException;
+    public ArrayList<Medicamento> listarTodos() throws PersistenciaException;
+    public Medicamento consultarPorCod(Long cod) throws PersistenciaException;
 }
