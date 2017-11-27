@@ -2,12 +2,11 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.6.3
--- Dumped by pg_dump version 9.6.3
+-- Dumped from database version 9.5.9
+-- Dumped by pg_dump version 9.5.9
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
@@ -488,6 +487,41 @@ ALTER SEQUENCE producao_leite_seq_animal_seq OWNED BY producao_leite.seq_animal;
 
 
 --
+-- Name: rep_parto; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE rep_parto (
+    "seq_ReproducaoParto" integer[],
+    "nro_Animal" integer,
+    "nom_Animal" character(1),
+    padrao character(1),
+    doadora character(1),
+    receptora character(1),
+    descarte character(1),
+    "perParto1" date,
+    "perParto2" date,
+    "diasGest" integer,
+    tipo character(1),
+    retencao integer,
+    "dataParto" date,
+    "horaParto" time with time zone,
+    "tipoParto" character(1),
+    grau character(1),
+    "numCrias" integer,
+    "numCria1" character(1),
+    pelagem1 character(1),
+    peso1 character(1),
+    sexo1 character(1),
+    "numCria2" character(1),
+    pelagem2 character(1),
+    peso2 character(1),
+    sexo2 character(1)
+);
+
+
+ALTER TABLE rep_parto OWNER TO postgres;
+
+--
 -- Name: reproducao; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -623,94 +657,111 @@ CREATE TABLE vacina (
 ALTER TABLE vacina OWNER TO postgres;
 
 --
--- Name: animal seq_animal; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: seq_animal; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY animal ALTER COLUMN seq_animal SET DEFAULT nextval('animal_seq_animal_seq'::regclass);
 
 
 --
--- Name: animal_medicamento seq_animal; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: seq_animal; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY animal_medicamento ALTER COLUMN seq_animal SET DEFAULT nextval('animal_medicamento_seq_animal_seq'::regclass);
 
 
 --
--- Name: animal_medicamento seq_medicamento; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: seq_medicamento; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY animal_medicamento ALTER COLUMN seq_medicamento SET DEFAULT nextval('animal_medicamento_seq_medicamento_seq'::regclass);
 
 
 --
--- Name: animal_vacina seq_animal; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: seq_animal; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY animal_vacina ALTER COLUMN seq_animal SET DEFAULT nextval('animal_vacina_seq_animal_seq'::regclass);
 
 
 --
--- Name: animal_vacina seq_vacina; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: seq_vacina; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY animal_vacina ALTER COLUMN seq_vacina SET DEFAULT nextval('animal_vacina_seq_vacina_seq'::regclass);
 
 
 --
--- Name: controle_producao seq_compra; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: seq_compra; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY controle_producao ALTER COLUMN seq_compra SET DEFAULT nextval('controle_producao_seq_compra_seq'::regclass);
 
 
 --
--- Name: controle_producao seq_animal; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: seq_animal; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY controle_producao ALTER COLUMN seq_animal SET DEFAULT nextval('controle_producao_seq_animal_seq'::regclass);
 
 
 --
--- Name: historico_localizacao seq_animal; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: seq_animal; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY historico_localizacao ALTER COLUMN seq_animal SET DEFAULT nextval('historico_localizacao_seq_animal_seq'::regclass);
 
 
 --
--- Name: producao_compra seq_compra; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: seq_compra; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY producao_compra ALTER COLUMN seq_compra SET DEFAULT nextval('producao_compra_seq_compra_seq'::regclass);
 
 
 --
--- Name: producao_leite seq_animal; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: seq_animal; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY producao_leite ALTER COLUMN seq_animal SET DEFAULT nextval('producao_leite_seq_animal_seq'::regclass);
 
 
 --
--- Name: reproducao seq_reproducao; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: seq_reproducao; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY reproducao ALTER COLUMN seq_reproducao SET DEFAULT nextval('reproducao_seq_reproducao_seq'::regclass);
 
 
 --
--- Name: reproducao seq_animal_gestante; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: seq_animal_gestante; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY reproducao ALTER COLUMN seq_animal_gestante SET DEFAULT nextval('reproducao_seq_animal_gestante_seq'::regclass);
 
 
 --
--- Name: reproducao seq_animal; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: seq_animal; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY reproducao ALTER COLUMN seq_animal SET DEFAULT nextval('reproducao_seq_animal_seq'::regclass);
+
+
+--
+-- Data for Name: alimento; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+--
+-- Data for Name: animal; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: animal_medicamento; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
 
 
 --
@@ -735,6 +786,11 @@ SELECT pg_catalog.setval('animal_seq_animal_seq', 9, true);
 
 
 --
+-- Data for Name: animal_vacina; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+--
 -- Name: animal_vacina_seq_animal_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -746,6 +802,18 @@ SELECT pg_catalog.setval('animal_vacina_seq_animal_seq', 1, false);
 --
 
 SELECT pg_catalog.setval('animal_vacina_seq_vacina_seq', 1, false);
+
+
+--
+-- Data for Name: comprador; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: controle_producao; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
 
 
 --
@@ -763,10 +831,61 @@ SELECT pg_catalog.setval('controle_producao_seq_compra_seq', 1, false);
 
 
 --
+-- Data for Name: grupo; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+
+--
+-- Data for Name: grupo_alimento_dieta; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: historico_localizacao; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+
+--
 -- Name: historico_localizacao_seq_animal_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('historico_localizacao_seq_animal_seq', 1, false);
+
+
+--
+-- Data for Name: medicamento; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: parametro; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: problema_padrao; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: procedencia; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: producao_compra; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
 
 
 --
@@ -777,10 +896,29 @@ SELECT pg_catalog.setval('producao_compra_seq_compra_seq', 1, false);
 
 
 --
+-- Data for Name: producao_leite; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+
+--
 -- Name: producao_leite_seq_animal_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('producao_leite_seq_animal_seq', 1, false);
+
+
+--
+-- Data for Name: rep_parto; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: reproducao; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
 
 
 --
@@ -812,6 +950,19 @@ SELECT pg_catalog.setval('seq_medicamento', 3, true);
 
 
 --
+-- Data for Name: setor; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+
+--
 -- Name: usuario_id_usuario_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -819,7 +970,14 @@ SELECT pg_catalog.setval('usuario_id_usuario_seq', 29, true);
 
 
 --
--- Name: alimento alimento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Data for Name: vacina; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+
+--
+-- Name: alimento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY alimento
@@ -827,7 +985,7 @@ ALTER TABLE ONLY alimento
 
 
 --
--- Name: animal_medicamento animal_medicamento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: animal_medicamento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY animal_medicamento
@@ -835,7 +993,7 @@ ALTER TABLE ONLY animal_medicamento
 
 
 --
--- Name: animal animal_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: animal_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY animal
@@ -843,7 +1001,7 @@ ALTER TABLE ONLY animal
 
 
 --
--- Name: animal_vacina animal_vacina_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: animal_vacina_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY animal_vacina
@@ -851,7 +1009,7 @@ ALTER TABLE ONLY animal_vacina
 
 
 --
--- Name: comprador comprador_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: comprador_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY comprador
@@ -859,7 +1017,7 @@ ALTER TABLE ONLY comprador
 
 
 --
--- Name: controle_producao controle_producao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: controle_producao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY controle_producao
@@ -867,7 +1025,7 @@ ALTER TABLE ONLY controle_producao
 
 
 --
--- Name: grupo_alimento_dieta grupo_alimento_dieta_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: grupo_alimento_dieta_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY grupo_alimento_dieta
@@ -875,7 +1033,7 @@ ALTER TABLE ONLY grupo_alimento_dieta
 
 
 --
--- Name: grupo grupo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: grupo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY grupo
@@ -883,7 +1041,7 @@ ALTER TABLE ONLY grupo
 
 
 --
--- Name: historico_localizacao historico_localizacao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: historico_localizacao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY historico_localizacao
@@ -891,7 +1049,7 @@ ALTER TABLE ONLY historico_localizacao
 
 
 --
--- Name: medicamento medicamento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: medicamento_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY medicamento
@@ -899,7 +1057,7 @@ ALTER TABLE ONLY medicamento
 
 
 --
--- Name: parametro parametro_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: parametro_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY parametro
@@ -907,7 +1065,7 @@ ALTER TABLE ONLY parametro
 
 
 --
--- Name: problema_padrao problema_padrao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: problema_padrao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY problema_padrao
@@ -915,7 +1073,7 @@ ALTER TABLE ONLY problema_padrao
 
 
 --
--- Name: procedencia procedencia_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: procedencia_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY procedencia
@@ -923,7 +1081,7 @@ ALTER TABLE ONLY procedencia
 
 
 --
--- Name: producao_compra producao_compra_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: producao_compra_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY producao_compra
@@ -931,7 +1089,7 @@ ALTER TABLE ONLY producao_compra
 
 
 --
--- Name: producao_leite producao_leite_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: producao_leite_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY producao_leite
@@ -939,7 +1097,7 @@ ALTER TABLE ONLY producao_leite
 
 
 --
--- Name: reproducao reproducao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: reproducao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY reproducao
@@ -947,7 +1105,7 @@ ALTER TABLE ONLY reproducao
 
 
 --
--- Name: setor setor_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: setor_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY setor
@@ -955,7 +1113,7 @@ ALTER TABLE ONLY setor
 
 
 --
--- Name: usuario usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY usuario
@@ -963,7 +1121,7 @@ ALTER TABLE ONLY usuario
 
 
 --
--- Name: vacina vacina_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: vacina_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY vacina
@@ -1034,7 +1192,7 @@ CREATE INDEX ix_relationship7 ON historico_localizacao USING btree (cod_setor);
 
 
 --
--- Name: grupo_alimento_dieta relationship10; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship10; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY grupo_alimento_dieta
@@ -1042,7 +1200,7 @@ ALTER TABLE ONLY grupo_alimento_dieta
 
 
 --
--- Name: animal_medicamento relationship14; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship14; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY animal_medicamento
@@ -1050,7 +1208,7 @@ ALTER TABLE ONLY animal_medicamento
 
 
 --
--- Name: animal_medicamento relationship15; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship15; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY animal_medicamento
@@ -1058,7 +1216,7 @@ ALTER TABLE ONLY animal_medicamento
 
 
 --
--- Name: producao_leite relationship16; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship16; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY producao_leite
@@ -1066,7 +1224,7 @@ ALTER TABLE ONLY producao_leite
 
 
 --
--- Name: animal relationship2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY animal
@@ -1074,7 +1232,7 @@ ALTER TABLE ONLY animal
 
 
 --
--- Name: reproducao relationship20; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship20; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY reproducao
@@ -1082,7 +1240,7 @@ ALTER TABLE ONLY reproducao
 
 
 --
--- Name: reproducao relationship21; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship21; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY reproducao
@@ -1090,7 +1248,7 @@ ALTER TABLE ONLY reproducao
 
 
 --
--- Name: historico_localizacao relationship22; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship22; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY historico_localizacao
@@ -1098,7 +1256,7 @@ ALTER TABLE ONLY historico_localizacao
 
 
 --
--- Name: animal_vacina relationship23; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship23; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY animal_vacina
@@ -1106,7 +1264,7 @@ ALTER TABLE ONLY animal_vacina
 
 
 --
--- Name: animal_vacina relationship24; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship24; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY animal_vacina
@@ -1114,7 +1272,7 @@ ALTER TABLE ONLY animal_vacina
 
 
 --
--- Name: producao_leite relationship25; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship25; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY producao_leite
@@ -1122,7 +1280,7 @@ ALTER TABLE ONLY producao_leite
 
 
 --
--- Name: controle_producao relationship26; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship26; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY controle_producao
@@ -1130,7 +1288,7 @@ ALTER TABLE ONLY controle_producao
 
 
 --
--- Name: producao_compra relationship27; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship27; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY producao_compra
@@ -1138,7 +1296,7 @@ ALTER TABLE ONLY producao_compra
 
 
 --
--- Name: producao_compra relationship28; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship28; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY producao_compra
@@ -1146,7 +1304,7 @@ ALTER TABLE ONLY producao_compra
 
 
 --
--- Name: controle_producao relationship29; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship29; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY controle_producao
@@ -1154,7 +1312,7 @@ ALTER TABLE ONLY controle_producao
 
 
 --
--- Name: animal relationship31; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship31; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY animal
@@ -1162,7 +1320,7 @@ ALTER TABLE ONLY animal
 
 
 --
--- Name: animal relationship33; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship33; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY animal
@@ -1170,7 +1328,7 @@ ALTER TABLE ONLY animal
 
 
 --
--- Name: historico_localizacao relationship7; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship7; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY historico_localizacao
@@ -1178,11 +1336,21 @@ ALTER TABLE ONLY historico_localizacao
 
 
 --
--- Name: grupo_alimento_dieta relationship9; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: relationship9; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY grupo_alimento_dieta
     ADD CONSTRAINT relationship9 FOREIGN KEY (cod_grupo) REFERENCES grupo(cod_grupo) ON UPDATE RESTRICT ON DELETE RESTRICT;
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
 --
