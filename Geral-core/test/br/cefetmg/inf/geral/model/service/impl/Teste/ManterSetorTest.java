@@ -9,7 +9,8 @@ import br.cefetmg.inf.geral.model.domain.Setor;
 import br.cefetmg.inf.geral.model.service.impl.ManterSetor;
 import br.cefetmg.inf.util.db.exception.NegocioException;
 import br.cefetmg.inf.util.db.exception.PersistenciaException;
-import orgjunit.Test;
+import static org.junit.Assert.fail;
+import org.junit.Test;
 
 
 /**
