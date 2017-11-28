@@ -86,10 +86,6 @@ public class RepDiagnosticoController {
         request.setAttribute("ovE", oveExame);
         request.setAttribute("base", baseExame);
 
-        String observacao = request.getParameter("obs");
-
-        request.setAttribute("obs", observacao);
-
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat formatoHora = new SimpleDateFormat("hh:mm:ss");
 
