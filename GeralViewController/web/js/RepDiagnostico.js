@@ -1,40 +1,40 @@
-function gravarInfoInseminacao() {
-    var form = document.getElementById("formInseminacao");
+function gravarInfoDiagnostico() {
+    var form = document.getElementById("formDiagnostico");
 
     var numAnimal = document.getElementById("numAnimal").value;
     var nomAnimal = document.getElementById("nomAnimal").value;
-    
+
     var inseminadasCobertas = document.getElementById("inseminadasCobertas").value;
     var vazias = document.getElementById("vazias").value;
     var gestantes = document.getElementById("gestantes").value;
-    
-    var inseminacao = document.getElementById("inseminacao").value;
-    var cobricao = document.getElementById("cobricao").value;
-    
-    var somSetor = document.getElementById("somSetor").value;
-    var todos = document.getElementById("todos").value;
-    
+    var emCrescimento = document.getElementById("emCrescimento").value;
+
     var padrao = document.getElementById("padrao").value;
     var doadora = document.getElementById("doadora").value;
     var receptora = document.getElementById("receptora").value;
     var descarte = document.getElementById("descarte").value;
-    
-    var dataInseminacao = document.getElementById("dataInseminacao").value;
-    var horaInseminacao = document.getElementById("horaInseminacao").value;
-    
+
+    var dataDiagnostico = document.getElementById("dataDiagnostico").value;
+    var horaDiagnostico = document.getElementById("horaDiagnostico").value;
+
+    var diagnostico = document.getElementById("diagnostico").value;
+    var sexo = document.getElementById("sexo").value;
+
+    var numDias = document.getElementById("numDias").value;
     var reprodutor = document.getElementById("reprodutor").value;
     var raca = document.getElementById("raca").value;
-    var inseminador = document.getElementById("inseminador").value;
-    var numDoses = document.getElementById("numDoses").value;
-    
+
     var dataCio = document.getElementById("dataCio").value;
     var horaCio = document.getElementById("horaCio").value;
-    
+
     var cio = document.getElementById("cio").value;
     var muco = document.getElementById("muco").value;
     var te = document.getElementById("te").value;
-    var ecc = document.getElementById("ecc").value;
-    var proIATF = document.getElementById("proIATF").value;
+
+    var horaCio = document.getElementById("utero").value;
+    var cio = document.getElementById("ovd").value;
+    var muco = document.getElementById("ovE").value;
+    var te = document.getElementById("base").value;
 
     if (numAnimal === "") {
         alert("O número do animal é obrigatório.");
@@ -56,25 +56,9 @@ function gravarInfoInseminacao() {
         alert("Campo obrigatório.");
         document.getElementById("gestantes").focus;
         return false;
-    } else if (inseminacao === "") {
+    } else if (emCrescimento === "") {
         alert("Campo obrigatório.");
-        document.getElementById("inseminacao").focus;
-        return false;
-    } else if (cobricao === "") {
-        alert("Campo obrigatório.");
-        document.getElementById("cobricao").focus;
-        return false;
-    } else if (somSetor === "") {
-        alert("Campo obrigatório.");
-        document.getElementById("somSetor").focus;
-        return false;
-    } else if (todos === "") {
-        alert("Campo obrigatório.");
-        document.getElementById("todos").focus;
-        return false;
-    } else if (somSetor === "") {
-        alert("Campo obrigatório.");
-        document.getElementById("somSetor").focus;
+        document.getElementById("emCrescimento").focus;
         return false;
     } else if (padrao === "") {
         alert("Campo obrigatório.");
@@ -92,13 +76,25 @@ function gravarInfoInseminacao() {
         alert("Campo obrigatório.");
         document.getElementById("descarte").focus;
         return false;
-    } else if (dataInseminacao === "") {
+    } else if (dataDiagnostico === "") {
         alert("Campo obrigatório.");
-        document.getElementById("dataInseminacao").focus;
+        document.getElementById("dataDiagnostico").focus;
         return false;
-    } else if (horaInseminacao === "") {
+    } else if (horaDiagnostico === "") {
         alert("Campo obrigatório.");
-        document.getElementById("horaInseminacao").focus;
+        document.getElementById("horaDiagnostico").focus;
+        return false;
+    } else if (diagnostico === "") {
+        alert("Campo obrigatório.");
+        document.getElementById("diagnostico").focus;
+        return false;
+    } else if (sexo === "") {
+        alert("Campo obrigatório.");
+        document.getElementById("sexo").focus;
+        return false;
+    } else if (numDias === "") {
+        alert("Campo obrigatório.");
+        document.getElementById("numDias").focus;
         return false;
     } else if (reprodutor === "") {
         alert("Campo obrigatório.");
@@ -107,14 +103,6 @@ function gravarInfoInseminacao() {
     } else if (raca === "") {
         alert("Campo obrigatório.");
         document.getElementById("raca").focus;
-        return false;
-    } else if (inseminador === "") {
-        alert("Campo obrigatório.");
-        document.getElementById("inseminador").focus;
-        return false;
-    } else if (numDoses === "") {
-        alert("Campo obrigatório.");
-        document.getElementById("numDoses").focus;
         return false;
     } else if (dataCio === "") {
         alert("Campo obrigatório.");
@@ -136,19 +124,27 @@ function gravarInfoInseminacao() {
         alert("Campo obrigatório.");
         document.getElementById("te").focus;
         return false;
-    } else if (ecc === "") {
+    } else if (utero === "") {
         alert("Campo obrigatório.");
-        document.getElementById("ecc").focus;
+        document.getElementById("utero").focus;
         return false;
-    } else if (proIATF === "") {
+    } else if (ovD === "") {
         alert("Campo obrigatório.");
-        document.getElementById("proIATF").focus;
+        document.getElementById("ovD").focus;
         return false;
+    } else if (ovE === "") {
+        alert("Campo obrigatório.");
+        document.getElementById("ovE").focus;
+        return false;
+    } else if (base === "") {
+        alert("Campo obrigatório.");
+        document.getElementById("base").focus;
+        return false;
+
     } else if (document.getElementById("acao").value === "gravarInfoInseminacao") {
         caminhourl = "/GeralViewController/Servlet?acao=gravarInfoInseminacao";
         form.action = caminhourl;
         form.submit();
     }
 }
-
 

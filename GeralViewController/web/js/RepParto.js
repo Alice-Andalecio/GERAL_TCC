@@ -149,7 +149,7 @@ function gravarInfoParto() {
         alert("Insira o sexo da cria 2.");
         document.getElementById("sexo2").focus;
         return false;
-    } else if (document.getElementById("acao").value == "gravarInfoParto") {
+    } else if (document.getElementById("acao").value === "gravarInfoParto") {
         caminhourl = "/GeralViewController/Servlet?acao=gravarInfoParto";
         form.action = caminhourl;
         form.submit();
