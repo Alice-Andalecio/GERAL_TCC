@@ -77,17 +77,29 @@ public class RepPartoController {
         request.setAttribute("pelagem2", Pelagem2);
         request.setAttribute("peso2", Peso2);
         request.setAttribute("sexo2", Sexo2);
+        
+        java.sql.Date p1 = null;
+        java.sql.Date p2 = null;
+        java.sql.Date pData = null;
+        java.sql.Time pHora = null;
 
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat formatoHora = new SimpleDateFormat("hh:mm:ss");
-
-        Date p1 = formato.parse(parto1);
-        Date p2 = formato.parse(parto2);
-        Date pData = formato.parse(partoData);
-        Date hParto = formatoHora.parse(partoHora);
-
+        
         RepParto repparto = new RepParto();
         
+        p1 = new java.sql.Date(formato.parse(parto1).getTime());
+        repparto.setPerParto1(p1);
+
+        p2 = new java.sql.Date(formato.parse(parto2).getTime());
+        repparto.setPerParto2(p2);
+        
+        pData = new java.sql.Date(formato.parse(partoData).getTime());
+        repparto.setDataParto(pData);
+        
+        pHora = new java.sql.Time(formatoHora.parse(partoHora).getTime());
+        repparto.setHoraParto(pHora);
+
         repparto.setNro_Animal(Long.parseLong(numeroAnimal));
         repparto.setNom_Animal(nomeAnimal);
         
@@ -102,8 +114,6 @@ public class RepPartoController {
         repparto.setTipo(partoTipo);
         repparto.setRetencao(Long.parseLong(retencaoPlacenta));
 
-        repparto.setDataParto(pData);
-        repparto.setHoraParto((Time) hParto);
         repparto.setTipoParto(Tipo);
         repparto.setGrau(Grau);
 
