@@ -16,7 +16,8 @@ import javax.servlet.http.HttpServletRequest;
  * @author Alice
  */
 public class DietaController {
-  public static String execute(HttpServletRequest request) throws PersistenciaException, ParseException {
+
+    public static String execute(HttpServletRequest request) throws PersistenciaException, ParseException {
         String jsp;
 
         int num = Integer.parseInt(request.getParameter("num"));
@@ -216,7 +217,7 @@ public class DietaController {
                 a.setDes_Alimento(outra);
 
                 gad.setCod_Grupo(i);
-                gad.setCod_Alimento((int)numOutra);
+                gad.setCod_Alimento((int) numOutra);
                 gad.setDat_dieta(data);
                 gad.setQtd_manha_kg(Double.parseDouble(outraManha));
                 gad.setQtd_tarde_kg(Double.parseDouble(outraTarde));

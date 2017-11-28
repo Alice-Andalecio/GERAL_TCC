@@ -31,7 +31,6 @@ public class GrupoAlimentoDietaDAO implements IGrupoAlimentoDietaDAO {
             pstmt.setDouble(4, grupoAlimentoDieta.getQtd_manha_kg());
             pstmt.setDouble(5, grupoAlimentoDieta.getQtd_tarde_kg());
             pstmt.setString(6, grupoAlimentoDieta.getTxt_obs());
-            System.out.println(grupoAlimentoDieta.getTxt_obs());
             pstmt.executeUpdate();
 
             pstmt.close();
