@@ -243,7 +243,7 @@ function AdicionarLote() {
     div2Titulo.classList.add('col');
     div2Titulo.classList.add('s12');
 
-    uTitulo.innerHTML = "Número do Lote: " + numLote;
+    uTitulo.innerHTML = "Número do Grupo: " + numLote;
 
     bTitulo.appendChild(uTitulo);
     div2Titulo.appendChild(bTitulo);
@@ -1149,7 +1149,9 @@ function AdicionarLote() {
             b5Outra = document.createElement('b'),
             input1Outra = document.createElement('input'),
             input2Outra = document.createElement('input'),
-            input3Outra = document.createElement('input');
+            input3Outra = document.createElement('input'),
+            input4Outra = document.createElement('input');
+
 
     div1Outra.classList.add('row');
     div1Outra.classList.add('esconder');
@@ -1200,6 +1202,11 @@ function AdicionarLote() {
     input3Outra.setAttribute('id', 'outraTotal' + numLote);
     label4Outra.setAttribute('for', 'outraTotal' + numLote);
 
+    input4Outra.setAttribute('type', 'text');
+    input4Outra.setAttribute('name', 'outra' + numLote); //outra1
+    input4Outra.setAttribute('id', 'outra' + numLote);
+    label1Outra.setAttribute('for', 'outra' + numLote);
+
     b1Outra.innerHTML = "Outra:";
     b2Outra.innerHTML = "Manhã:";
     b3Outra.innerHTML = "Tarde:";
@@ -1207,6 +1214,7 @@ function AdicionarLote() {
     b5Outra.innerHTML = "(Kg)";
 
     label1Outra.appendChild(b1Outra);
+    div2Outra.appendChild(input4Outra);
     div2Outra.appendChild(label1Outra);
 
     label2Outra.appendChild(b2Outra);
@@ -1469,6 +1477,7 @@ function GerarDieta() {
     var checkBicarbonato = document.querySelector('#checkBicarbonato' + numLote);
     var checkNucleo = document.querySelector('#checkNucleo' + numLote);
     var checkOutra = document.querySelector('#checkOutra' + numLote);
+
     var silagemManha = document.querySelector('#silagemManha' + numLote).value;
     var silagemTarde = document.querySelector('#silagemTarde' + numLote).value;
     var silagemTotal = document.querySelector('#silagemTotal' + numLote).value;
@@ -1501,6 +1510,7 @@ function GerarDieta() {
     var nucleoTarde = document.querySelector('#nucleoTarde' + numLote).value;
     var nucleoTotal = document.querySelector('#nucleoTotal' + numLote).value;
 
+    var outra = document.querySelector('#outra' + numLote).value;
     var outraManha = document.querySelector('#outraManha' + numLote).value;
     var outraTarde = document.querySelector('#outraTarde' + numLote).value;
     var outraTotal = document.querySelector('#outraTotal' + numLote).value;
@@ -1618,7 +1628,11 @@ function GerarDieta() {
             return false;
         }
     } else if (checkOutra.checked === true) {
-        if (outraManha === "") {
+        if (outra === "") {
+            alert("Informe o nome do outro alimento!");
+            document.querySelector('#outra' + numLote).focus();
+            return false;
+        } else if (outraManha === "") {
             alert("Informe a quantidade do outro alimento (manhã)!");
             document.querySelector('#outraManha' + numLote).focus();
             return false;
@@ -1631,7 +1645,8 @@ function GerarDieta() {
             document.querySelector('#outraTotal' + numLote).focus();
             return false;
         }
-    } else if (document.querySelector('#acao').value === "GerarDieta") {
+    }
+    if (document.querySelector('#acao').value === "GerarDieta") {
         window.alert('Gerando o PDF...');
         caminhourl = "/GeralViewController/Servlet?acao=GerarDieta&num=" + numLote;
         form.action = caminhourl;

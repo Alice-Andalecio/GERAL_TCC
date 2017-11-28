@@ -25,5 +25,3 @@ function MostrarFichaAnimal() {
     document.querySelector('#pesq_tabela').classList.add('esconder');
     document.querySelector('#divFormFichaAnimal').classList.add('mostrar');
 }
-
-

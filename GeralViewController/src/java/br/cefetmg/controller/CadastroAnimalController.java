@@ -11,7 +11,6 @@ import br.cefetmg.inf.geral.model.dao.impl.AnimalDAO;
 import br.cefetmg.inf.geral.model.dao.impl.UsuarioDAO;
 import br.cefetmg.inf.geral.model.domain.Animal;
 import br.cefetmg.inf.geral.model.domain.Usuario;
-import java.sql.Date;
 import br.cefetmg.inf.util.db.exception.PersistenciaException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

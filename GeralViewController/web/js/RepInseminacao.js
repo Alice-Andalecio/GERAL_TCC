@@ -144,11 +144,9 @@ function gravarInfoInseminacao() {
         alert("Campo obrigatório.");
         document.getElementById("proIATF").focus;
         return false;
-    } else if (document.getElementById("acao").value == "gravarInfoInseminacao") {
+    } else if (document.getElementById("acao").value === "gravarInfoInseminacao") {
         caminhourl = "/GeralViewController/Servlet?acao=gravarInfoInseminacao";
         form.action = caminhourl;
         form.submit();
     }
 }
-
-

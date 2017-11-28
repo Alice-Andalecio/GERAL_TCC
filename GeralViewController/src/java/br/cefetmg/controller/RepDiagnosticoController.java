@@ -90,6 +90,7 @@ public class RepDiagnosticoController {
 
         request.setAttribute("obs", observacao);
 
+
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat formatoHora = new SimpleDateFormat("hh:mm:ss");
 

@@ -1,8 +1,8 @@
 package br.cefetmg.util.relatorio.geraRelatorio;
 
 import br.cefetmg.util.relatorio.DadosTestes.DadosTesteControleLeiteiro;
-import br.cefetmg.util.relatorio.config.PDF;
 import br.cefetmg.util.relatorio.Imprimir.Imprimir;
+import br.cefetmg.util.relatorio.config.PDF;
 import br.cefetmg.util.relatorio.config.Relatorio;
 import br.cefetmg.util.relatorio.config.Template;
 import com.itextpdf.text.DocumentException;

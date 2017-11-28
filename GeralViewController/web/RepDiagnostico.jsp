@@ -84,7 +84,8 @@
             <br>
 
             <div class="row">
-                <form id="formDiagnostico" class="col s12">
+                <form id="formDiagnostico" class="col s12" action="" method="POST">
+                    <input type='hidden' name='acao' id="acao" value='gravarInfoDiagnostico'>
 
                     <div class="row section-intro">
                         <div class="col-twelve">

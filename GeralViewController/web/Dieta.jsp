@@ -128,7 +128,7 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="obs"></textarea>
+                            <textarea id="obs" name="obs"></textarea>
                         </div>
                     </div>
 

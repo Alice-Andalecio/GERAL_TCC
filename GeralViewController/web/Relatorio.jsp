@@ -125,7 +125,7 @@
                             <label for="RelContrLeiteiro"><b>Controle Leiteiro</b></label>
                         </div>
                         <div class="col s4">
-                            <input type="checkbox" id="RelMedicamento" name="RelMedicamento"/>
+                            <input type="checkbox" id="RelMedicamento" teste="" name="RelMedicamento"/>
                             <label for="RelMedicamento"><b>Medicamentos</b></label>
                         </div>
                     </div>
@@ -152,7 +152,7 @@
                         </div>
                     </div>
 
-                    <div class="row " id="divBotaoGerarRelatorio">
+                    <div class="row " id="divBotaoGerarRelatorio" onClick="gerarRelatorio()">
                         <br>
                         <div class="col s12" align="right">
                             <a class="waves-effect waves-light btn" id="gerarRelatorio" style="background: green">

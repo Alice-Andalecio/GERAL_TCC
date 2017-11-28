@@ -12,5 +12,3 @@ public interface IManterRepDiagnostico {
     List<RepDiagnostico> pesquisarTodos() throws PersistenciaException;
     RepDiagnostico pesquisarPorSeq(Long seq) throws PersistenciaException;
 }
-
-

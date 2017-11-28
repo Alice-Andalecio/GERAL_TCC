@@ -6,11 +6,10 @@
 package br.cefetmg.inf.geral.model.service.impl.Teste;
 
 import br.cefetmg.inf.geral.model.domain.Setor;
-import org.junit.Test;
-import static org.junit.Assert.*;
 import br.cefetmg.inf.geral.model.service.impl.ManterSetor;
 import br.cefetmg.inf.util.db.exception.NegocioException;
 import br.cefetmg.inf.util.db.exception.PersistenciaException;
+import orgjunit.Test;
 
 
 /**

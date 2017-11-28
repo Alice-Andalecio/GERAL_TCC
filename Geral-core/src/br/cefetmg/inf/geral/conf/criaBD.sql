@@ -3845,7 +3845,6 @@ ALTER TABLE ONLY historico_localizacao
 ALTER TABLE ONLY grupo_alimento_dieta
     ADD CONSTRAINT relationship9 FOREIGN KEY (cod_grupo) REFERENCES grupo(cod_grupo) ON UPDATE RESTRICT ON DELETE RESTRICT;
 
-
 --
 -- PostgreSQL database dump complete
 --

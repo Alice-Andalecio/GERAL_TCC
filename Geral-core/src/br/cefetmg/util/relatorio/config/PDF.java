@@ -61,7 +61,8 @@ public class PDF implements Documento {
     @Override
     public void gerarDocumento(String nomeDocumento) throws IOException, DocumentException {
         doc = new Document();
-        arquivo = new File(nomeDocumento + ".pdf");
+        arquivo = new File(System.getProperty("user.home")+"/Desktop/"+nomeDocumento + ".pdf");
+        arquivo.createNewFile();
         documento = new FileOutputStream(arquivo);
         PdfWriter.getInstance(doc, documento);
         doc.open();
