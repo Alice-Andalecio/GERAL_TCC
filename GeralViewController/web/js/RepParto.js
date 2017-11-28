@@ -89,9 +89,9 @@ function gravarInfoParto() {
         alert("Insira quantos dias ficou em gestação.");
         document.getElementById("diasGest").focus;
         return false;
-    } else if (tipoParto === "") {
+    } else if (tipo === "") {
         alert("O tipo de parto é obrigatório.");
-        document.getElementById("tipoParto").focus;
+        document.getElementById("tipo").focus;
         return false;
     } else if (retencao === 0) { //Retenção de Placenta (caixa de seleção).
         alert("Selecione se houve retenção de placenta.");
