@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author jaops
+
+ @author jaops
  */
 public class Servlet extends HttpServlet {
 
@@ -59,6 +59,13 @@ public class Servlet extends HttpServlet {
         if (acao.equals("GerarDieta")) {
             try {
                 jsp = DietaController.execute(request);
+            } catch (Exception ex) {
+                Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if (acao.equals("GerarRelatorio")) {
+            try {
+                jsp = RelatorioController.execute(request);
             } catch (Exception ex) {
                 Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
             }

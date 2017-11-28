@@ -3,7 +3,30 @@ window.onload = function () {
         AcionarTodosCheck(e.target.id);
     });
 };
-
+function gerarRelatorio(){
+     var codigo = "";
+     var frm = document.getElementById("formRelatorio");
+        if(document.querySelector('#RelContrLeiteiro').checked){
+           codigo+=1;
+        }
+        if(document.querySelector('#RelResumoAnimal').checked){
+           codigo+=2;
+        }
+        if(document.querySelector('#RelVendaLeite').checked){
+           codigo+=3;
+        }
+        if(document.querySelector('#RelMedicamento').checked){
+           codigo+=4;
+        }
+        if(document.querySelector('#RelDieta').checked){
+           codigo+=5;
+        }
+        
+        caminhourl = "Servlet?acao=GerarRelatorio&cod="+codigo;
+        frm.action = caminhourl;
+        frm.submit();
+        return true;
+}
 function AcionarTodosCheck() {
     var todos = document.querySelector('#RelTodos');
 

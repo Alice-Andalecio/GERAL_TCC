@@ -1,6 +1,5 @@
 package br.cefetmg.util.relatorio.config;
 
-import br.cefetmg.util.relatorio.config.PDF;
 import com.itextpdf.text.DocumentException;
 import java.io.IOException;
 

@@ -1,8 +1,8 @@
 package br.cefetmg.util.relatorio.geraRelatorio;
 
 import br.cefetmg.util.relatorio.DadosTestes.DadosTesteAnimal;
-import br.cefetmg.util.relatorio.config.PDF;
 import br.cefetmg.util.relatorio.Imprimir.Imprimir;
+import br.cefetmg.util.relatorio.config.PDF;
 import br.cefetmg.util.relatorio.config.Relatorio;
 import br.cefetmg.util.relatorio.config.Template;
 import com.itextpdf.text.DocumentException;
@@ -41,7 +41,7 @@ public class GerarRelatorioAnimal implements Relatorio {
             vazia.setBorder(0);
             tabela.addCell(vazia);
         }
-        
+
         return tabela;
     }
 
@@ -55,6 +55,7 @@ public class GerarRelatorioAnimal implements Relatorio {
                 DadosTesteAnimal.dadosAnimalGraficoCircularNomes(), DadosTesteAnimal.dadosAnimalGraficoCircularValores(),
                 500, 400);
         relatorio.fecharDocumento();
+        System.out.println(relatorio.getArquivo().getAbsolutePath());
     }
 
     @Override
