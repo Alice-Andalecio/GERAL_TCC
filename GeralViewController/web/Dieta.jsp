@@ -73,7 +73,7 @@
             </ul>
             <ul>
                 <li>
-                    <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse white-text #FFFFFF"><b>Menu: <%= request.getAttribute("nome")%></b></button>
+                    <button style="top: 15px;" data-activates="slide-out" class="waves-effect waves-light btn-flat button-collapse white-text #FFFFFF"><b>Menu: <%= request.getSession().getAttribute("nome")%></b></button>
                 </li>
             </ul>
         </header>
@@ -128,7 +128,7 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="obs" name="obs"></textarea>
+                            <textarea id="obs"></textarea>
                         </div>
                     </div>
 

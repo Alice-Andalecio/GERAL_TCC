@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- @author jaops
+ *
+ * @author jaops
  */
 public class Servlet extends HttpServlet {
 
@@ -62,15 +63,6 @@ public class Servlet extends HttpServlet {
                 Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        if (acao.equals("GerarRelatorio")) {
-            try {
-                jsp = RelatorioController.execute(request);
-            } catch (Exception ex) {
-                Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        RequestDispatcher rd = request.getRequestDispatcher(jsp);
-        rd.forward(request, response);
 
         if (acao.equals("gravarInfoParto")) {
             try {
@@ -79,5 +71,21 @@ public class Servlet extends HttpServlet {
                 Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        if (acao.equals("ControleLeiteiro")) {
+            try {
+                jsp = ContoleLeiteiroController.execute(request);
+            } catch (Exception ex) {
+                Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+         if (acao.equals("VendaLeite")) {
+            try {
+                jsp = VendaLeiteController.execute(request);
+            } catch (Exception ex) {
+                Logger.getLogger(Servlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        RequestDispatcher rd = request.getRequestDispatcher(jsp);
+        rd.forward(request, response);
     }
 }

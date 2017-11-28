@@ -2,10 +2,13 @@ package br.cefetmg.controller;
 
 import br.cefetmg.inf.geral.model.dao.IAlimentoDAO;
 import br.cefetmg.inf.geral.model.dao.IGrupoAlimentoDietaDAO;
+import br.cefetmg.inf.geral.model.dao.IUsuarioDAO;
 import br.cefetmg.inf.geral.model.dao.impl.AlimentoDAO;
 import br.cefetmg.inf.geral.model.dao.impl.GrupoAlimentoDietaDAO;
+import br.cefetmg.inf.geral.model.dao.impl.UsuarioDAO;
 import br.cefetmg.inf.geral.model.domain.Alimento;
 import br.cefetmg.inf.geral.model.domain.GrupoAlimentoDieta;
+import br.cefetmg.inf.geral.model.domain.Usuario;
 import br.cefetmg.inf.util.db.exception.PersistenciaException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,8 +19,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author Alice
  */
 public class DietaController {
-
-    public static String execute(HttpServletRequest request) throws PersistenciaException, ParseException {
+  public static String execute(HttpServletRequest request) throws PersistenciaException, ParseException {
         String jsp;
 
         int num = Integer.parseInt(request.getParameter("num"));
@@ -217,7 +219,7 @@ public class DietaController {
                 a.setDes_Alimento(outra);
 
                 gad.setCod_Grupo(i);
-                gad.setCod_Alimento((int) numOutra);
+                gad.setCod_Alimento((int)numOutra);
                 gad.setDat_dieta(data);
                 gad.setQtd_manha_kg(Double.parseDouble(outraManha));
                 gad.setQtd_tarde_kg(Double.parseDouble(outraTarde));
@@ -230,6 +232,15 @@ public class DietaController {
                 numOutra++;
             }
         }
+        
+        IUsuarioDAO usuario = new UsuarioDAO();
+        Usuario usu = usuario.consultar((long) request.getSession().getAttribute("codUsuario"));
+        String senha = usu.getSenha();
+        String email = usu.getEmail();
+        Usuario usr = usuario.consultarPorUsuarioSenha(email, senha, true);
+        String nome = usr.getNome();
+        request.getSession().setAttribute("nome", nome);
+        
         jsp = "/VisualizarExcluirAnimal.jsp";
         return jsp;
     }

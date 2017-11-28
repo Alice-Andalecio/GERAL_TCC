@@ -71,7 +71,7 @@
                             </ul>
                         </li>
                         <li><a class="waves-effect" href="Dieta.jsp">Dieta</a></li>
-                        <li><a class="waves-effect" href="medicamentos.jsp">Prescrição de Medicamentos</a></li>     
+                        <li><a class="waves-effect" id="ancorMedicamentos" href="medicamentos.jsp">Prescrição de Medicamentos</a></li>     
                         <li><a class="waves-effect" href="Relatorio.jsp">Relatórios</a></li>
                         <li><a class="waves-effect" href="vendaLeite.jsp">Venda de Leite</a></li>
                         <li><a class="waves-effect" href="index.jsp" style="color: green">SAIR</a></li>
